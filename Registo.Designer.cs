@@ -1,6 +1,6 @@
 ﻿namespace EramusManager
 {
-    partial class Form1
+    partial class Registo
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -45,21 +45,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(367, 142);
+            this.label1.Location = new System.Drawing.Point(339, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Registo";
             // 
-            // Form1
+            // Registo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 658);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Registo";
+            this.Text = "Registo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

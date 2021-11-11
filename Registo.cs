@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace EramusManager
 {
-    public partial class Form1 : Form
+    public partial class Registo : Form
     {
-        public Form1()
+        public Registo()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+           
         }
     }
 }
