@@ -31,9 +31,9 @@ namespace EramusManager
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,15 +51,16 @@ namespace EramusManager
             this.label1.TabIndex = 2;
             this.label1.Text = "Login";
             // 
-            // textBox1
+            // email
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(144, 109);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 31);
-            this.textBox1.TabIndex = 5;
+            this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email.Location = new System.Drawing.Point(144, 109);
+            this.email.Multiline = true;
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(276, 31);
+            this.email.TabIndex = 5;
+            this.email.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -72,16 +73,16 @@ namespace EramusManager
             this.label2.Text = "Email";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBox3
+            // password
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.textBox3.Location = new System.Drawing.Point(144, 179);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(276, 31);
-            this.textBox3.TabIndex = 9;
+            this.password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.password.Location = new System.Drawing.Point(144, 179);
+            this.password.Multiline = true;
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.Size = new System.Drawing.Size(276, 31);
+            this.password.TabIndex = 9;
             // 
             // label4
             // 
@@ -130,15 +131,16 @@ namespace EramusManager
             this.ClientSize = new System.Drawing.Size(568, 395);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.password);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Erasmus Manager - Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,9 +149,9 @@ namespace EramusManager
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
