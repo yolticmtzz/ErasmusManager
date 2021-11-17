@@ -22,8 +22,7 @@ namespace EramusManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string connectionString = (@"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True;");
-            SqlConnection sqlConn = new SqlConnection(connectionString);
+            System.Data.SqlClient.SqlConnection sqlConnection1 = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Helder\Faculdade\SAD\Trabalho\ErasmusManager\emdb.mdf;Integrated Security=True");
 
             if (username.Text == "" && email.Text == "" && password.Text == "" && confirmpass.Text == "")
             {
@@ -31,12 +30,22 @@ namespace EramusManager
             }
             else if (password.Text == confirmpass.Text)
             {
-                sqlConn.Open();
-                SqlCommand register = new SqlCommand ("INSERT INTO tbl_Users VALUES('" +email.Text+ "','" +username.Text+ "','" +password.Text +"')", sqlConn);
-                register.ExecuteNonQuery();
-                sqlConn.Close();
-                MessageBox.Show("Your Account has been successfully created", "Registration Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "INSERT INTO Users VALUES ('" + username.Text + "','" + email.Text + "','" + password.Text + "')";
+                cmd.Connection = sqlConnection1;
 
+                sqlConnection1.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection1.Close();
+
+                username.Text = "";
+                email.Text = "";
+                password.Text = "";
+                confirmpass.Text = "";
+
+                MessageBox.Show("Your Account has been successfully created", "Registration Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                
             }
             else
             {
@@ -45,8 +54,6 @@ namespace EramusManager
                 confirmpass.Text = "";
                 password.Focus();
             }
-
-
         }
 
             private void label1_Click(object sender, EventArgs e)
