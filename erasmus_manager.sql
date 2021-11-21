@@ -35,7 +35,7 @@ CREATE TABLE Teams (
 
 CREATE TABLE Results (
 	resultId int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	chemistry float(10) NOT NULL,
+	chemistry int NOT NULL,
 	createdAt DATETIME NOT NULL,
 	projectId int FOREIGN KEY REFERENCES Projects(projectId) NOT NULL,
 	userId int FOREIGN KEY REFERENCES Users(userId) NOT NULL,
