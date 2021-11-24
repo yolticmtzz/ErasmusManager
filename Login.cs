@@ -7,20 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace EramusManager
 {
     public partial class Login : Form
     {
+        SqlCommand cmd;
+        SqlDataReader dr;
+        string connectionString = " Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = D:\\Helder\\Faculdade\\SAD\\Trabalho\\ErasmusManager\\emdb.mdf; Integrated Security = True";
+
         public Login()
         {
+
             InitializeComponent();
+
         }
 
-        System.Data.SqlClient.SqlConnection sqlConnection1 = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Helder\Faculdade\SAD\Trabalho\ErasmusManager\emdb.mdf;Integrated Security=True");
-
-
-        private void label1_Click(object sender, EventArgs e)
+     
+            private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -35,20 +40,35 @@ namespace EramusManager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlConnection sqlConn = new SqlConnection(connectionString);
 
-            sqlConnection1.Open();
-            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "INSERT INTO Users VALUES ('" + email.Text + "','" + password.Text + "')";
+            string em = email.Text;
+            string pass = password.Text;
 
-            sqlConnection1.Open();
-            cmd.ExecuteNonQuery();
-            sqlConnection1.Close();
+            cmd = new SqlCommand();
+            sqlConn.Open();
+            cmd.Connection = sqlConn;
+            cmd.CommandText = "SELECT * FROM Users where email='" + email.Text + "' AND password='" + password.Text + "'";
+            dr = cmd.ExecuteReader();
 
-            //COMPLETAR
+            if (dr.Read())
+            {
+                MessageBox.Show("Login sucess");
+
+                this.Hide();
+                Form Welcome = new Welcome();
+                Welcome.Closed += (s, args) => this.Close();
+                Welcome.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Login please check email and password");
+                email.Text = "";
+                password.Text = "";
+                email.Focus();
+            }
             
 
-            
         }
 
         private void Login_Load(object sender, EventArgs e)

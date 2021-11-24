@@ -209,7 +209,6 @@
         private System.Windows.Forms.Button registerbtt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox password;
@@ -217,6 +216,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox confirmpass;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox username;
     }
 }
 

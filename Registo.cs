@@ -8,17 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
 
 namespace EramusManager
 {
     public partial class Registo : Form
     {
+
         public Registo()
         {
+
             InitializeComponent();
 
         }
+
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -45,7 +48,12 @@ namespace EramusManager
                 confirmpass.Text = "";
 
                 MessageBox.Show("Your Account has been successfully created", "Registration Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                
+
+                this.Hide();
+                Form Login = new Login();
+                Login.Closed += (s, args) => this.Close();
+                Login.Show();
+
             }
             else
             {
