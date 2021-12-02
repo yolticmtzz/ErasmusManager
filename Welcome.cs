@@ -16,7 +16,8 @@ namespace EramusManager
 
         SqlCommand cmd;
         SqlDataReader dr;
-        string connectionString = " Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = D:\\Helder\\Faculdade\\SAD\\Trabalho\\ErasmusManager\\emdb.mdf; Integrated Security = True";
+        //ALTERAR CONEXÃO PARA O CAMINHO ONDE ESTÁ A BD, UTILIZAR 2 BARRAS (\\)
+        string connectionString = " Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\heldermartins\\Desktop\\ErasmusMananger\\ErasmusManager\\emdb.mdf; Integrated Security = True";
 
         public Welcome()
         {
@@ -82,7 +83,10 @@ namespace EramusManager
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form NovoProjeto = new NovoProjeto();
+            NovoProjeto.Closed += (s, args) => this.Close();
+            NovoProjeto.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)

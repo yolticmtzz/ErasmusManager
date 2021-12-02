@@ -15,7 +15,8 @@ namespace EramusManager
     {
         SqlCommand cmd;
         SqlDataReader dr;
-        string connectionString = " Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = D:\\Helder\\Faculdade\\SAD\\Trabalho\\ErasmusManager\\emdb.mdf; Integrated Security = True";
+        //ALTERAR CONEXÃO PARA O CAMINHO ONDE ESTÁ A BD, UTILIZAR 2 BARRAS (\\)
+        string connectionString = " Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\heldermartins\\Desktop\\ErasmusMananger\\ErasmusManager\\emdb.mdf; Integrated Security = True";
 
         public Login()
         {

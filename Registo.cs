@@ -25,7 +25,8 @@ namespace EramusManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Data.SqlClient.SqlConnection sqlConnection1 = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Helder\Faculdade\SAD\Trabalho\ErasmusManager\emdb.mdf;Integrated Security=True");
+            //ALTERAR CONEÇÃO PARA FUNCIONAR 
+            System.Data.SqlClient.SqlConnection sqlConnection1 = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heldermartins\Desktop\ErasmusMananger\ErasmusManager\emdb.mdf;Integrated Security=True");
 
             if (username.Text == "" && email.Text == "" && password.Text == "" && confirmpass.Text == "")
             {
@@ -35,7 +36,7 @@ namespace EramusManager
             {
                 System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "INSERT INTO Users VALUES ('" + username.Text + "','" + email.Text + "','" + password.Text + "')";
+                cmd.CommandText = "INSERT INTO Users VALUES ('" + email.Text + "','" + username.Text + "','" + password.Text + "')";
                 cmd.Connection = sqlConnection1;
 
                 sqlConnection1.Open();
