@@ -42,10 +42,10 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(414, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(207, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 55);
+            this.label1.Size = new System.Drawing.Size(154, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Novo Projeto";
             // 
@@ -53,21 +53,19 @@
             // 
             this.nomedoprojeto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nomedoprojeto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nomedoprojeto.Location = new System.Drawing.Point(279, 191);
-            this.nomedoprojeto.Margin = new System.Windows.Forms.Padding(6);
+            this.nomedoprojeto.Location = new System.Drawing.Point(140, 99);
             this.nomedoprojeto.Multiline = true;
             this.nomedoprojeto.Name = "nomedoprojeto";
-            this.nomedoprojeto.Size = new System.Drawing.Size(552, 60);
+            this.nomedoprojeto.Size = new System.Drawing.Size(276, 31);
             this.nomedoprojeto.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(271, 148);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(136, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(258, 37);
+            this.label2.Size = new System.Drawing.Size(127, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Nome do Projeto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -76,10 +74,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(272, 288);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(136, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(307, 37);
+            this.label3.Size = new System.Drawing.Size(151, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Parceiros do Projeto";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -87,10 +84,11 @@
             // comboparceiros
             // 
             this.comboparceiros.FormattingEnabled = true;
-            this.comboparceiros.ItemHeight = 25;
-            this.comboparceiros.Location = new System.Drawing.Point(279, 342);
+            this.comboparceiros.ItemHeight = 13;
+            this.comboparceiros.Location = new System.Drawing.Point(140, 178);
+            this.comboparceiros.Margin = new System.Windows.Forms.Padding(2);
             this.comboparceiros.Name = "comboparceiros";
-            this.comboparceiros.Size = new System.Drawing.Size(550, 33);
+            this.comboparceiros.Size = new System.Drawing.Size(277, 21);
             this.comboparceiros.TabIndex = 9;
             this.comboparceiros.Text = "Procurar ...";
             // 
@@ -102,19 +100,20 @@
             this.criarprojetobtt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.criarprojetobtt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.criarprojetobtt.ForeColor = System.Drawing.Color.White;
-            this.criarprojetobtt.Location = new System.Drawing.Point(329, 534);
-            this.criarprojetobtt.Margin = new System.Windows.Forms.Padding(4);
+            this.criarprojetobtt.Location = new System.Drawing.Point(164, 278);
+            this.criarprojetobtt.Margin = new System.Windows.Forms.Padding(2);
             this.criarprojetobtt.Name = "criarprojetobtt";
-            this.criarprojetobtt.Size = new System.Drawing.Size(464, 96);
+            this.criarprojetobtt.Size = new System.Drawing.Size(232, 50);
             this.criarprojetobtt.TabIndex = 10;
             this.criarprojetobtt.Text = "Criar Projeto";
             this.criarprojetobtt.UseVisualStyleBackColor = false;
+            this.criarprojetobtt.Click += new System.EventHandler(this.criarprojetobtt_Click);
             // 
             // NovoProjeto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 765);
+            this.ClientSize = new System.Drawing.Size(573, 398);
             this.Controls.Add(this.criarprojetobtt);
             this.Controls.Add(this.comboparceiros);
             this.Controls.Add(this.label3);
@@ -122,8 +121,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NovoProjeto";
             this.Text = "Eramus Manager - Novo Projeto";
+            this.Load += new System.EventHandler(this.NovoProjeto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

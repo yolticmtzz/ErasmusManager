@@ -14,10 +14,7 @@ namespace EramusManager
     public partial class Welcome : Form
     {
 
-        SqlCommand cmd;
-        SqlDataReader dr;
-        //ALTERAR CONEXÃO PARA O CAMINHO ONDE ESTÁ A BD, UTILIZAR 2 BARRAS (\\)
-        string connectionString = " Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\heldermartins\\Desktop\\ErasmusMananger\\ErasmusManager\\emdb.mdf; Integrated Security = True";
+        
 
         public Welcome()
         {
@@ -30,25 +27,18 @@ namespace EramusManager
         private void Welcome_Load(object sender, EventArgs e)
         {
             Registo GetUsername = new Registo();
-            try
-            {
-                SqlConnection sqlConn = new SqlConnection(connectionString);
-                using (sqlConn)
-                {
-                    sqlConn.Open();
-                    string query = "SELECT username FROM Users WHERE username='" + GetUsername.username.Text + "' ";
-                    SqlCommand cmd = new SqlCommand(query, sqlConn);
-                    string strUsrNm = Convert.ToString(cmd.ExecuteScalar());
-                    label3.Text = strUsrNm;
-                }
-            }
-            catch
-            {
-            }
-            finally
-            {
+            
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
-            }
+                connection.Open();
+                String sql = "SELECT username FROM Users WHERE username='" + GetUsername.username.Text + "' ";
+                Console.WriteLine(sql);
+
+                //string strUsrNm = Convert.ToString(sql);
+                //label3.Text = strUsrNm;
+              
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

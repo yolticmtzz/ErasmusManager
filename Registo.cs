@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace EramusManager
 {
@@ -25,8 +25,12 @@ namespace EramusManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //ALTERAR CONEÇÃO PARA FUNCIONAR 
-            System.Data.SqlClient.SqlConnection sqlConnection1 = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\heldermartins\Desktop\ErasmusMananger\ErasmusManager\emdb.mdf;Integrated Security=True");
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            //System.Data.SqlClient.SqlConnection sqlConnection1 = new System.Data.SqlClient.SqlConnection(@"Data Source=eramusmanager.database.windows.net;Initial Catalog=eramusmanagerdb;User ID=eramusmanager;Password=********;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
             if (username.Text == "" && email.Text == "" && password.Text == "" && confirmpass.Text == "")
             {
@@ -34,14 +38,19 @@ namespace EramusManager
             }
             else if (password.Text == confirmpass.Text)
             {
-                System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "INSERT INTO Users VALUES ('" + email.Text + "','" + username.Text + "','" + password.Text + "')";
-                cmd.Connection = sqlConnection1;
+                connection.Open();
+                String sql = "INSERT INTO Users VALUES('" + email.Text + "', '" + username.Text + "', '" + password.Text + "')";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
 
-                sqlConnection1.Open();
-                cmd.ExecuteNonQuery();
-                sqlConnection1.Close();
+                //System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+                //cmd.CommandType = System.Data.CommandType.Text;
+                //cmd.CommandText = "INSERT INTO Users VALUES ('" + email.Text + "','" + username.Text + "','" + password.Text + "')";
+                //cmd.Connection = sqlConnection1;
+
+                //sqlConnection1.Open();
+                //cmd.ExecuteNonQuery();
+                //sqlConnection1.Close();
 
                 username.Text = "";
                 email.Text = "";

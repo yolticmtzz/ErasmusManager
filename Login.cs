@@ -7,21 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace EramusManager
 {
+
     public partial class Login : Form
     {
-        SqlCommand cmd;
-        SqlDataReader dr;
-        //ALTERAR CONEXÃO PARA O CAMINHO ONDE ESTÁ A BD, UTILIZAR 2 BARRAS (\\)
-        string connectionString = " Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\heldermartins\\Desktop\\ErasmusMananger\\ErasmusManager\\emdb.mdf; Integrated Security = True";
-
+        
         public Login()
         {
 
             InitializeComponent();
+
+            
 
         }
 
@@ -41,18 +40,26 @@ namespace EramusManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConn = new SqlConnection(connectionString);
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            //SqlConnection sqlConn = new SqlConnection(connectionString);
 
             string em = email.Text;
             string pass = password.Text;
 
-            cmd = new SqlCommand();
-            sqlConn.Open();
-            cmd.Connection = sqlConn;
-            cmd.CommandText = "SELECT * FROM Users where email='" + email.Text + "' AND password='" + password.Text + "'";
-            dr = cmd.ExecuteReader();
+            connection.Open();
+            String sql = "SELECT * FROM Users where email='" + email.Text + "' AND password='" + password.Text + "'";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader();
 
-            if (dr.Read())
+            //cmd = new SqlCommand();
+            //sqlConn.Open();
+            //cmd.Connection = sqlConn;
+            //cmd.CommandText = "SELECT * FROM Users where email='" + email.Text + "' AND password='" + password.Text + "'";
+            //dr = cmd.ExecuteReader();
+
+            if (reader.Read())
             {
                 MessageBox.Show("Login sucess");
 
