@@ -46,9 +46,7 @@ namespace EramusManager
                 builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
-                //connection.Open();
-                //String sql = "SELECT username FROM Users WHERE username='" + GetUsername.username.Text + "' ";
-                //Console.WriteLine(sql);
+               
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
