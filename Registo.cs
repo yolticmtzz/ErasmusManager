@@ -14,9 +14,10 @@ namespace EramusManager
 
     public partial class Registo : Form
     {
+
         public Registo()
         {
-
+           
             InitializeComponent();
 
         }
@@ -33,17 +34,18 @@ namespace EramusManager
             {
                 MessageBox.Show("Username, Email and Password fields are empty", "Registration Failed",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (password.Text == confirmpass.Text)
+            else if (password.Text == confirmpass.Text) 
             {
                 connection.Open();
-                String sql = "INSERT INTO Users VALUES('" + email.Text + "', '" + username.Text + "', '" + password.Text + "')";
+                String sql = "INSERT INTO Users VALUES('" + email.Text + "', '" + username.Text + "', '" + password.Text + "', '" + institution.Text + "')";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
-
+                
                 username.Text = "";
                 email.Text = "";
                 password.Text = "";
                 confirmpass.Text = "";
+                institution.Text = "";
 
                 MessageBox.Show("Your Account has been successfully created", "Registration Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
 
