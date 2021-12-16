@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace EramusManager
 {
+   
     internal static class Program
     {
         /// <summary>
@@ -17,6 +18,7 @@ namespace EramusManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Registo());
+
         }
     }
 }

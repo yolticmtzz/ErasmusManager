@@ -37,15 +37,30 @@ namespace EramusManager
             
             else
             {
-                //connection.Open();
-                //String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' '" + useriD.Text + "')";
-                //SqlCommand command = new SqlCommand(sql, connection);
-                //SqlDataReader reader = command.ExecuteReader();
+                connection.Open();
+                String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , " + "SELECT UserId FROM Users WHERE username = " +  "')";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
 
-                //nomedoprojeto.Text = "";
+                nomedoprojeto.Text = "";
 
                 MessageBox.Show("Project has been successfully created", "New Project Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+        }
+
+        private void comboparceiros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

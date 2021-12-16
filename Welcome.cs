@@ -13,32 +13,42 @@ namespace EramusManager
 {
     public partial class Welcome : Form
     {
-
-        
-
         public Welcome()
         {
-            
-
             InitializeComponent();
+            Design();
+        }
+        private void Design ()
+        {
+            projetospanel.Visible = false;
+        }
 
+        private void hideSubMenu ()
+        {
+            if (projetospanel.Visible == true)
+                projetospanel.Visible = false;
+        }
+        private void showSubMenu (Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+                subMenu.Visible = false;
         }
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            Registo GetUsername = new Registo();
-            
+                Registo GetUsername = new Registo();
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
                 builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
-                connection.Open();
-                String sql = "SELECT username FROM Users WHERE username='" + GetUsername.username.Text + "' ";
-                Console.WriteLine(sql);
-
-                //string strUsrNm = Convert.ToString(sql);
-                //label3.Text = strUsrNm;
-              
+                //connection.Open();
+                //String sql = "SELECT username FROM Users WHERE username='" + GetUsername.username.Text + "' ";
+                //Console.WriteLine(sql);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -86,6 +96,33 @@ namespace EramusManager
 
         private void label3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            showSubMenu(projetospanel);
+        }
+
+        private void btnnp_Click(object sender, EventArgs e)
+        {
+            openChildForm(new NovoProjeto());
+            hideSubMenu();
+        }
+
+        private Form activeForm = null;
+        private void openChildForm (Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm ;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            ChildPannel.Controls.Add(childForm);
+            ChildPannel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
 
         }
     }

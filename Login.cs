@@ -20,8 +20,6 @@ namespace EramusManager
 
             InitializeComponent();
 
-            
-
         }
 
      
@@ -43,7 +41,6 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
-            //SqlConnection sqlConn = new SqlConnection(connectionString);
 
             string em = email.Text;
             string pass = password.Text;
@@ -53,15 +50,11 @@ namespace EramusManager
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
 
-            //cmd = new SqlCommand();
-            //sqlConn.Open();
-            //cmd.Connection = sqlConn;
-            //cmd.CommandText = "SELECT * FROM Users where email='" + email.Text + "' AND password='" + password.Text + "'";
-            //dr = cmd.ExecuteReader();
 
             if (reader.Read())
             {
                 MessageBox.Show("Login sucess");
+
 
                 this.Hide();
                 Form Welcome = new Welcome();
