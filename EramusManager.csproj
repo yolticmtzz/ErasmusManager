@@ -184,6 +184,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditarProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarProjeto.Designer.cs">
+      <DependentUpon>EditarProjeto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestaoequipa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestaoequipa.Designer.cs">
+      <DependentUpon>Gestaoequipa.cs</DependentUpon>
+    </Compile>
     <Compile Include="NovoProjeto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +222,12 @@
     <Compile Include="Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditarProjeto.resx">
+      <DependentUpon>EditarProjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestaoequipa.resx">
+      <DependentUpon>Gestaoequipa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NovoProjeto.resx">
       <DependentUpon>NovoProjeto.cs</DependentUpon>
     </EmbeddedResource>
