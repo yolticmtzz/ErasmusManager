@@ -14,17 +14,17 @@ namespace EramusManager
 
     public partial class Registo : Form
     {
-
+       
         public Registo()
-        {
-           
+        {         
             InitializeComponent();
-
+            
         }
 
-
+ 
         private void button1_Click(object sender, EventArgs e)
         {
+
             //CONEXÃO BASE DE DADOS
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";

@@ -17,7 +17,9 @@ namespace EramusManager
         {
             InitializeComponent();
             Design();
+            
         }
+
         private void Design ()
         {
             projetospanel.Visible = false;
@@ -28,6 +30,8 @@ namespace EramusManager
             if (projetospanel.Visible == true)
                 projetospanel.Visible = false;
         }
+
+
         private void showSubMenu (Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -44,7 +48,7 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
-
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -140,6 +144,12 @@ namespace EramusManager
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void butviewp_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ViewProject());
+            hideSubMenu();
         }
     }
 }

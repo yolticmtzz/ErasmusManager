@@ -49,6 +49,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Azure.Core, Version=1.6.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>packages\Azure.Core.1.6.0\lib\net461\Azure.Core.dll</HintPath>
@@ -190,6 +194,11 @@
     <Compile Include="EditarProjeto.Designer.cs">
       <DependentUpon>EditarProjeto.cs</DependentUpon>
     </Compile>
+    <Compile Include="eramusmanagerdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eramusmanagerdbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Gestaoequipa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +225,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewProject.Designer.cs">
+      <DependentUpon>ViewProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,9 +261,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewProject.resx">
+      <DependentUpon>ViewProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="eramusmanagerdbDataSet.xsc">
+      <DependentUpon>eramusmanagerdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="eramusmanagerdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>eramusmanagerdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eramusmanagerdbDataSet.xss">
+      <DependentUpon>eramusmanagerdbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

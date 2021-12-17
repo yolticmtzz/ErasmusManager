@@ -37,13 +37,10 @@ namespace EramusManager
             this.btnnp = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.ChildPannel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.projetospanel.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.ChildPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +94,7 @@ namespace EramusManager
             this.butviewp.TabIndex = 1;
             this.butviewp.Text = "Consultar Projetos";
             this.butviewp.UseVisualStyleBackColor = false;
+            this.butviewp.Click += new System.EventHandler(this.butviewp_Click);
             // 
             // btnnp
             // 
@@ -130,35 +128,12 @@ namespace EramusManager
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(88, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(2, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome";
             // 
             // ChildPannel
             // 
@@ -195,8 +170,6 @@ namespace EramusManager
             this.Load += new System.EventHandler(this.Welcome_Load);
             this.panel1.ResumeLayout(false);
             this.projetospanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ChildPannel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -214,7 +187,5 @@ namespace EramusManager
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel ChildPannel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label label2;
     }
 }
