@@ -36,6 +36,10 @@
             this.comboparceiros = new System.Windows.Forms.ComboBox();
             this.criarprojetobtt = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.estadolabel = new System.Windows.Forms.Label();
+            this.test = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -60,6 +64,7 @@
             this.nomedoprojeto.Name = "nomedoprojeto";
             this.nomedoprojeto.Size = new System.Drawing.Size(276, 31);
             this.nomedoprojeto.TabIndex = 7;
+            this.nomedoprojeto.TextChanged += new System.EventHandler(this.nomedoprojeto_TextChanged);
             // 
             // label2
             // 
@@ -76,7 +81,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(292, 197);
+            this.label3.Location = new System.Drawing.Point(292, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 20);
             this.label3.TabIndex = 8;
@@ -87,7 +92,7 @@
             // 
             this.comboparceiros.FormattingEnabled = true;
             this.comboparceiros.ItemHeight = 13;
-            this.comboparceiros.Location = new System.Drawing.Point(295, 219);
+            this.comboparceiros.Location = new System.Drawing.Point(295, 198);
             this.comboparceiros.Margin = new System.Windows.Forms.Padding(2);
             this.comboparceiros.Name = "comboparceiros";
             this.comboparceiros.Size = new System.Drawing.Size(277, 21);
@@ -103,7 +108,7 @@
             this.criarprojetobtt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.criarprojetobtt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.criarprojetobtt.ForeColor = System.Drawing.Color.White;
-            this.criarprojetobtt.Location = new System.Drawing.Point(319, 290);
+            this.criarprojetobtt.Location = new System.Drawing.Point(340, 320);
             this.criarprojetobtt.Margin = new System.Windows.Forms.Padding(2);
             this.criarprojetobtt.Name = "criarprojetobtt";
             this.criarprojetobtt.Size = new System.Drawing.Size(232, 50);
@@ -122,11 +127,54 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(292, 240);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Estado do Projeto";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Lime;
+            this.panel1.Location = new System.Drawing.Point(296, 273);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(21, 20);
+            this.panel1.TabIndex = 13;
+            // 
+            // estadolabel
+            // 
+            this.estadolabel.AutoSize = true;
+            this.estadolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estadolabel.Location = new System.Drawing.Point(325, 273);
+            this.estadolabel.Name = "estadolabel";
+            this.estadolabel.Size = new System.Drawing.Size(118, 20);
+            this.estadolabel.TabIndex = 14;
+            this.estadolabel.Text = "Em andamento";
+            this.estadolabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // test
+            // 
+            this.test.AutoSize = true;
+            this.test.Location = new System.Drawing.Point(52, 336);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(35, 13);
+            this.test.TabIndex = 15;
+            this.test.Text = "label5";
+            // 
             // NovoProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 441);
+            this.Controls.Add(this.test);
+            this.Controls.Add(this.estadolabel);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.criarprojetobtt);
             this.Controls.Add(this.comboparceiros);
@@ -153,5 +201,9 @@
         private System.Windows.Forms.ComboBox comboparceiros;
         private System.Windows.Forms.Button criarprojetobtt;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label estadolabel;
+        private System.Windows.Forms.Label test;
     }
 }

@@ -21,7 +21,11 @@ namespace EramusManager
 
         private void NovoProjeto_Load(object sender, EventArgs e)
         {
+            label4.Visible = false;
+            panel1.Visible = false;
+            estadolabel.Visible = false;
 
+            test.Text = Properties.Settings.Default.UserID;
         }
 
         private void criarprojetobtt_Click(object sender, EventArgs e)
@@ -38,7 +42,7 @@ namespace EramusManager
             else
             {
                 connection.Open();
-                String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , " + "SELECT UserId FROM Users WHERE username = " + "')";
+                String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , '" + estadolabel.Text + "', '" + Properties.Settings.Default.UserID + "')";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -62,6 +66,21 @@ namespace EramusManager
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void nomedoprojeto_TextChanged(object sender, EventArgs e)
+        {
+            if (nomedoprojeto.Text == "")
+            {
+                label4.Visible = false;
+                panel1.Visible = false;
+                estadolabel.Visible = false;
+            } else
+            {
+                label4.Visible = true;
+                panel1.Visible = true;
+                estadolabel.Visible = true;
+            }
         }
     }
 }

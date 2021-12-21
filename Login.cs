@@ -13,17 +13,16 @@ namespace EramusManager
 {
 
     public partial class Login : Form
-    {
-        
+    {           
+
         public Login()
         {
-
             InitializeComponent();
-
         }
 
-     
-            private void label1_Click(object sender, EventArgs e)
+         String UserID = null;
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -50,25 +49,34 @@ namespace EramusManager
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader();
 
-
             if (reader.Read())
-            {
-                MessageBox.Show("Login sucess");
+                {
+                    MessageBox.Show("Login sucess");
+                    connection.Close();
+                    this.Hide();
+                    Form Welcome = new Welcome();
+                    Welcome.Closed += (s, args) => this.Close();
+                    Welcome.Show();
 
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Login please check email and password");
+                    email.Text = "";
+                    password.Text = "";
+                    email.Focus();
+                }
 
-                this.Hide();
-                Form Welcome = new Welcome();
-                Welcome.Closed += (s, args) => this.Close();
-                Welcome.Show();
-            }
-            else
+            connection.Open();
+            String GetUserID = "SELECT userId FROM Users where email='" + email.Text + "' ";
+            SqlCommand cmd = new SqlCommand(GetUserID, connection);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
             {
-                MessageBox.Show("Invalid Login please check email and password");
-                email.Text = "";
-                password.Text = "";
-                email.Focus();
+                Properties.Settings.Default.UserID = re["userId"].ToString();
+
             }
-            
 
         }
 

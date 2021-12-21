@@ -14,16 +14,17 @@ namespace EramusManager
 
     public partial class Registo : Form
     {
+       
         public Registo()
-        {
-
+        {         
             InitializeComponent();
-
+            
         }
 
-
+ 
         private void button1_Click(object sender, EventArgs e)
         {
+
             //CONEXÃO BASE DE DADOS
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
@@ -33,17 +34,18 @@ namespace EramusManager
             {
                 MessageBox.Show("Username, Email and Password fields are empty", "Registration Failed",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (password.Text == confirmpass.Text)
+            else if (password.Text == confirmpass.Text) 
             {
                 connection.Open();
-                String sql = "INSERT INTO Users VALUES('" + email.Text + "', '" + username.Text + "', '" + password.Text + "')";
+                String sql = "INSERT INTO Users VALUES('" + email.Text + "', '" + username.Text + "', '" + password.Text + "', '" + institution.Text + "')";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
-
+                
                 username.Text = "";
                 email.Text = "";
                 password.Text = "";
                 confirmpass.Text = "";
+                institution.Text = "";
 
                 MessageBox.Show("Your Account has been successfully created", "Registration Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
 

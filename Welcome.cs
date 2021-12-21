@@ -17,7 +17,9 @@ namespace EramusManager
         {
             InitializeComponent();
             Design();
+            
         }
+
         private void Design ()
         {
             projetospanel.Visible = false;
@@ -28,6 +30,8 @@ namespace EramusManager
             if (projetospanel.Visible == true)
                 projetospanel.Visible = false;
         }
+
+
         private void showSubMenu (Panel subMenu)
         {
             if (subMenu.Visible == false)
@@ -41,10 +45,10 @@ namespace EramusManager
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-                Registo GetUsername = new Registo();
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-                SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -120,6 +124,32 @@ namespace EramusManager
             childForm.BringToFront();
             childForm.Show();
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ChildPannel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void butviewp_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ViewProject());
+            hideSubMenu();
         }
     }
 }

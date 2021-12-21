@@ -68,6 +68,7 @@ namespace EramusManager
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 580);
             this.panel1.TabIndex = 19;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // projetospanel
             // 
@@ -93,6 +94,7 @@ namespace EramusManager
             this.butviewp.TabIndex = 1;
             this.butviewp.Text = "Consultar Projetos";
             this.butviewp.UseVisualStyleBackColor = false;
+            this.butviewp.Click += new System.EventHandler(this.butviewp_Click);
             // 
             // btnnp
             // 
@@ -131,6 +133,7 @@ namespace EramusManager
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // ChildPannel
             // 
@@ -141,6 +144,7 @@ namespace EramusManager
             this.ChildPannel.Name = "ChildPannel";
             this.ChildPannel.Size = new System.Drawing.Size(940, 580);
             this.ChildPannel.TabIndex = 21;
+            this.ChildPannel.Paint += new System.Windows.Forms.PaintEventHandler(this.ChildPannel_Paint);
             // 
             // pictureBox1
             // 
