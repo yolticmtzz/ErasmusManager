@@ -54,7 +54,7 @@
             // nomedoprojeto
             // 
             this.nomedoprojeto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nomedoprojeto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomedoprojeto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.nomedoprojeto.Location = new System.Drawing.Point(296, 117);
             this.nomedoprojeto.Multiline = true;
             this.nomedoprojeto.Name = "nomedoprojeto";
@@ -64,10 +64,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label2.Location = new System.Drawing.Point(292, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.Size = new System.Drawing.Size(144, 22);
             this.label2.TabIndex = 6;
             this.label2.Text = "Nome do Projeto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -75,22 +75,23 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label3.Location = new System.Drawing.Point(292, 197);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 20);
+            this.label3.Size = new System.Drawing.Size(173, 22);
             this.label3.TabIndex = 8;
             this.label3.Text = "Parceiros do Projeto";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // comboparceiros
             // 
+            this.comboparceiros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.comboparceiros.FormattingEnabled = true;
-            this.comboparceiros.ItemHeight = 13;
-            this.comboparceiros.Location = new System.Drawing.Point(295, 219);
+            this.comboparceiros.ItemHeight = 18;
+            this.comboparceiros.Location = new System.Drawing.Point(295, 221);
             this.comboparceiros.Margin = new System.Windows.Forms.Padding(2);
             this.comboparceiros.Name = "comboparceiros";
-            this.comboparceiros.Size = new System.Drawing.Size(277, 21);
+            this.comboparceiros.Size = new System.Drawing.Size(277, 26);
             this.comboparceiros.TabIndex = 9;
             this.comboparceiros.Text = "Procurar ...";
             this.comboparceiros.SelectedIndexChanged += new System.EventHandler(this.comboparceiros_SelectedIndexChanged);
@@ -102,11 +103,12 @@
             this.criarprojetobtt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.criarprojetobtt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.criarprojetobtt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.criarprojetobtt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.criarprojetobtt.ForeColor = System.Drawing.Color.White;
-            this.criarprojetobtt.Location = new System.Drawing.Point(319, 290);
+            this.criarprojetobtt.Location = new System.Drawing.Point(295, 280);
             this.criarprojetobtt.Margin = new System.Windows.Forms.Padding(2);
             this.criarprojetobtt.Name = "criarprojetobtt";
-            this.criarprojetobtt.Size = new System.Drawing.Size(232, 50);
+            this.criarprojetobtt.Size = new System.Drawing.Size(276, 32);
             this.criarprojetobtt.TabIndex = 10;
             this.criarprojetobtt.Text = "Criar Projeto";
             this.criarprojetobtt.UseVisualStyleBackColor = false;
