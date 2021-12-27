@@ -199,6 +199,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>eramusmanagerdbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CriteriosDesej.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CriteriosDesej.Designer.cs">
+      <DependentUpon>CriteriosDesej.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelecaoDeEstudantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelecaoDeEstudantes.Designer.cs">
+      <DependentUpon>SelecaoDeEstudantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestaoequipa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +251,12 @@
     </Compile>
     <EmbeddedResource Include="EditarProjeto.resx">
       <DependentUpon>EditarProjeto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriosDesej.resx">
+      <DependentUpon>CriteriosDesej.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelecaoDeEstudantes.resx">
+      <DependentUpon>SelecaoDeEstudantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestaoequipa.resx">
       <DependentUpon>Gestaoequipa.cs</DependentUpon>
