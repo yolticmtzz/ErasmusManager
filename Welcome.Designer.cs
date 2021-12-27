@@ -92,7 +92,7 @@ namespace EramusManager
             this.butviewp.Name = "butviewp";
             this.butviewp.Size = new System.Drawing.Size(200, 40);
             this.butviewp.TabIndex = 1;
-            this.butviewp.Text = "Consultar Projetos";
+            this.butviewp.Text = "View Projects";
             this.butviewp.UseVisualStyleBackColor = false;
             this.butviewp.Click += new System.EventHandler(this.butviewp_Click);
             // 
@@ -107,7 +107,7 @@ namespace EramusManager
             this.btnnp.Name = "btnnp";
             this.btnnp.Size = new System.Drawing.Size(200, 40);
             this.btnnp.TabIndex = 0;
-            this.btnnp.Text = "Novo Projeto";
+            this.btnnp.Text = "New Project";
             this.btnnp.UseVisualStyleBackColor = false;
             this.btnnp.Click += new System.EventHandler(this.btnnp_Click);
             // 
@@ -122,7 +122,7 @@ namespace EramusManager
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 44);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Projetos";
+            this.button1.Text = "Projects";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -165,8 +165,9 @@ namespace EramusManager
             this.Controls.Add(this.ChildPannel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Welcome";
-            this.Text = "Welcome";
+            this.Text = "Eramus Manager - Welcome";
             this.Load += new System.EventHandler(this.Welcome_Load);
             this.panel1.ResumeLayout(false);
             this.projetospanel.ResumeLayout(false);

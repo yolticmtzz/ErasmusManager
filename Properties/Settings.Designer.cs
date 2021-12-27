@@ -67,5 +67,17 @@ namespace EramusManager.Properties {
                 return ((string)(this["eramusmanagerdbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string projectId {
+            get {
+                return ((string)(this["projectId"]));
+            }
+            set {
+                this["projectId"] = value;
+            }
+        }
     }
 }

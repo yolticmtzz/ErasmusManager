@@ -57,7 +57,7 @@
             this.registerbtt.Name = "registerbtt";
             this.registerbtt.Size = new System.Drawing.Size(232, 36);
             this.registerbtt.TabIndex = 0;
-            this.registerbtt.Text = "Registar";
+            this.registerbtt.Text = "Register";
             this.registerbtt.UseVisualStyleBackColor = false;
             this.registerbtt.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -69,9 +69,9 @@
             this.label1.Location = new System.Drawing.Point(230, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 29);
+            this.label1.Size = new System.Drawing.Size(103, 29);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Registro";
+            this.label1.Text = "Register";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -82,7 +82,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 19);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Nome";
+            this.label2.Text = "Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -148,11 +148,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(176, 376);
+            this.label5.Location = new System.Drawing.Point(127, 373);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(207, 19);
+            this.label5.Size = new System.Drawing.Size(305, 19);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Se já tiver conta, clique aqui";
+            this.label5.Text = "If you already have an account, click here ";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
@@ -173,9 +173,9 @@
             this.label6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(140, 211);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 19);
+            this.label6.Size = new System.Drawing.Size(141, 19);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Confirmar Password";
+            this.label6.Text = "Confirm Password";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // institution
@@ -195,9 +195,9 @@
             this.label7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(140, 272);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 19);
+            this.label7.Size = new System.Drawing.Size(81, 19);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Instituição";
+            this.label7.Text = "Institution";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Registo
@@ -223,7 +223,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Registo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Erasmus Manager - Registo";
+            this.Text = "Erasmus Manager - Register";
             this.Load += new System.EventHandler(this.Registo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

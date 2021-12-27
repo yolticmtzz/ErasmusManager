@@ -108,7 +108,7 @@ namespace EramusManager
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(232, 50);
             this.button1.TabIndex = 10;
-            this.button1.Text = "Entrar";
+            this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -116,11 +116,11 @@ namespace EramusManager
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(166, 293);
+            this.label5.Location = new System.Drawing.Point(134, 293);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(221, 19);
+            this.label5.Size = new System.Drawing.Size(287, 19);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Se não tiver conta, clique aqui";
+            this.label5.Text = "If you don\'t have an account, click here.";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 

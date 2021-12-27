@@ -21,6 +21,22 @@ namespace EramusManager
 
         private void NovoProjeto_Load(object sender, EventArgs e)
         {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+            //Mostrar Parceiros
+            String mp = "SELECT username FROM Users";
+            SqlCommand MPcommand = new SqlCommand(mp, connection);
+            SqlDataReader MPreader = MPcommand.ExecuteReader();
+
+            while ( MPreader.Read())
+            {
+                comboparceiros.Items.Add(MPreader.GetString(0));
+            }
+
+
             label4.Visible = false;
             panel1.Visible = false;
             estadolabel.Visible = false;
@@ -34,6 +50,7 @@ namespace EramusManager
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
+
             if (nomedoprojeto.Text == "")
             {
                 MessageBox.Show("Empty or Invalid Project Name", "Create New Project Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -42,9 +59,12 @@ namespace EramusManager
             else
             {
                 connection.Open();
+                //GUARDAR O PROJETO
                 String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , '" + estadolabel.Text + "', '" + Properties.Settings.Default.UserID + "')";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
+
+                connection.Close();
 
                 nomedoprojeto.Text = "";
 

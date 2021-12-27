@@ -29,5 +29,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=eramusmanager.database.windows.net;Initial Catalog=eramusmanagerdb;Persist Security Info=True;User ID=eramusmanager</Value>
     </Setting>
+    <Setting Name="projectId" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

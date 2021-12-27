@@ -49,9 +49,9 @@
             this.label1.Location = new System.Drawing.Point(374, 25);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 29);
+            this.label1.Size = new System.Drawing.Size(145, 29);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Novo Projeto";
+            this.label1.Text = "New Project";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -72,9 +72,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(292, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Nome do Projeto";
+            this.label2.Text = "Project Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
@@ -83,9 +83,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(292, 176);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 20);
+            this.label3.Size = new System.Drawing.Size(122, 20);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Parceiros do Projeto";
+            this.label3.Text = "Project Partners";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // comboparceiros
@@ -108,12 +108,12 @@
             this.criarprojetobtt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.criarprojetobtt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.criarprojetobtt.ForeColor = System.Drawing.Color.White;
-            this.criarprojetobtt.Location = new System.Drawing.Point(340, 320);
+            this.criarprojetobtt.Location = new System.Drawing.Point(316, 317);
             this.criarprojetobtt.Margin = new System.Windows.Forms.Padding(2);
             this.criarprojetobtt.Name = "criarprojetobtt";
             this.criarprojetobtt.Size = new System.Drawing.Size(232, 50);
             this.criarprojetobtt.TabIndex = 10;
-            this.criarprojetobtt.Text = "Criar Projeto";
+            this.criarprojetobtt.Text = "Create Project";
             this.criarprojetobtt.UseVisualStyleBackColor = false;
             this.criarprojetobtt.Click += new System.EventHandler(this.criarprojetobtt_Click);
             // 
@@ -133,9 +133,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(292, 240);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 20);
+            this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Estado do Projeto";
+            this.label4.Text = "Project Status";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
@@ -152,9 +152,9 @@
             this.estadolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estadolabel.Location = new System.Drawing.Point(325, 273);
             this.estadolabel.Name = "estadolabel";
-            this.estadolabel.Size = new System.Drawing.Size(118, 20);
+            this.estadolabel.Size = new System.Drawing.Size(90, 20);
             this.estadolabel.TabIndex = 14;
-            this.estadolabel.Text = "Em andamento";
+            this.estadolabel.Text = "In Progress";
             this.estadolabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // test
@@ -185,7 +185,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NovoProjeto";
-            this.Text = "Eramus Manager - Novo Projeto";
+            this.Text = "Eramus Manager - New Project";
             this.Load += new System.EventHandler(this.NovoProjeto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
