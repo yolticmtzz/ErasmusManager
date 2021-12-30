@@ -33,6 +33,7 @@ namespace EramusManager
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.projetospanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.butviewp = new System.Windows.Forms.Button();
             this.btnnp = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -73,13 +74,29 @@ namespace EramusManager
             // projetospanel
             // 
             this.projetospanel.BackColor = System.Drawing.Color.Gray;
+            this.projetospanel.Controls.Add(this.button2);
             this.projetospanel.Controls.Add(this.butviewp);
             this.projetospanel.Controls.Add(this.btnnp);
             this.projetospanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.projetospanel.Location = new System.Drawing.Point(0, 144);
             this.projetospanel.Name = "projetospanel";
-            this.projetospanel.Size = new System.Drawing.Size(200, 80);
+            this.projetospanel.Size = new System.Drawing.Size(200, 124);
             this.projetospanel.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(0, 82);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 42);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Edit Project";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // butviewp
             // 
@@ -90,7 +107,7 @@ namespace EramusManager
             this.butviewp.ForeColor = System.Drawing.Color.Black;
             this.butviewp.Location = new System.Drawing.Point(0, 40);
             this.butviewp.Name = "butviewp";
-            this.butviewp.Size = new System.Drawing.Size(200, 40);
+            this.butviewp.Size = new System.Drawing.Size(200, 42);
             this.butviewp.TabIndex = 1;
             this.butviewp.Text = "View Projects";
             this.butviewp.UseVisualStyleBackColor = false;
@@ -156,6 +173,7 @@ namespace EramusManager
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Welcome
             // 
@@ -188,5 +206,6 @@ namespace EramusManager
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel ChildPannel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

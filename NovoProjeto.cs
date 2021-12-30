@@ -19,6 +19,9 @@ namespace EramusManager
             InitializeComponent();
         }
 
+        String projectId = null;
+
+
         private void NovoProjeto_Load(object sender, EventArgs e)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -26,7 +29,11 @@ namespace EramusManager
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
+            
+            connection.Close();
+
             //Mostrar Parceiros
+            connection.Open();
             String mp = "SELECT username FROM Users";
             SqlCommand MPcommand = new SqlCommand(mp, connection);
             SqlDataReader MPreader = MPcommand.ExecuteReader();
@@ -42,6 +49,7 @@ namespace EramusManager
             estadolabel.Visible = false;
 
             test.Text = Properties.Settings.Default.UserID;
+
         }
 
         private void criarprojetobtt_Click(object sender, EventArgs e)
@@ -60,7 +68,7 @@ namespace EramusManager
             {
                 connection.Open();
                 //GUARDAR O PROJETO
-                String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , '" + estadolabel.Text + "', '" + Properties.Settings.Default.UserID + "')";
+                String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , '" + estadolabel.Text + "', '" + Properties.Settings.Default.UserID + "' , '" + comboparceiros.Text + "')";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
 

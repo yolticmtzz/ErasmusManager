@@ -51,7 +51,6 @@ namespace EramusManager
 
             if (reader.Read())
                 {
-                    MessageBox.Show("Login sucess");
                     connection.Close();
                     this.Hide();
                     Form Welcome = new Welcome();

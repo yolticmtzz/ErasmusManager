@@ -48,7 +48,8 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
-            
+
+          
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -150,6 +151,17 @@ namespace EramusManager
         {
             openChildForm(new ViewProject());
             hideSubMenu();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openChildForm(new EditarProjeto());
+            hideSubMenu();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

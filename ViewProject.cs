@@ -39,12 +39,18 @@ namespace EramusManager
             SqlCommand statuscommand = new SqlCommand(status, connection);
             SqlDataReader statusreader = statuscommand.ExecuteReader();
 
+            String partner = "SELECT username FROM Projects WHERE userId='" + Properties.Settings.Default.UserID + "' ";
+            SqlCommand partnercommand = new SqlCommand(partner, connection);
+            SqlDataReader partnerreader = partnercommand.ExecuteReader();
 
-            while (pidreader.Read() && pnamereader.Read() && statusreader.Read())
+
+            while (pidreader.Read() && pnamereader.Read() && statusreader.Read() && partnerreader.Read())
             {
                 listBox1.Items.Add(pidreader.GetInt32(0));
                 listBox2.Items.Add(pnamereader.GetString(0));
                 listBox3.Items.Add(statusreader.GetString(0));
+                listBox4.Items.Add(partnerreader.GetString(0));
+
             }
 
 
@@ -68,6 +74,16 @@ namespace EramusManager
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
