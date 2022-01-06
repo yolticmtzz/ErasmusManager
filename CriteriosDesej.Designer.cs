@@ -38,8 +38,10 @@
             this.scrollautonomia = new System.Windows.Forms.VScrollBar();
             this.scrollbarareaespecializacao = new System.Windows.Forms.VScrollBar();
             this.scrollpaginainteira = new System.Windows.Forms.VScrollBar();
+            this.nivelaceitavellingua = new System.Windows.Forms.ComboBox();
+            this.labellingua2parte = new System.Windows.Forms.Label();
+            this.labelarea2parte = new System.Windows.Forms.Label();
             this.nivelaceitavel = new System.Windows.Forms.ComboBox();
-            this.labelareas2parte = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -105,7 +107,7 @@
             // 
             this.labelareaespecializa.AutoSize = true;
             this.labelareaespecializa.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.labelareaespecializa.Location = new System.Drawing.Point(131, 204);
+            this.labelareaespecializa.Location = new System.Drawing.Point(130, 258);
             this.labelareaespecializa.Name = "labelareaespecializa";
             this.labelareaespecializa.Size = new System.Drawing.Size(204, 22);
             this.labelareaespecializa.TabIndex = 14;
@@ -116,7 +118,7 @@
             this.areadeespecializacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.areadeespecializacao.FormattingEnabled = true;
             this.areadeespecializacao.ItemHeight = 18;
-            this.areadeespecializacao.Location = new System.Drawing.Point(135, 228);
+            this.areadeespecializacao.Location = new System.Drawing.Point(134, 282);
             this.areadeespecializacao.Margin = new System.Windows.Forms.Padding(2);
             this.areadeespecializacao.Name = "areadeespecializacao";
             this.areadeespecializacao.Size = new System.Drawing.Size(545, 26);
@@ -132,7 +134,7 @@
             // 
             // scrollbarareaespecializacao
             // 
-            this.scrollbarareaespecializacao.Location = new System.Drawing.Point(682, 228);
+            this.scrollbarareaespecializacao.Location = new System.Drawing.Point(681, 282);
             this.scrollbarareaespecializacao.Name = "scrollbarareaespecializacao";
             this.scrollbarareaespecializacao.Size = new System.Drawing.Size(23, 63);
             this.scrollbarareaespecializacao.TabIndex = 17;
@@ -144,36 +146,60 @@
             this.scrollpaginainteira.Size = new System.Drawing.Size(23, 338);
             this.scrollpaginainteira.TabIndex = 18;
             // 
+            // nivelaceitavellingua
+            // 
+            this.nivelaceitavellingua.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nivelaceitavellingua.FormattingEnabled = true;
+            this.nivelaceitavellingua.ItemHeight = 18;
+            this.nivelaceitavellingua.Location = new System.Drawing.Point(134, 216);
+            this.nivelaceitavellingua.Margin = new System.Windows.Forms.Padding(2);
+            this.nivelaceitavellingua.Name = "nivelaceitavellingua";
+            this.nivelaceitavellingua.Size = new System.Drawing.Size(545, 26);
+            this.nivelaceitavellingua.TabIndex = 19;
+            this.nivelaceitavellingua.Text = "Coloque o nível aceitável ... (0 a 10)";
+            this.nivelaceitavellingua.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // labellingua2parte
+            // 
+            this.labellingua2parte.AutoSize = true;
+            this.labellingua2parte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.labellingua2parte.Location = new System.Drawing.Point(130, 192);
+            this.labellingua2parte.Name = "labellingua2parte";
+            this.labellingua2parte.Size = new System.Drawing.Size(80, 22);
+            this.labellingua2parte.TabIndex = 20;
+            this.labellingua2parte.Text = "1º língua";
+            // 
+            // labelarea2parte
+            // 
+            this.labelarea2parte.AutoSize = true;
+            this.labelarea2parte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.labelarea2parte.Location = new System.Drawing.Point(130, 323);
+            this.labelarea2parte.Name = "labelarea2parte";
+            this.labelarea2parte.Size = new System.Drawing.Size(68, 22);
+            this.labelarea2parte.TabIndex = 22;
+            this.labelarea2parte.Text = "1º área";
+            // 
             // nivelaceitavel
             // 
             this.nivelaceitavel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.nivelaceitavel.FormattingEnabled = true;
             this.nivelaceitavel.ItemHeight = 18;
-            this.nivelaceitavel.Location = new System.Drawing.Point(135, 293);
+            this.nivelaceitavel.Location = new System.Drawing.Point(134, 347);
             this.nivelaceitavel.Margin = new System.Windows.Forms.Padding(2);
             this.nivelaceitavel.Name = "nivelaceitavel";
             this.nivelaceitavel.Size = new System.Drawing.Size(545, 26);
-            this.nivelaceitavel.TabIndex = 19;
+            this.nivelaceitavel.TabIndex = 21;
             this.nivelaceitavel.Text = "Coloque o nível aceitável ... (0 a 10)";
-            this.nivelaceitavel.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            // 
-            // labelareas2parte
-            // 
-            this.labelareas2parte.AutoSize = true;
-            this.labelareas2parte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.labelareas2parte.Location = new System.Drawing.Point(131, 269);
-            this.labelareas2parte.Name = "labelareas2parte";
-            this.labelareas2parte.Size = new System.Drawing.Size(68, 22);
-            this.labelareas2parte.TabIndex = 20;
-            this.labelareas2parte.Text = "1º área";
             // 
             // CriteriosDesej
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelareas2parte);
+            this.Controls.Add(this.labelarea2parte);
             this.Controls.Add(this.nivelaceitavel);
+            this.Controls.Add(this.labellingua2parte);
+            this.Controls.Add(this.nivelaceitavellingua);
             this.Controls.Add(this.scrollpaginainteira);
             this.Controls.Add(this.scrollbarareaespecializacao);
             this.Controls.Add(this.scrollautonomia);
@@ -203,7 +229,9 @@
         private System.Windows.Forms.VScrollBar scrollautonomia;
         private System.Windows.Forms.VScrollBar scrollbarareaespecializacao;
         private System.Windows.Forms.VScrollBar scrollpaginainteira;
+        private System.Windows.Forms.ComboBox nivelaceitavellingua;
+        private System.Windows.Forms.Label labellingua2parte;
+        private System.Windows.Forms.Label labelarea2parte;
         private System.Windows.Forms.ComboBox nivelaceitavel;
-        private System.Windows.Forms.Label labelareas2parte;
     }
 }
