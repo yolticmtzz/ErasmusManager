@@ -23,12 +23,16 @@ namespace EramusManager
         private void Design ()
         {
             projetospanel.Visible = false;
+            studpanel.Visible = false;
         }
 
         private void hideSubMenu ()
         {
             if (projetospanel.Visible == true)
                 projetospanel.Visible = false;
+
+            if (studpanel.Visible == true)
+                studpanel.Visible = false;
         }
 
 
@@ -161,6 +165,27 @@ namespace EramusManager
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            showSubMenu(studpanel);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Please select a XML file";
+            openFileDialog.Filter = "XML File |*.xml";
+            DialogResult dialogResult = openFileDialog.ShowDialog();
+
+           
 
         }
     }
