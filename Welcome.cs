@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Xml;
+using System.IO;
+
+
 
 namespace EramusManager
 {
@@ -19,7 +24,7 @@ namespace EramusManager
             Design();
             
         }
-
+        
         private void Design ()
         {
             projetospanel.Visible = false;
@@ -180,12 +185,41 @@ namespace EramusManager
 
         private void button4_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Please select a XML file";
-            openFileDialog.Filter = "XML File |*.xml";
-            DialogResult dialogResult = openFileDialog.ShowDialog();
 
-           
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            SqlDataAdapter adpter = new SqlDataAdapter();
+
+            DataSet ds = new DataSet();
+            XmlReader xmlFile;
+            string sql = null;
+            Boolean verificar = false;
+
+            int studentId = 0;
+            string studentName = null;
+            ds.ReadXml("students.xml");
+
+            int i = 0;
+            connection.Open();
+
+            for (i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
+            {
+                studentName = ds.Tables[0].Rows[i].ItemArray[1].ToString();
+
+                String student = "INSERT INTO Students (studentName) VALUES('" + studentName + "')";
+                SqlCommand command = new SqlCommand(student, connection);
+                adpter.InsertCommand = command;
+                adpter.InsertCommand.ExecuteNonQuery();
+                verificar = true;
+            }
+            connection.Close();
+            MessageBox.Show("Completed");
+
+            if (verificar = true)
+            {
+                button4.Enabled = false;
+            }
 
         }
     }

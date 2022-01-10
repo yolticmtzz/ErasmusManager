@@ -50,10 +50,7 @@ namespace EramusManager
                 listBox2.Items.Add(pnamereader.GetString(0));
                 listBox3.Items.Add(statusreader.GetString(0));
                 listBox4.Items.Add(partnerreader.GetString(0));
-
             }
-
-
         }
 
         private void label2_Click(object sender, EventArgs e)
