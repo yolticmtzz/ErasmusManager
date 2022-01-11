@@ -214,5 +214,10 @@ namespace EramusManager
         {
             this.Close(); 
         }
+
+        private void comboparterns_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

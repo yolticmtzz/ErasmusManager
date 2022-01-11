@@ -156,6 +156,7 @@
             this.comboparterns.Size = new System.Drawing.Size(277, 21);
             this.comboparterns.TabIndex = 25;
             this.comboparterns.Text = "Search ...";
+            this.comboparterns.SelectedIndexChanged += new System.EventHandler(this.comboparterns_SelectedIndexChanged);
             // 
             // button1
             // 
