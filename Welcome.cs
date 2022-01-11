@@ -175,7 +175,8 @@ namespace EramusManager
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new AsignStud());
+            hideSubMenu();
         }
 
         private void button3_Click(object sender, EventArgs e)
