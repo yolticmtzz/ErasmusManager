@@ -32,6 +32,10 @@ namespace EramusManager
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.studpanel = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.projetospanel = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.butviewp = new System.Windows.Forms.Button();
@@ -40,15 +44,11 @@ namespace EramusManager
             this.panel2 = new System.Windows.Forms.Panel();
             this.ChildPannel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.studpanel = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.studpanel.SuspendLayout();
             this.projetospanel.SuspendLayout();
             this.ChildPannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.studpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -77,6 +77,59 @@ namespace EramusManager
             this.panel1.Size = new System.Drawing.Size(195, 580);
             this.panel1.TabIndex = 19;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // studpanel
+            // 
+            this.studpanel.Controls.Add(this.button5);
+            this.studpanel.Controls.Add(this.button4);
+            this.studpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.studpanel.Location = new System.Drawing.Point(0, 306);
+            this.studpanel.Name = "studpanel";
+            this.studpanel.Size = new System.Drawing.Size(195, 80);
+            this.studpanel.TabIndex = 4;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.White;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(0, 37);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(195, 42);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Assign Students";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(195, 37);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Import Students";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(178)))), ((int)(((byte)(86)))));
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.Location = new System.Drawing.Point(0, 265);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(195, 41);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Students";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // projetospanel
             // 
@@ -182,59 +235,6 @@ namespace EramusManager
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(178)))), ((int)(((byte)(86)))));
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.Location = new System.Drawing.Point(0, 265);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 41);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Students";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // studpanel
-            // 
-            this.studpanel.Controls.Add(this.button5);
-            this.studpanel.Controls.Add(this.button4);
-            this.studpanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.studpanel.Location = new System.Drawing.Point(0, 306);
-            this.studpanel.Name = "studpanel";
-            this.studpanel.Size = new System.Drawing.Size(195, 80);
-            this.studpanel.TabIndex = 4;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 37);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Import Students";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(0, 37);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 42);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Asign Students";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,10 +248,10 @@ namespace EramusManager
             this.Text = "Eramus Manager - Welcome";
             this.Load += new System.EventHandler(this.Welcome_Load);
             this.panel1.ResumeLayout(false);
+            this.studpanel.ResumeLayout(false);
             this.projetospanel.ResumeLayout(false);
             this.ChildPannel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.studpanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
