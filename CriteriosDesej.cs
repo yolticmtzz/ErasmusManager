@@ -13,7 +13,7 @@ namespace EramusManager
 {
     public partial class CriteriosDesej : Form
     {
-        Boolean edit = false;
+        //Boolean edit = false;
         public CriteriosDesej()
         {
             InitializeComponent();
@@ -119,14 +119,14 @@ namespace EramusManager
             SqlCommand MPcommand = new SqlCommand(mp, connection);
             SqlDataReader MPreader = MPcommand.ExecuteReader();
 
-            if (MPreader.HasRows)
+            /*if (MPreader.HasRows)
             {
                 edit = true;
             }
             else
             {
                 edit = false;
-            }
+            }*/
 
             connection.Close();
         }
@@ -162,102 +162,191 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
-
-            if(autonomia.SelectedItem.ToString() == "Sim")
+            
+            if(autonomia.SelectedIndex == -1){
+                autonomy = 0;
+            } else
             {
-                autonomy = 1;
-            }
-
-            if (edit)
-            {
-                connection.Open();
-                String GNewProject8 = "UPDATE Requirements SET autonomyReq = ('" + autonomy + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                SqlCommand GNewProjectcommand8 = new SqlCommand(GNewProject8, connection);
-                SqlDataReader GNewProjectreader8 = GNewProjectcommand8.ExecuteReader();
-                connection.Close();
-
-                connection.Open();
-                String mp1 = "Select * FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                SqlCommand MPcommand1 = new SqlCommand(mp1, connection);
-                SqlDataReader MPreader1 = MPcommand1.ExecuteReader();
-
-                while (MPreader1.Read())
+                if (autonomia.SelectedItem.ToString() == "Sim")
                 {
-                    if (MPreader1.GetString(1) == "ingles")
-                    {
-                        String GNewProject5 = "UPDATE DetailsReq SET fieldEvaluation = ('" + linguas.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                        SqlCommand GNewProjectcommand5 = new SqlCommand(GNewProject5, connection);
-                        SqlDataReader GNewProjectreader5 = GNewProjectcommand5.ExecuteReader();
-                    }
-                    else if (MPreader1.GetString(1) == "espanhol")
-                    {
-                        String GNewProject6 = "UPDATE DetailsReq SET fieldEvaluation = ('" + nivelaceitavellingua.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                        SqlCommand GNewProjectcommand6 = new SqlCommand(GNewProject6, connection);
-                        SqlDataReader GNewProjectreader6 = GNewProjectcommand6.ExecuteReader();
-                    }
-                    else if (MPreader1.GetString(1) == "frances")
-                    {
-                        String GNewProject2 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox1.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                        SqlCommand GNewProjectcommand2 = new SqlCommand(GNewProject2, connection);
-                        SqlDataReader GNewProjectreader1 = GNewProjectcommand2.ExecuteReader();
-                    }
-                    else if (MPreader1.GetString(1) == "italiano")
-                    {
-                        String GNewProject3 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox2.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                        SqlCommand GNewProjectcommand3 = new SqlCommand(GNewProject3, connection);
-                        SqlDataReader GNewProjectreader1 = GNewProjectcommand3.ExecuteReader();
-                    }
-                    else if (MPreader1.GetString(1) == "alemao")
-                    {
-                        String GNewProject4 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox3.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                        SqlCommand GNewProjectcommand4 = new SqlCommand(GNewProject4, connection);
-                        SqlDataReader GNewProjectreader4 = GNewProjectcommand4.ExecuteReader();
-                    }
-                    else
-                    {
-                        String GNewProject7 = "UPDATE DetailsReq SET studyFieldReq =  ('" + areadeespecializacao.SelectedItem + "' )  andevaluationReq = ('" + nivelaceitavel.SelectedItem.ToString() + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
-                        SqlCommand GNewProjectcommand7 = new SqlCommand(GNewProject7, connection);
-                        SqlDataReader GNewProjectreader7 = GNewProjectcommand7.ExecuteReader();
-                    }
-
+                    autonomy = 1;
                 }
             }
-            else
-            {
+
+
+            //if (edit)
+            //{
+            /* Update aos critérios cuidado com dados nulos vindos das comboBox
+               connection.Open();
+               String GNewProject8 = "UPDATE Requirements SET autonomyReq = ('" + autonomy + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+               SqlCommand GNewProjectcommand8 = new SqlCommand(GNewProject8, connection);
+               SqlDataReader GNewProjectreader8 = GNewProjectcommand8.ExecuteReader();
+               connection.Close();
+
+
+               connection.Open();
+               String mp1 = "Select * FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+               SqlCommand MPcommand1 = new SqlCommand(mp1, connection);
+               SqlDataReader MPreader1 = MPcommand1.ExecuteReader();
+
+               while (MPreader1.Read())
+               {
+                   if (MPreader1.GetString(1) == "ingles")
+                   {
+                       String GNewProject5 = "UPDATE DetailsReq SET fieldEvaluation = ('" + linguas.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                       SqlCommand GNewProjectcommand5 = new SqlCommand(GNewProject5, connection);
+                       SqlDataReader GNewProjectreader5 = GNewProjectcommand5.ExecuteReader();
+                   }
+                   else if (MPreader1.GetString(1) == "espanhol")
+                   {
+                       String GNewProject6 = "UPDATE DetailsReq SET fieldEvaluation = ('" + nivelaceitavellingua.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                       SqlCommand GNewProjectcommand6 = new SqlCommand(GNewProject6, connection);
+                       SqlDataReader GNewProjectreader6 = GNewProjectcommand6.ExecuteReader();
+                   }
+                   else if (MPreader1.GetString(1) == "frances")
+                   {
+                       String GNewProject2 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox1.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                       SqlCommand GNewProjectcommand2 = new SqlCommand(GNewProject2, connection);
+                       SqlDataReader GNewProjectreader1 = GNewProjectcommand2.ExecuteReader();
+                   }
+                   else if (MPreader1.GetString(1) == "italiano")
+                   {
+                       String GNewProject3 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox2.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                       SqlCommand GNewProjectcommand3 = new SqlCommand(GNewProject3, connection);
+                       SqlDataReader GNewProjectreader1 = GNewProjectcommand3.ExecuteReader();
+                   }
+                   else if (MPreader1.GetString(1) == "alemao")
+                   {
+                       String GNewProject4 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox3.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                       SqlCommand GNewProjectcommand4 = new SqlCommand(GNewProject4, connection);
+                       SqlDataReader GNewProjectreader4 = GNewProjectcommand4.ExecuteReader();
+                   }
+                   else
+                   {
+                       String GNewProject7 = "UPDATE DetailsReq SET studyFieldReq =  ('" + areadeespecializacao.SelectedItem + "' )  andevaluationReq = ('" + nivelaceitavel.SelectedItem.ToString() + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                       SqlCommand GNewProjectcommand7 = new SqlCommand(GNewProject7, connection);
+                       SqlDataReader GNewProjectreader7 = GNewProjectcommand7.ExecuteReader();
+                   }
+
+               }*/
+            //}
+            //else
+            //{
                 connection.Open();
                 String GNewProject10 = "INSERT INTO Requirements VALUES('" + Properties.Settings.Default.projectId + "', '" + autonomy + "' )  ";
                 SqlCommand GNewProjectcommand10 = new SqlCommand(GNewProject10, connection);
                 SqlDataReader GNewProjectreader10 = GNewProjectcommand10.ExecuteReader();
+                connection.Close();
 
+            if(linguas.SelectedIndex == -1)
+            {
+                connection.Open();
+                String GNewProject11 = "INSERT INTO DetailsReq VALUES('ingles', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
+                SqlCommand GNewProjectcommand11 = new SqlCommand(GNewProject11, connection);
+                SqlDataReader GNewProjectreader11 = GNewProjectcommand11.ExecuteReader();
+                connection.Close();
+            } else
+            {
+                connection.Open();
                 String GNewProject11 = "INSERT INTO DetailsReq VALUES('ingles', '" + linguas.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand11 = new SqlCommand(GNewProject11, connection);
                 SqlDataReader GNewProjectreader11 = GNewProjectcommand11.ExecuteReader();
+                connection.Close();
+            }
+                
 
+            if (nivelaceitavellingua.SelectedIndex == -1)
+            {
+                connection.Open();
+                String GNewProject12 = "INSERT INTO DetailsReq VALUES('espanhol', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
+                SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                connection.Close();
+            }
+            else
+            {
+                connection.Open();
                 String GNewProject12 = "INSERT INTO DetailsReq VALUES('espanhol', '" + nivelaceitavellingua.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
                 SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                connection.Close();
+            }
+                
 
+            if (comboBox1.SelectedIndex == -1)
+            {
+                connection.Open();
+                String GNewProject13 = "INSERT INTO DetailsReq VALUES('frances', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
+                SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                connection.Close();
+            }
+            else
+            {
+                connection.Open();
                 String GNewProject13 = "INSERT INTO DetailsReq VALUES('frances', '" + comboBox1.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
                 SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
-
+                connection.Close();
+            }
+                
+            if (comboBox2.SelectedIndex == -1)
+            {
+                connection.Open();
+                String GNewProject14 = "INSERT INTO DetailsReq VALUES('italiano', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
+                SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                connection.Close();
+            }
+            else
+            {
+                connection.Open();
                 String GNewProject14 = "INSERT INTO DetailsReq VALUES('italiano', '" + comboBox2.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
                 SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
-
+                connection.Close();
+            }
+                
+            if (comboBox3.SelectedIndex == -1)
+            {
+                connection.Open();
+                String GNewProject15 = "INSERT INTO DetailsReq VALUES('alemao', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
+                SqlCommand GNewProjectcommand15 = new SqlCommand(GNewProject15, connection);
+                SqlDataReader GNewProjectreader15 = GNewProjectcommand15.ExecuteReader();
+                connection.Close();
+            }
+            else
+            {
+                connection.Open();
                 String GNewProject15 = "INSERT INTO DetailsReq VALUES('alemao', '" + comboBox3.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand15 = new SqlCommand(GNewProject15, connection);
                 SqlDataReader GNewProjectreader15 = GNewProjectcommand15.ExecuteReader();
-
+                connection.Close();
+            }
+                
+            if (areadeespecializacao.SelectedIndex == -1 || nivelaceitavel.SelectedIndex == -1)
+            {
+                connection.Open();
+                String GNewProject16 = "INSERT INTO DetailsReq VALUES('Sem área de especialização', '" + 0 + "' , '" + Properties.Settings.Default.projectId + "' )  ";
+                SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
+                SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
+                connection.Close();
+            }
+            else
+            {
+                connection.Open();
                 String GNewProject16 = "INSERT INTO DetailsReq VALUES('" + areadeespecializacao.SelectedItem + "', '" + nivelaceitavel.SelectedItem + "' , '" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
                 SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
+                connection.Close();
+            }
+                
 
                 MessageBox.Show("Criteria successfully assigned ", "Criteria Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
+            //}
 
-            connection.Close();
+            //connection.Close();
 
         }
     }

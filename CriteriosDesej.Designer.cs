@@ -54,7 +54,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(281, 86);
+            this.label1.Location = new System.Drawing.Point(273, 163);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(229, 29);
@@ -82,7 +82,7 @@
             this.autonomia.Name = "autonomia";
             this.autonomia.Size = new System.Drawing.Size(545, 26);
             this.autonomia.TabIndex = 11;
-            this.autonomia.Text = "Sim";
+            this.autonomia.Text = "Coloque o nivel aceitável... (sim ou não)";
             this.autonomia.SelectedIndexChanged += new System.EventHandler(this.comboparceiros_SelectedIndexChanged_1);
             // 
             // labelcomunicacaoling
