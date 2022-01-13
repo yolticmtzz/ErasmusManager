@@ -21,16 +21,11 @@ namespace EramusManager
 
         String projectId = null;
 
-
         private void NovoProjeto_Load(object sender, EventArgs e)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
-
-            connection.Open();
-            
-            connection.Close();
 
             //Mostrar Parceiros
             connection.Open();
@@ -49,7 +44,7 @@ namespace EramusManager
             estadolabel.Visible = false;
 
             test.Text = Properties.Settings.Default.UserID;
-
+            connection.Close();
         }
 
         private void criarprojetobtt_Click(object sender, EventArgs e)
@@ -57,7 +52,6 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
-
 
             if (nomedoprojeto.Text == "")
             {
@@ -71,13 +65,31 @@ namespace EramusManager
                 String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , '" + estadolabel.Text + "', '" + Properties.Settings.Default.UserID + "' , '" + comboparceiros.Text + "')";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
+                connection.Close();
+  
+                connection.Open();
+                String GetProjectID = "SELECT projectId FROM Projects where projectName='" + nomedoprojeto.Text + "' ";
+                SqlCommand cmd = new SqlCommand(GetProjectID, connection);
+                SqlDataReader re = cmd.ExecuteReader();
 
+                while (re.Read())
+                {
+                    Properties.Settings.Default.projectId = re["projectId"].ToString();
+                }
+
+                boxDebugPID.Text = Properties.Settings.Default.projectId;
                 connection.Close();
 
                 nomedoprojeto.Text = "";
 
                 MessageBox.Show("Project has been successfully created", "New Project Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Form CriteriosDesej = new CriteriosDesej();
+                CriteriosDesej.Closed += (s, args) => this.Close();
+                CriteriosDesej.Show();
             }
+
+            
 
         }
 
@@ -109,6 +121,11 @@ namespace EramusManager
                 panel1.Visible = true;
                 estadolabel.Visible = true;
             }
+        }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

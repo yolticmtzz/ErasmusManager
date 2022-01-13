@@ -150,8 +150,6 @@ namespace EramusManager
                 MessageBox.Show("Project has been successfully edited", "Edit Project Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-
-
         }
 
         private void comboNomeProjeto_SelectedIndexChanged(object sender, EventArgs e)

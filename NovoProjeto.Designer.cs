@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.estadolabel = new System.Windows.Forms.Label();
             this.test = new System.Windows.Forms.Label();
+            this.boxDebugPID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -165,12 +166,26 @@
             this.test.Size = new System.Drawing.Size(35, 13);
             this.test.TabIndex = 15;
             this.test.Text = "label5";
+            this.test.Click += new System.EventHandler(this.test_Click);
+            // 
+            // boxDebugPID
+            // 
+            this.boxDebugPID.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.boxDebugPID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.boxDebugPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxDebugPID.Location = new System.Drawing.Point(286, 398);
+            this.boxDebugPID.Multiline = true;
+            this.boxDebugPID.Name = "boxDebugPID";
+            this.boxDebugPID.ReadOnly = true;
+            this.boxDebugPID.Size = new System.Drawing.Size(276, 31);
+            this.boxDebugPID.TabIndex = 16;
             // 
             // NovoProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 441);
+            this.Controls.Add(this.boxDebugPID);
             this.Controls.Add(this.test);
             this.Controls.Add(this.estadolabel);
             this.Controls.Add(this.panel1);
@@ -205,5 +220,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label estadolabel;
         private System.Windows.Forms.Label test;
+        private System.Windows.Forms.TextBox boxDebugPID;
     }
 }

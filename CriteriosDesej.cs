@@ -33,10 +33,43 @@ namespace EramusManager
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelcomunicacaoling_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labellingua2parte_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CriteriosDesej_Load(object sender, EventArgs e)
+        {
+
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            connection.Open();
 
+            debugPID.Text = Properties.Settings.Default.projectId;
 
             autonomia.Items.Add("Sim");
             autonomia.Items.Add("Não");
@@ -79,13 +112,15 @@ namespace EramusManager
             {
                 areadeespecializacao.Items.Add(areas[i]);
             }
+            connection.Close();
 
             connection.Open();
             String mp = "SELECT COUNT(1) FROM Requirements WHERE projectId = ('" + Properties.Settings.Default.projectId + "' )";
             SqlCommand MPcommand = new SqlCommand(mp, connection);
             SqlDataReader MPreader = MPcommand.ExecuteReader();
-            
-            if (MPreader.HasRows) {
+
+            if (MPreader.HasRows)
+            {
                 edit = true;
             }
             else
@@ -94,36 +129,6 @@ namespace EramusManager
             }
 
             connection.Close();
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelcomunicacaoling_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labellingua2parte_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CriteriosDesej_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -169,9 +174,10 @@ namespace EramusManager
                 String GNewProject8 = "UPDATE Requirements SET autonomyReq = ('" + autonomy + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
                 SqlCommand GNewProjectcommand8 = new SqlCommand(GNewProject8, connection);
                 SqlDataReader GNewProjectreader8 = GNewProjectcommand8.ExecuteReader();
+                connection.Close();
 
-
-                String mp1 = "Select * DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                connection.Open();
+                String mp1 = "Select * FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
                 SqlCommand MPcommand1 = new SqlCommand(mp1, connection);
                 SqlDataReader MPreader1 = MPcommand1.ExecuteReader();
 
@@ -179,31 +185,31 @@ namespace EramusManager
                 {
                     if (MPreader1.GetString(1) == "ingles")
                     {
-                        String GNewProject5 = "UPDATE DetailsReq SET evaluationReq = ('" + linguas.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                        String GNewProject5 = "UPDATE DetailsReq SET fieldEvaluation = ('" + linguas.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
                         SqlCommand GNewProjectcommand5 = new SqlCommand(GNewProject5, connection);
                         SqlDataReader GNewProjectreader5 = GNewProjectcommand5.ExecuteReader();
                     }
                     else if (MPreader1.GetString(1) == "espanhol")
                     {
-                        String GNewProject6 = "UPDATE DetailsReq SET evaluationReq = ('" + nivelaceitavellingua.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                        String GNewProject6 = "UPDATE DetailsReq SET fieldEvaluation = ('" + nivelaceitavellingua.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
                         SqlCommand GNewProjectcommand6 = new SqlCommand(GNewProject6, connection);
                         SqlDataReader GNewProjectreader6 = GNewProjectcommand6.ExecuteReader();
                     }
                     else if (MPreader1.GetString(1) == "frances")
                     {
-                        String GNewProject2 = "UPDATE DetailsReq SET evaluationReq = ('" + comboBox1.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                        String GNewProject2 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox1.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
                         SqlCommand GNewProjectcommand2 = new SqlCommand(GNewProject2, connection);
                         SqlDataReader GNewProjectreader1 = GNewProjectcommand2.ExecuteReader();
                     }
                     else if (MPreader1.GetString(1) == "italiano")
                     {
-                        String GNewProject3 = "UPDATE DetailsReq SET evaluationReq = ('" + comboBox2.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                        String GNewProject3 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox2.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
                         SqlCommand GNewProjectcommand3 = new SqlCommand(GNewProject3, connection);
                         SqlDataReader GNewProjectreader1 = GNewProjectcommand3.ExecuteReader();
                     }
                     else if (MPreader1.GetString(1) == "alemao")
                     {
-                        String GNewProject4 = "UPDATE DetailsReq SET evaluationReq = ('" + comboBox3.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
+                        String GNewProject4 = "UPDATE DetailsReq SET fieldEvaluation = ('" + comboBox3.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') ";
                         SqlCommand GNewProjectcommand4 = new SqlCommand(GNewProject4, connection);
                         SqlDataReader GNewProjectreader4 = GNewProjectcommand4.ExecuteReader();
                     }
@@ -246,12 +252,13 @@ namespace EramusManager
                 String GNewProject16 = "INSERT INTO DetailsReq VALUES('" + areadeespecializacao.SelectedItem + "', '" + nivelaceitavel.SelectedItem + "' , '" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
                 SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
+
+                MessageBox.Show("Criteria successfully assigned ", "Criteria Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
 
-                connection.Close();
+            connection.Close();
 
-
-            
         }
     }
 }
