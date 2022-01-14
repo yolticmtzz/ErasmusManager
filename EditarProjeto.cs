@@ -149,6 +149,9 @@ namespace EramusManager
 
                 MessageBox.Show("Project has been successfully edited", "Edit Project Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                Form CriteriosDesejEdit = new CriteriosDesejEdit();
+                CriteriosDesejEdit.Closed += (s, args) => this.Close();
+                CriteriosDesejEdit.Show();
             }
         }
 
