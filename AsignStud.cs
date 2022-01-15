@@ -124,6 +124,9 @@ namespace EramusManager
             studentName.Text = "";
 
             MessageBox.Show("Student has been successfully assigned", "Assign Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Form SelecaoDeEstudantes = new SelecaoDeEstudantes();
+            SelecaoDeEstudantes.Closed += (s, args) => this.Close();
+            SelecaoDeEstudantes.Show();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
