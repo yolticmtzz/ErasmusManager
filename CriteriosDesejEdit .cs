@@ -69,7 +69,7 @@ namespace EramusManager
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
             connection.Open();
 
-            debugPID.Text = Properties.Settings.Default.projectId;
+            debugPID2.Text = Properties.Settings.Default.projectId;
 
             autonomia.Items.Add("Sim");
             autonomia.Items.Add("Não");

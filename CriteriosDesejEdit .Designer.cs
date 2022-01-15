@@ -46,7 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.debugPID = new System.Windows.Forms.Label();
+            this.debugPID2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +54,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(285, 21);
+            this.label1.Location = new System.Drawing.Point(267, 175);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(229, 29);
@@ -259,14 +259,14 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // debugPID
+            // debugPID2
             // 
-            this.debugPID.AutoSize = true;
-            this.debugPID.Location = new System.Drawing.Point(26, 415);
-            this.debugPID.Name = "debugPID";
-            this.debugPID.Size = new System.Drawing.Size(35, 13);
-            this.debugPID.TabIndex = 31;
-            this.debugPID.Text = "label5";
+            this.debugPID2.AutoSize = true;
+            this.debugPID2.Location = new System.Drawing.Point(12, 132);
+            this.debugPID2.Name = "debugPID2";
+            this.debugPID2.Size = new System.Drawing.Size(35, 13);
+            this.debugPID2.TabIndex = 31;
+            this.debugPID2.Text = "label5";
             // 
             // CriteriosDesejEdit
             // 
@@ -274,7 +274,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(834, 450);
-            this.Controls.Add(this.debugPID);
+            this.Controls.Add(this.debugPID2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox3);
@@ -321,6 +321,6 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox autonomia;
-        private System.Windows.Forms.Label debugPID;
+        private System.Windows.Forms.Label debugPID2;
     }
 }

@@ -45,6 +45,7 @@
             this.finishedtext = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.finishcheck = new System.Windows.Forms.CheckBox();
+            this.boxDebugPID = new System.Windows.Forms.TextBox();
             this.panelstatus.SuspendLayout();
             this.finishedpanel.SuspendLayout();
             this.SuspendLayout();
@@ -228,11 +229,24 @@
             this.finishcheck.TabIndex = 29;
             this.finishcheck.UseVisualStyleBackColor = true;
             // 
+            // boxDebugPID
+            // 
+            this.boxDebugPID.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.boxDebugPID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.boxDebugPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxDebugPID.Location = new System.Drawing.Point(22, 344);
+            this.boxDebugPID.Multiline = true;
+            this.boxDebugPID.Name = "boxDebugPID";
+            this.boxDebugPID.ReadOnly = true;
+            this.boxDebugPID.Size = new System.Drawing.Size(276, 31);
+            this.boxDebugPID.TabIndex = 30;
+            // 
             // EditarProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 441);
+            this.Controls.Add(this.boxDebugPID);
             this.Controls.Add(this.finishedpanel);
             this.Controls.Add(this.finishcheck);
             this.Controls.Add(this.label4);
@@ -278,5 +292,6 @@
         private System.Windows.Forms.Label finishedtext;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox finishcheck;
+        private System.Windows.Forms.TextBox boxDebugPID;
     }
 }

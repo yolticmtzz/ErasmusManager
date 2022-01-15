@@ -139,6 +139,20 @@ namespace EramusManager
                     SqlCommand GNewProjectcommand = new SqlCommand(GNewProject, connection);
                     SqlDataReader GNewProjectreader = GNewProjectcommand.ExecuteReader();
                     connection.Close();
+
+                    connection.Open();
+                    String GetProjectID = "SELECT projectId FROM Projects where projectName='" + comboNomeProjeto.Text + "' ";
+                    SqlCommand cmd = new SqlCommand(GetProjectID, connection);
+                    SqlDataReader re = cmd.ExecuteReader();
+
+                    while (re.Read())
+                    {
+                        Properties.Settings.Default.projectId = re["projectId"].ToString();
+                    }
+
+                    boxDebugPID.Text = Properties.Settings.Default.projectId;
+                    connection.Close();
+
                 }
 
 
