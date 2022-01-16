@@ -16,6 +16,7 @@ namespace EramusManager
         public SelecaoDeEstudantes()
         {
             InitializeComponent();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -30,7 +31,36 @@ namespace EramusManager
 
         private void SelecaoDeEstudantes_Load(object sender, EventArgs e)
         {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
+
+            connection.Open();
+            String mp = "SELECT studentName FROM Students WHERE studentId = 12";
+            SqlCommand MPcommand = new SqlCommand(mp, connection);
+            SqlDataReader MPreader = MPcommand.ExecuteReader();
+
+
+            while (MPreader.Read())
+            {
+                labelnomedoaluno.Text = MPreader.GetString(0);
+            }
+
+            connection.Close();
+
+            connection.Open();
+            String mp1 = "SELECT studyFieldReq FROM DetailsReq WHERE detailsId = (SELECT max(detailsId) FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "')) ";
+            SqlCommand MPcommand1 = new SqlCommand(mp1, connection);
+            SqlDataReader MPreader1 = MPcommand1.ExecuteReader();
+
+
+            while (MPreader1.Read())
+            {
+                labelperguntaareastring.Text = "O estudante tem experiência na área de " + MPreader1.GetString(0) + "?";
+            }
+
+            connection.Close();
         }
 
         private void niveldefluente_Scroll(object sender, EventArgs e)
@@ -80,21 +110,7 @@ namespace EramusManager
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
 
-            connection.Open();
-            String mp = "SELECT COUNT(1) FROM Requirements WHERE projectId = ('" + Properties.Settings.Default.projectId + "' )";
-            SqlCommand MPcommand = new SqlCommand(mp, connection);
-            SqlDataReader MPreader = MPcommand.ExecuteReader();
-
-            /*if (MPreader.HasRows)
-            {
-                edit = true;
-            }
-            else
-            {
-                edit = false;
-            }*/
-
-            connection.Close();
+            
         }
 
         private void radioButtonSIM_CheckedChanged(object sender, EventArgs e)
@@ -123,6 +139,11 @@ namespace EramusManager
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
         {
 
         }

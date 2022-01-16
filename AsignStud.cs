@@ -92,6 +92,7 @@ namespace EramusManager
             while (debugreader.Read())
             {
                 debugPID.Text = debugreader["projectId"].ToString();
+                Properties.Settings.Default.projectId = debugreader["projectId"].ToString();
             }
 
             Object selectedItem = comboProjectName.SelectedItem;
