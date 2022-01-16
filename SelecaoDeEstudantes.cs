@@ -101,5 +101,30 @@ namespace EramusManager
         {
 
         }
+
+        private void radioButtonNAO_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonINGLES_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

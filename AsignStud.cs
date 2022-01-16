@@ -81,6 +81,7 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            
 
             //DEBUG PROJECT ID 
             connection.Open();
@@ -103,6 +104,8 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            int studentId = 0;
+            int countRows = 0;
 
             if (comboProjectName.Text == "" && comboStudentName.Text == "")
             {
@@ -116,6 +119,66 @@ namespace EramusManager
                 SqlCommand GNewProjectcommand = new SqlCommand(GNewProject, connection);
                 SqlDataReader GNewProjectreader = GNewProjectcommand.ExecuteReader();
                 connection.Close();
+            }
+
+            
+
+            connection.Open();
+            String GNewProject2 = "SELECT studentId FROM Students WHERE projectId = ('" + debugPID.Text + "') AND studentName = ('"+ comboStudentName.Text +"')";
+            SqlCommand GNewProjectcommand2 = new SqlCommand(GNewProject2, connection);
+            SqlDataReader GNewProjectreader2 = GNewProjectcommand2.ExecuteReader();
+            
+            while (GNewProjectreader2.Read())
+            {
+                studentId = GNewProjectreader2.GetInt32(0);
+            }
+            connection.Close();
+
+            connection.Open();
+            String GNewProject1 = "SELECT COUNT(languageId) FROM Languages WHERE studentId = ('" + studentId + "') ";
+            SqlCommand GNewProjectcommand1 = new SqlCommand(GNewProject1, connection);
+            SqlDataReader GNewProjectreader1 = GNewProjectcommand1.ExecuteReader();
+
+            while (GNewProjectreader1.Read())
+            {
+                countRows = GNewProjectreader1.GetInt32(0);
+            }
+
+            connection.Close();
+
+            if(countRows == 0)
+            {
+                connection.Open();
+                String GNewProject11 = "INSERT INTO Languages VALUES('ingles', '" + 0 + "', '" + studentId + "' )  ";
+                SqlCommand GNewProjectcommand11 = new SqlCommand(GNewProject11, connection);
+                SqlDataReader GNewProjectreader11 = GNewProjectcommand11.ExecuteReader();
+                connection.Close();
+
+                connection.Open();
+                String GNewProject21 = "INSERT INTO Languages VALUES('espanhol', '" + 0 + "', '" + studentId + "' )  ";
+                SqlCommand GNewProjectcommand21 = new SqlCommand(GNewProject21, connection);
+                SqlDataReader GNewProjectreader21 = GNewProjectcommand21.ExecuteReader();
+                connection.Close();
+
+                connection.Open();
+                String GNewProject31 = "INSERT INTO Languages VALUES('frances', '" + 0 + "', '" + studentId + "' )  ";
+                SqlCommand GNewProjectcommand31 = new SqlCommand(GNewProject31, connection);
+                SqlDataReader GNewProjectreader31 = GNewProjectcommand31.ExecuteReader();
+                connection.Close();
+
+                connection.Open();
+                String GNewProject41 = "INSERT INTO Languages VALUES('italiano', '" + 0 + "', '" + studentId + "' )  ";
+                SqlCommand GNewProjectcommand41 = new SqlCommand(GNewProject41, connection);
+                SqlDataReader GNewProjectreader41 = GNewProjectcommand41.ExecuteReader();
+                connection.Close();
+
+                connection.Open();
+                String GNewProject51 = "INSERT INTO Languages VALUES('alemao', '" + 0 + "', '" + studentId + "' )  ";
+                SqlCommand GNewProjectcommand51 = new SqlCommand(GNewProject51, connection);
+                SqlDataReader GNewProjectreader51 = GNewProjectcommand51.ExecuteReader();
+                connection.Close();
+
+
             }
 
             comboStudentName.Text = "";
