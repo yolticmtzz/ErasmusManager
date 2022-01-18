@@ -41,6 +41,7 @@ namespace EramusManager
             this.criarprojetobtt = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.debugPID = new System.Windows.Forms.TextBox();
+            this.boxDebugSID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -168,11 +169,24 @@ namespace EramusManager
             this.debugPID.TabIndex = 37;
             this.debugPID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // boxDebugSID
+            // 
+            this.boxDebugSID.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.boxDebugSID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.boxDebugSID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boxDebugSID.Location = new System.Drawing.Point(304, 331);
+            this.boxDebugSID.Multiline = true;
+            this.boxDebugSID.Name = "boxDebugSID";
+            this.boxDebugSID.ReadOnly = true;
+            this.boxDebugSID.Size = new System.Drawing.Size(276, 31);
+            this.boxDebugSID.TabIndex = 38;
+            // 
             // AsignStud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 441);
+            this.Controls.Add(this.boxDebugSID);
             this.Controls.Add(this.debugPID);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.criarprojetobtt);
@@ -206,5 +220,6 @@ namespace EramusManager
         private System.Windows.Forms.Button criarprojetobtt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox debugPID;
+        private System.Windows.Forms.TextBox boxDebugSID;
     }
 }

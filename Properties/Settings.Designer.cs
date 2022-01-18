@@ -79,5 +79,17 @@ namespace EramusManager.Properties {
                 this["projectId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string studentId {
+            get {
+                return ((string)(this["studentId"]));
+            }
+            set {
+                this["studentId"] = value;
+            }
+        }
     }
 }

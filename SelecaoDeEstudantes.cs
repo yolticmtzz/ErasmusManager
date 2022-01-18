@@ -23,6 +23,8 @@ namespace EramusManager
 
         }
 
+        String studentId = null;
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -38,6 +40,8 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            DebugStudentId.Text = Properties.Settings.Default.studentId;
 
 
             connection.Open();

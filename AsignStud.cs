@@ -18,6 +18,8 @@ namespace EramusManager
             InitializeComponent();
         }
 
+        String studentId = null;
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -181,6 +183,19 @@ namespace EramusManager
 
 
             }
+
+            connection.Open();
+            String GetStudentID = "SELECT studentId FROM Students where studentName='" + comboStudentName.Text + "' ";
+            SqlCommand cmd = new SqlCommand(GetStudentID, connection);
+            SqlDataReader re = cmd.ExecuteReader();
+
+            while (re.Read())
+            {
+                Properties.Settings.Default.studentId = re["studentId"].ToString();
+
+            }
+
+            boxDebugSID.Text = Properties.Settings.Default.studentId;
 
             comboStudentName.Text = "";
             comboProjectName.Text = "";
