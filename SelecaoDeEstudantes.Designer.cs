@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelecaoDeEstudantes));
             this.label1 = new System.Windows.Forms.Label();
             this.radioButtonSIM = new System.Windows.Forms.RadioButton();
             this.radioButtonNAO = new System.Windows.Forms.RadioButton();
@@ -501,6 +502,7 @@
             this.Controls.Add(this.labelrealizarprojeto);
             this.Controls.Add(this.labelperguntaareastring);
             this.Controls.Add(this.label2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SelecaoDeEstudantes";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.SelecaoDeEstudantes_Load);

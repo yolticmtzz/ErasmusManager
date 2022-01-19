@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CriteriosDesejEdit));
             this.label1 = new System.Windows.Forms.Label();
             this.labelautonomia = new System.Windows.Forms.Label();
             this.autonomia = new System.Windows.Forms.ComboBox();
@@ -52,7 +53,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(251, -3);
+            this.label1.Location = new System.Drawing.Point(242, 62);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(229, 29);
@@ -277,6 +278,7 @@
             this.Controls.Add(this.autonomia);
             this.Controls.Add(this.labelautonomia);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CriteriosDesejEdit";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.CriteriosDesej_Load);
