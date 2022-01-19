@@ -14,6 +14,8 @@ namespace EramusManager
     public partial class CriteriosDesej : Form
     {
         //Boolean edit = false;
+        int count = 0;
+        List<string> linguasList = new List<string>();
         public CriteriosDesej()
         {
             InitializeComponent();
@@ -38,12 +40,36 @@ namespace EramusManager
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (linguas.SelectedIndex != -1)
+            {
+                count += 1;
+                if (count == 1)
+                {
+                    labellingua2parte.Text = "" + linguas.SelectedItem + "";
+                    labellingua2parte.Visible = true;
+                    nivelaceitavellingua.Visible = true;
+                    linguasList.Add("" + linguas.SelectedItem + "");
+                }
+                else if (count == 2)
+                {
+                    label2.Text = "" + linguas.SelectedItem + "";
+                    label2.Visible = true;
+                    comboBox1.Visible = true;
+                    linguasList.Add("" + linguas.SelectedItem + "");
+                }
+                else if (count == 3)
+                {
+                    label3.Text = "" + linguas.SelectedItem + "";
+                    label3.Visible = true;
+                    comboBox2.Visible = true;
+                    linguasList.Add("" + linguas.SelectedItem + "");
+                }
+            }
         }
 
         private void labelcomunicacaoling_Click(object sender, EventArgs e)
@@ -75,10 +101,9 @@ namespace EramusManager
 
             for (int i = 0; i < 11; i++)
             {
-                linguas.Items.Add(i);
                 comboBox1.Items.Add(i);
                 comboBox2.Items.Add(i);
-                comboBox3.Items.Add(i);
+                //comboBox3.Items.Add(i);
                 nivelaceitavel.Items.Add(i);
                 nivelaceitavellingua.Items.Add(i);
             }
@@ -237,96 +262,131 @@ namespace EramusManager
                 SqlDataReader GNewProjectreader10 = GNewProjectcommand10.ExecuteReader();
                 connection.Close();
 
-            if(linguas.SelectedIndex == -1)
-            {
-                connection.Open();
-                String GNewProject11 = "INSERT INTO DetailsReq VALUES('ingles', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand11 = new SqlCommand(GNewProject11, connection);
-                SqlDataReader GNewProjectreader11 = GNewProjectcommand11.ExecuteReader();
-                connection.Close();
-            } else
-            {
-                connection.Open();
-                String GNewProject11 = "INSERT INTO DetailsReq VALUES('ingles', '" + linguas.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand11 = new SqlCommand(GNewProject11, connection);
-                SqlDataReader GNewProjectreader11 = GNewProjectcommand11.ExecuteReader();
-                connection.Close();
-            }
+            
                 
 
             if (nivelaceitavellingua.SelectedIndex == -1)
             {
-                connection.Open();
-                String GNewProject12 = "INSERT INTO DetailsReq VALUES('espanhol', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
-                SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
-                connection.Close();
+                if(linguasList.Count >= 1)
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('" + linguasList[0] + "', '" + 0 + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
             }
             else
             {
-                connection.Open();
-                String GNewProject12 = "INSERT INTO DetailsReq VALUES('espanhol', '" + nivelaceitavellingua.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
-                SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
-                connection.Close();
+                if (linguasList.Count >= 1)
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('" + linguasList[0] + "', '" + nivelaceitavellingua.SelectedItem + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
             }
                 
 
             if (comboBox1.SelectedIndex == -1)
             {
-                connection.Open();
-                String GNewProject13 = "INSERT INTO DetailsReq VALUES('frances', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
-                SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
-                connection.Close();
+                if (linguasList.Count >= 2)
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('" + linguasList[1] + "', '" + 0 + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                }
             }
             else
             {
-                connection.Open();
-                String GNewProject13 = "INSERT INTO DetailsReq VALUES('frances', '" + comboBox1.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
-                SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
-                connection.Close();
+                if (linguasList.Count >= 2)
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('" + linguasList[1] + "', '" + comboBox1.SelectedItem + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                } else
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('SM', '" + comboBox1.SelectedItem + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                }
             }
                 
             if (comboBox2.SelectedIndex == -1)
             {
-                connection.Open();
-                String GNewProject14 = "INSERT INTO DetailsReq VALUES('italiano', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
-                SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
-                connection.Close();
+                if (linguasList.Count == 3)
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('" + linguasList[2] + "', '" + 0 + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                } else
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                }
             }
             else
             {
-                connection.Open();
-                String GNewProject14 = "INSERT INTO DetailsReq VALUES('italiano', '" + comboBox2.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
-                SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
-                connection.Close();
+                if (linguasList.Count == 3)
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('" + linguasList[2] + "', '" + comboBox2.SelectedItem + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('SM', '" + comboBox2.SelectedItem + "', 'LN','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                }
             }
                 
-            if (comboBox3.SelectedIndex == -1)
-            {
-                connection.Open();
-                String GNewProject15 = "INSERT INTO DetailsReq VALUES('alemao', '" + 0 + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand15 = new SqlCommand(GNewProject15, connection);
-                SqlDataReader GNewProjectreader15 = GNewProjectcommand15.ExecuteReader();
-                connection.Close();
-            }
-            else
-            {
-                connection.Open();
-                String GNewProject15 = "INSERT INTO DetailsReq VALUES('alemao', '" + comboBox3.SelectedItem + "', '" + Properties.Settings.Default.projectId + "' )  ";
-                SqlCommand GNewProjectcommand15 = new SqlCommand(GNewProject15, connection);
-                SqlDataReader GNewProjectreader15 = GNewProjectcommand15.ExecuteReader();
-                connection.Close();
-            }
+            
                 
             if (areadeespecializacao.SelectedIndex == -1 || nivelaceitavel.SelectedIndex == -1)
             {
                 connection.Open();
-                String GNewProject16 = "INSERT INTO DetailsReq VALUES('Sem área de especialização', '" + 0 + "' , '" + Properties.Settings.Default.projectId + "' )  ";
+                String GNewProject16 = "INSERT INTO DetailsReq VALUES('SA', '" + 0 + "' , 'AS','" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
                 SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
                 connection.Close();
@@ -334,7 +394,7 @@ namespace EramusManager
             else
             {
                 connection.Open();
-                String GNewProject16 = "INSERT INTO DetailsReq VALUES('" + areadeespecializacao.SelectedItem + "', '" + nivelaceitavel.SelectedItem + "' , '" + Properties.Settings.Default.projectId + "' )  ";
+                String GNewProject16 = "INSERT INTO DetailsReq VALUES('" + areadeespecializacao.SelectedItem + "', '" + nivelaceitavel.SelectedItem + "' , 'AS','" + Properties.Settings.Default.projectId + "' )  ";
                 SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
                 SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
                 connection.Close();

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelnomedoaluno = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.radioButtonSIM = new System.Windows.Forms.RadioButton();
             this.radioButtonNAO = new System.Windows.Forms.RadioButton();
@@ -60,40 +59,16 @@
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
-            this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
-            this.radioButton16 = new System.Windows.Forms.RadioButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.radioButton17 = new System.Windows.Forms.RadioButton();
-            this.radioButton18 = new System.Windows.Forms.RadioButton();
-            this.radioButton19 = new System.Windows.Forms.RadioButton();
-            this.radioButton20 = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
             this.DebugStudentId = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelnomedoaluno
-            // 
-            this.labelnomedoaluno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelnomedoaluno.AutoSize = true;
-            this.labelnomedoaluno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelnomedoaluno.Location = new System.Drawing.Point(297, 347);
-            this.labelnomedoaluno.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelnomedoaluno.Name = "labelnomedoaluno";
-            this.labelnomedoaluno.Size = new System.Drawing.Size(178, 29);
-            this.labelnomedoaluno.TabIndex = 6;
-            this.labelnomedoaluno.Text = "Nome do aluno";
             // 
             // label1
             // 
@@ -139,9 +114,10 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.label2.Location = new System.Drawing.Point(142, 375);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(490, 44);
+            this.label2.Size = new System.Drawing.Size(344, 22);
             this.label2.TabIndex = 10;
-            this.label2.Text = "O estudante tem conhecimento médio ou avançado de entre\nas seguintes línguas?";
+            this.label2.Text = "O estudante tem conhecimento de (string)";
+            this.label2.Visible = false;
             // 
             // labelperguntaareastring
             // 
@@ -219,7 +195,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(132, 1231);
+            this.button1.Location = new System.Drawing.Point(131, 832);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(500, 40);
             this.button1.TabIndex = 28;
@@ -263,11 +239,12 @@
             this.groupBox4.Controls.Add(this.radioButton3);
             this.groupBox4.Controls.Add(this.radioButton1);
             this.groupBox4.Controls.Add(this.radioButton2);
-            this.groupBox4.Location = new System.Drawing.Point(146, 422);
+            this.groupBox4.Location = new System.Drawing.Point(144, 400);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(474, 120);
             this.groupBox4.TabIndex = 32;
             this.groupBox4.TabStop = false;
+            this.groupBox4.Visible = false;
             // 
             // radioButton4
             // 
@@ -327,11 +304,12 @@
             this.groupBox5.Controls.Add(this.radioButton6);
             this.groupBox5.Controls.Add(this.radioButton7);
             this.groupBox5.Controls.Add(this.radioButton8);
-            this.groupBox5.Location = new System.Drawing.Point(146, 595);
+            this.groupBox5.Location = new System.Drawing.Point(144, 548);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(474, 120);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
+            this.groupBox5.Visible = false;
             // 
             // radioButton5
             // 
@@ -389,11 +367,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label4.Location = new System.Drawing.Point(142, 548);
+            this.label4.Location = new System.Drawing.Point(142, 523);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(490, 44);
+            this.label4.Size = new System.Drawing.Size(344, 22);
             this.label4.TabIndex = 38;
-            this.label4.Text = "O estudante tem conhecimento médio ou avançado de entre\nas seguintes línguas?";
+            this.label4.Text = "O estudante tem conhecimento de (string)";
+            this.label4.Visible = false;
             // 
             // groupBox6
             // 
@@ -401,11 +380,12 @@
             this.groupBox6.Controls.Add(this.radioButton10);
             this.groupBox6.Controls.Add(this.radioButton11);
             this.groupBox6.Controls.Add(this.radioButton12);
-            this.groupBox6.Location = new System.Drawing.Point(144, 763);
+            this.groupBox6.Location = new System.Drawing.Point(144, 696);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(474, 120);
             this.groupBox6.TabIndex = 41;
             this.groupBox6.TabStop = false;
+            this.groupBox6.Visible = false;
             // 
             // radioButton9
             // 
@@ -463,159 +443,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label5.Location = new System.Drawing.Point(140, 716);
+            this.label5.Location = new System.Drawing.Point(140, 671);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(490, 44);
+            this.label5.Size = new System.Drawing.Size(344, 22);
             this.label5.TabIndex = 40;
-            this.label5.Text = "O estudante tem conhecimento médio ou avançado de entre\nas seguintes línguas?";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.radioButton13);
-            this.groupBox7.Controls.Add(this.radioButton14);
-            this.groupBox7.Controls.Add(this.radioButton15);
-            this.groupBox7.Controls.Add(this.radioButton16);
-            this.groupBox7.Location = new System.Drawing.Point(146, 933);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(474, 120);
-            this.groupBox7.TabIndex = 43;
-            this.groupBox7.TabStop = false;
-            // 
-            // radioButton13
-            // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton13.Location = new System.Drawing.Point(6, 92);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(78, 22);
-            this.radioButton13.TabIndex = 27;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "Fluente.";
-            this.radioButton13.UseVisualStyleBackColor = true;
-            this.radioButton13.CheckedChanged += new System.EventHandler(this.radioButton13_CheckedChanged);
-            // 
-            // radioButton14
-            // 
-            this.radioButton14.AutoSize = true;
-            this.radioButton14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton14.Location = new System.Drawing.Point(6, 68);
-            this.radioButton14.Name = "radioButton14";
-            this.radioButton14.Size = new System.Drawing.Size(305, 22);
-            this.radioButton14.TabIndex = 26;
-            this.radioButton14.TabStop = true;
-            this.radioButton14.Text = "Fluente, mas com problemas no discurso.";
-            this.radioButton14.UseVisualStyleBackColor = true;
-            this.radioButton14.CheckedChanged += new System.EventHandler(this.radioButton14_CheckedChanged);
-            // 
-            // radioButton15
-            // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton15.Location = new System.Drawing.Point(6, 12);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(105, 22);
-            this.radioButton15.TabIndex = 24;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "Não fluente.";
-            this.radioButton15.UseVisualStyleBackColor = true;
-            this.radioButton15.CheckedChanged += new System.EventHandler(this.radioButton15_CheckedChanged);
-            // 
-            // radioButton16
-            // 
-            this.radioButton16.AutoSize = true;
-            this.radioButton16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton16.Location = new System.Drawing.Point(6, 40);
-            this.radioButton16.Name = "radioButton16";
-            this.radioButton16.Size = new System.Drawing.Size(291, 22);
-            this.radioButton16.TabIndex = 25;
-            this.radioButton16.TabStop = true;
-            this.radioButton16.Text = "Fluente, mas com problemas na escrita.";
-            this.radioButton16.UseVisualStyleBackColor = true;
-            this.radioButton16.CheckedChanged += new System.EventHandler(this.radioButton16_CheckedChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label6.Location = new System.Drawing.Point(142, 886);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(490, 44);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "O estudante tem conhecimento médio ou avançado de entre\nas seguintes línguas?";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.radioButton17);
-            this.groupBox8.Controls.Add(this.radioButton18);
-            this.groupBox8.Controls.Add(this.radioButton19);
-            this.groupBox8.Controls.Add(this.radioButton20);
-            this.groupBox8.Location = new System.Drawing.Point(146, 1096);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(474, 120);
-            this.groupBox8.TabIndex = 34;
-            this.groupBox8.TabStop = false;
-            // 
-            // radioButton17
-            // 
-            this.radioButton17.AutoSize = true;
-            this.radioButton17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton17.Location = new System.Drawing.Point(6, 92);
-            this.radioButton17.Name = "radioButton17";
-            this.radioButton17.Size = new System.Drawing.Size(78, 22);
-            this.radioButton17.TabIndex = 27;
-            this.radioButton17.TabStop = true;
-            this.radioButton17.Text = "Fluente.";
-            this.radioButton17.UseVisualStyleBackColor = true;
-            this.radioButton17.CheckedChanged += new System.EventHandler(this.radioButton17_CheckedChanged);
-            // 
-            // radioButton18
-            // 
-            this.radioButton18.AutoSize = true;
-            this.radioButton18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton18.Location = new System.Drawing.Point(6, 68);
-            this.radioButton18.Name = "radioButton18";
-            this.radioButton18.Size = new System.Drawing.Size(305, 22);
-            this.radioButton18.TabIndex = 26;
-            this.radioButton18.TabStop = true;
-            this.radioButton18.Text = "Fluente, mas com problemas no discurso.";
-            this.radioButton18.UseVisualStyleBackColor = true;
-            this.radioButton18.CheckedChanged += new System.EventHandler(this.radioButton18_CheckedChanged);
-            // 
-            // radioButton19
-            // 
-            this.radioButton19.AutoSize = true;
-            this.radioButton19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton19.Location = new System.Drawing.Point(6, 12);
-            this.radioButton19.Name = "radioButton19";
-            this.radioButton19.Size = new System.Drawing.Size(105, 22);
-            this.radioButton19.TabIndex = 24;
-            this.radioButton19.TabStop = true;
-            this.radioButton19.Text = "Não fluente.";
-            this.radioButton19.UseVisualStyleBackColor = true;
-            this.radioButton19.CheckedChanged += new System.EventHandler(this.radioButton19_CheckedChanged);
-            // 
-            // radioButton20
-            // 
-            this.radioButton20.AutoSize = true;
-            this.radioButton20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton20.Location = new System.Drawing.Point(6, 40);
-            this.radioButton20.Name = "radioButton20";
-            this.radioButton20.Size = new System.Drawing.Size(291, 22);
-            this.radioButton20.TabIndex = 25;
-            this.radioButton20.TabStop = true;
-            this.radioButton20.Text = "Fluente, mas com problemas na escrita.";
-            this.radioButton20.UseVisualStyleBackColor = true;
-            this.radioButton20.CheckedChanged += new System.EventHandler(this.radioButton20_CheckedChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label7.Location = new System.Drawing.Point(142, 1049);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(490, 44);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "O estudante tem conhecimento médio ou avançado de entre\nas seguintes línguas?";
+            this.label5.Text = "O estudante tem conhecimento de (string)";
+            this.label5.Visible = false;
             // 
             // DebugStudentId
             // 
@@ -626,17 +459,35 @@
             this.DebugStudentId.TabIndex = 44;
             this.DebugStudentId.Text = "label3";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "label3";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label8.Location = new System.Drawing.Point(383, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 22);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "label8";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
             // SelecaoDeEstudantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 647);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.DebugStudentId);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox5);
@@ -650,7 +501,6 @@
             this.Controls.Add(this.labelrealizarprojeto);
             this.Controls.Add(this.labelperguntaareastring);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelnomedoaluno);
             this.Name = "SelecaoDeEstudantes";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.SelecaoDeEstudantes_Load);
@@ -666,18 +516,12 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelnomedoaluno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioButtonSIM;
         private System.Windows.Forms.RadioButton radioButtonNAO;
@@ -709,18 +553,8 @@
         private System.Windows.Forms.RadioButton radioButton11;
         private System.Windows.Forms.RadioButton radioButton12;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.RadioButton radioButton13;
-        private System.Windows.Forms.RadioButton radioButton14;
-        private System.Windows.Forms.RadioButton radioButton15;
-        private System.Windows.Forms.RadioButton radioButton16;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.RadioButton radioButton17;
-        private System.Windows.Forms.RadioButton radioButton18;
-        private System.Windows.Forms.RadioButton radioButton19;
-        private System.Windows.Forms.RadioButton radioButton20;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label DebugStudentId;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
     }
 }

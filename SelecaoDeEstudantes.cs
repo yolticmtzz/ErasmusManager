@@ -14,8 +14,9 @@ namespace EramusManager
     public partial class SelecaoDeEstudantes : Form
     {
         Point ponto = new Point(142, 560);
-        int autonomy, en, es, fr, it, al, evalTec = 0;
+        int autonomy, l1, l2, l3, evalTec = 0;
         String field = "";
+        List<string> linguasList = new List<string>();
 
         public SelecaoDeEstudantes()
         {
@@ -45,20 +46,20 @@ namespace EramusManager
 
 
             connection.Open();
-            String mp = "SELECT studentName FROM Students WHERE studentId = 12";
+            String mp = "SELECT studentName FROM Students WHERE studentId = ('" + Properties.Settings.Default.studentId + "')";
             SqlCommand MPcommand = new SqlCommand(mp, connection);
             SqlDataReader MPreader = MPcommand.ExecuteReader();
 
 
             while (MPreader.Read())
             {
-                labelnomedoaluno.Text = MPreader.GetString(0);
+                label8.Text = MPreader.GetString(0);
             }
 
             connection.Close();
 
             connection.Open();
-            String mp1 = "SELECT studyFieldReq FROM DetailsReq WHERE detailsId = (SELECT max(detailsId) FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "')) ";
+            String mp1 = "SELECT studyFieldReq FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "') AND type = 'AS' ";
             SqlCommand MPcommand1 = new SqlCommand(mp1, connection);
             SqlDataReader MPreader1 = MPcommand1.ExecuteReader();
 
@@ -71,11 +72,38 @@ namespace EramusManager
 
             connection.Close();
 
-            label2.Text = "O estudante tem conhecimento de inglês, em que seguinte nivel? ";
-            label4.Text = "O estudante tem conhecimento de espanhol, em que seguinte nivel? ";
-            label5.Text = "O estudante tem conhecimento de francês, em que seguinte nivel? ";
-            label6.Text = "O estudante tem conhecimento de italiano, em que seguinte nivel? ";
-            label7.Text = "O estudante tem conhecimento de alemão, em que seguinte nivel? ";
+            connection.Open();
+            String GNewProject16 = "SELECT studyFieldReq FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "') AND type = 'LN' ";
+            SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
+            SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
+
+            while (GNewProjectreader16.Read())
+            {
+                linguasList.Add(GNewProjectreader16.GetString(0));
+            }
+
+            connection.Close();
+
+            if (linguasList[0] != "SM")
+            {
+                label2.Text = "O estudante tem conhecimento de " + linguasList[0] + ", em que seguinte nivel? ";
+                label2.Visible = true;
+                groupBox4.Visible = true;
+            }
+
+            if (linguasList[1] != "Sm")
+            {
+                label4.Text = "O estudante tem conhecimento de " + linguasList[1] + ", em que seguinte nivel? ";
+                label4.Visible = true;
+                groupBox5.Visible = true;
+            }
+            if (linguasList[2] != "SM")
+            {
+                label5.Text = "O estudante tem conhecimento de " + linguasList[2] + ", em que seguinte nivel? ";
+                label5.Visible = true;
+                groupBox6.Visible = true;
+            }
+
         }
 
         private void niveldefluente_Scroll(object sender, EventArgs e)
@@ -176,40 +204,30 @@ namespace EramusManager
             }
 
             connection.Open();
-            String mp = "Update Students SET autonomy = ('" + autonomy + "'), studyField = ('" + field +"'), fieldEvaluation = ('" + evalTec + "') WHERE studentId = 12";
+            String mp = "Update Students SET autonomy = ('" + autonomy + "'), studyField = ('" + field +"'), fieldEvaluation = ('" + evalTec + "') WHERE studentId = ('" + Properties.Settings.Default.studentId + "')";
             SqlCommand MPcommand = new SqlCommand(mp, connection);
             SqlDataReader MPreader = MPcommand.ExecuteReader();
             connection.Close();
 
             connection.Open();
-            String GNewProject3 = "UPDATE Languages SET evaluationLang = ('" + en + "' ) WHERE studentId = ('" + 12 + "') AND langName = 'ingles' ";
+            String GNewProject3 = "UPDATE Languages SET evaluationLang = ('" + l1 + "' ) WHERE studentId = ('" + Properties.Settings.Default.studentId + "') AND langName = ('" + linguasList[0] + "') ";
             SqlCommand GNewProjectcommand3 = new SqlCommand(GNewProject3, connection);
             SqlDataReader GNewProjectreader3 = GNewProjectcommand3.ExecuteReader();
             connection.Close();
 
             connection.Open();
-            String GNewProject4 = "UPDATE Languages SET evaluationLang = ('" + es + "' ) WHERE studentId = ('" + 12 + "') AND langName = 'espanhol' ";
+            String GNewProject4 = "UPDATE Languages SET evaluationLang = ('" + l2 + "' ) WHERE studentId = ('" + Properties.Settings.Default.studentId + "') AND langName = ('" + linguasList[1] + "') ";
             SqlCommand GNewProjectcommand4 = new SqlCommand(GNewProject4, connection);
             SqlDataReader GNewProjectreader4 = GNewProjectcommand4.ExecuteReader();
             connection.Close();
 
             connection.Open();
-            String GNewProject5 = "UPDATE Languages SET evaluationLang = ('" + fr + "' ) WHERE studentId = ('" + 12 + "') AND langName = 'frances' ";
+            String GNewProject5 = "UPDATE Languages SET evaluationLang = ('" + l3 + "' ) WHERE studentId = ('" + Properties.Settings.Default.studentId + "') AND langName = ('" + linguasList[2] + "') ";
             SqlCommand GNewProjectcommand5 = new SqlCommand(GNewProject5, connection);
             SqlDataReader GNewProjectreader5 = GNewProjectcommand5.ExecuteReader();
             connection.Close();
 
-            connection.Open();
-            String GNewProject6 = "UPDATE Languages SET evaluationLang = ('" + it + "' ) WHERE studentId = ('" + 12 + "') AND langName = 'italiano' ";
-            SqlCommand GNewProjectcommand6 = new SqlCommand(GNewProject6, connection);
-            SqlDataReader GNewProjectreader6 = GNewProjectcommand6.ExecuteReader();
-            connection.Close();
-
-            connection.Open();
-            String GNewProject7 = "UPDATE Languages SET evaluationLang = ('" + al + "' ) WHERE studentId = ('" + 12 + "') AND langName = 'alemao' ";
-            SqlCommand GNewProjectcommand7 = new SqlCommand(GNewProject7, connection);
-            SqlDataReader GNewProjectreader7 = GNewProjectcommand7.ExecuteReader();
-            connection.Close();
+            MessageBox.Show("Attributes successfully updated ", "Attributes Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void radioButtonSIM_CheckedChanged(object sender, EventArgs e)
@@ -446,7 +464,7 @@ namespace EramusManager
         {
             if (radioButton2.Checked == true)
             {
-                en = 3;
+                l1 = 3;
             }
             else
             {
@@ -458,7 +476,7 @@ namespace EramusManager
         {
             if (radioButton4.Checked == true)
             {
-                en = 10;
+                l1 = 10;
             }
             else
             {
@@ -470,7 +488,7 @@ namespace EramusManager
         {
             if (radioButton7.Checked == true)
             {
-                es = 0;
+                l2 = 0;
             }
             else
             {
@@ -482,7 +500,7 @@ namespace EramusManager
         {
             if (radioButton8.Checked == true)
             {
-                es = 3;
+                l2 = 3;
             }
             else
             {
@@ -494,7 +512,7 @@ namespace EramusManager
         {
             if (radioButton6.Checked == true)
             {
-                es = 6;
+                l2 = 6;
             }
             else
             {
@@ -506,7 +524,7 @@ namespace EramusManager
         {
             if (radioButton5.Checked == true)
             {
-                es = 10;
+                l2 = 10;
             }
             else
             {
@@ -518,7 +536,7 @@ namespace EramusManager
         {
             if (radioButton11.Checked == true)
             {
-                fr = 0;
+                l3 = 0;
             }
             else
             {
@@ -530,7 +548,7 @@ namespace EramusManager
         {
             if (radioButton12.Checked == true)
             {
-                fr = 3;
+                l3 = 3;
             }
             else
             {
@@ -542,7 +560,7 @@ namespace EramusManager
         {
             if (radioButton10.Checked == true)
             {
-                fr = 6;
+                l3 = 6;
             }
             else
             {
@@ -554,7 +572,7 @@ namespace EramusManager
         {
             if (radioButton9.Checked == true)
             {
-                fr = 10;
+                l3 = 10;
             }
             else
             {
@@ -562,100 +580,10 @@ namespace EramusManager
             }
         }
 
-        private void radioButton15_CheckedChanged(object sender, EventArgs e)
+     
+        private void label8_Click(object sender, EventArgs e)
         {
-            if (radioButton15.Checked == true)
-            {
-                it = 0;
-            }
-            else
-            {
 
-            }
-        }
-
-        private void radioButton16_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton16.Checked == true)
-            {
-                it = 3;
-            }
-            else
-            {
-
-            }
-        }
-
-        private void radioButton14_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton14.Checked == true)
-            {
-                it = 6;
-            }
-            else
-            {
-
-            }
-        }
-
-        private void radioButton13_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton13.Checked == true)
-            {
-                it = 10;
-            }
-            else
-            {
-
-            }
-        }
-
-        private void radioButton19_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton19.Checked == true)
-            {
-                al = 0;
-            }
-            else
-            {
-
-            }
-        }
-
-        private void radioButton20_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton20.Checked == true)
-            {
-                al = 3;
-            }
-            else
-            {
-
-            }
-        }
-
-        private void radioButton18_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton18.Checked == true)
-            {
-                al = 6;
-            }
-            else
-            {
-
-            }
-        }
-
-        private void radioButton17_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked == true)
-            {
-                al = 10;
-            }
-            else
-            {
-
-            }
         }
 
         private void label3_Click_1(object sender, EventArgs e)
@@ -761,7 +689,7 @@ namespace EramusManager
         {
             if (radioButton3.Checked == true)
             {
-                en = 6;
+                l1 = 6;
             }
             else
             {
@@ -773,7 +701,7 @@ namespace EramusManager
         {
             if (radioButton1.Checked == true)
             {
-                en = 0;
+                l1 = 0;
             }
             else
             {
