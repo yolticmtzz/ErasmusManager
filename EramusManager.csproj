@@ -252,6 +252,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Simulacao.Designer.cs">
+      <DependentUpon>Simulacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Simulacao.resx">
+      <DependentUpon>Simulacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewProject.resx">
       <DependentUpon>ViewProject.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,10 +371,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="emdb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="emdb_log.ldf">
-      <DependentUpon>emdb.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="students.xml" />

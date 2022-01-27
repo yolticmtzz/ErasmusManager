@@ -14,8 +14,10 @@ namespace EramusManager
     public partial class CriteriosDesej : Form
     {
         //Boolean edit = false;
-        int count = 0;
+        int count, countAs = 0;
         List<string> linguasList = new List<string>();
+        List<string> fieldsList = new List<string>();
+        
         public CriteriosDesej()
         {
             InitializeComponent();
@@ -69,6 +71,10 @@ namespace EramusManager
                     comboBox2.Visible = true;
                     linguasList.Add("" + linguas.SelectedItem + "");
                 }
+                else
+                {
+                    countAs = 0;
+                }
             }
         }
 
@@ -96,8 +102,7 @@ namespace EramusManager
             connection.Open();
 
 
-            autonomia.Items.Add("Sim");
-            autonomia.Items.Add("Não");
+            
 
             for (int i = 0; i < 11; i++)
             {
@@ -119,6 +124,8 @@ namespace EramusManager
                         "Ciências Físicas",
                         "Matemática e Estatística",
                         "Informática",
+                        "Eletrónica",
+                        "Mecânica",
                         "Engenharia e Técnicas Afins",
                         "Indústrias Transformadoras",
                         "Arquitetura e Construção",
@@ -187,16 +194,7 @@ namespace EramusManager
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
             
-            if(autonomia.SelectedIndex == -1){
-                autonomy = 0;
-            } else
-            {
-                if (autonomia.SelectedItem.ToString() == "Sim")
-                {
-                    autonomy = 1;
-                }
-            }
-
+            
 
             //if (edit)
             //{
@@ -380,10 +378,126 @@ namespace EramusManager
                     connection.Close();
                 }
             }
-                
-            
-                
-            if (areadeespecializacao.SelectedIndex == -1 || nivelaceitavel.SelectedIndex == -1)
+
+            if (nivelaceitavel.SelectedIndex == -1)
+            {
+                if (fieldsList.Count >= 1)
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('" + fieldsList[0] + "', '" + 0 + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
+            }
+            else
+            {
+                if (fieldsList.Count >= 1)
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('" + fieldsList[0] + "', '" + nivelaceitavel.SelectedIndex + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject12 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand12 = new SqlCommand(GNewProject12, connection);
+                    SqlDataReader GNewProjectreader12 = GNewProjectcommand12.ExecuteReader();
+                    connection.Close();
+                }
+            }
+
+
+            if (comboBox3.SelectedIndex == -1)
+            {
+                if (fieldsList.Count >= 2)
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('" + fieldsList[1] + "', '" + 0 + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                }
+            }
+            else
+            {
+                if (fieldsList.Count >= 2)
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('" + fieldsList[1] + "', '" + comboBox3.SelectedIndex + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject13 = "INSERT INTO DetailsReq VALUES('SM', '" + comboBox3.SelectedIndex + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
+                    SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
+                    connection.Close();
+                }
+            }
+
+            if (comboBox4.SelectedIndex == -1)
+            {
+                if (fieldsList.Count == 3)
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('" + fieldsList[2] + "', '" + 0 + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('SM', '" + 0 + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                }
+            }
+            else
+            {
+                if (fieldsList.Count == 3)
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('" + fieldsList[2] + "', '" + comboBox4.SelectedIndex + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                }
+                else
+                {
+                    connection.Open();
+                    String GNewProject14 = "INSERT INTO DetailsReq VALUES('SM', '" + comboBox4.SelectedIndex + "', 'AS','" + Properties.Settings.Default.projectId + "' )  ";
+                    SqlCommand GNewProjectcommand14 = new SqlCommand(GNewProject14, connection);
+                    SqlDataReader GNewProjectreader14 = GNewProjectcommand14.ExecuteReader();
+                    connection.Close();
+                }
+            }
+
+            /*if (areadeespecializacao.SelectedIndex == -1 || nivelaceitavel.SelectedIndex == -1)
             {
                 connection.Open();
                 String GNewProject16 = "INSERT INTO DetailsReq VALUES('SA', '" + 0 + "' , 'AS','" + Properties.Settings.Default.projectId + "' )  ";
@@ -398,7 +512,7 @@ namespace EramusManager
                 SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
                 SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
                 connection.Close();
-            }
+            }*/
                 
 
                 MessageBox.Show("Criteria successfully assigned ", "Criteria Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -407,6 +521,39 @@ namespace EramusManager
 
             //connection.Close();
 
+        }
+
+        private void areadeespecializacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (areadeespecializacao.SelectedIndex != -1)
+            {
+                countAs += 1;
+                if (countAs == 1)
+                {
+                    labelarea2parte.Text = "" + areadeespecializacao.SelectedItem + "";
+                    labelarea2parte.Visible = true;
+                    nivelaceitavel.Visible = true;
+                    fieldsList.Add("" + areadeespecializacao.SelectedItem + "");
+                }
+                else if (countAs == 2)
+                {
+                    label4.Text = "" + areadeespecializacao.SelectedItem + "";
+                    label4.Visible = true;
+                    comboBox3.Visible = true;
+                    fieldsList.Add("" + areadeespecializacao.SelectedItem + "");
+                }
+                else if (countAs == 3)
+                {
+                    label5.Text = "" + areadeespecializacao.SelectedItem + "";
+                    label5.Visible = true;
+                    comboBox4.Visible = true;
+                    fieldsList.Add("" + areadeespecializacao.SelectedItem + "");
+                }
+            }
+            else
+            {
+                countAs = 0;
+            }
         }
     }
 }

@@ -41,7 +41,11 @@ namespace EramusManager
             panelstatus.Visible = false;
             finishedtext.Visible = false;
             finishedpanel.Visible = false;
-            
+
+            Form Simulacao = new Simulacao();
+            Simulacao.Closed += (s, args) => this.Close();
+            Simulacao.Show();
+
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";

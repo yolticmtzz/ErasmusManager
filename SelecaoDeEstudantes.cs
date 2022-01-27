@@ -14,10 +14,10 @@ namespace EramusManager
     public partial class SelecaoDeEstudantes : Form
     {
         Point ponto = new Point(142, 560);
-        int autonomy, l1, l2, l3, evalTec = 0;
+        int autonomy, l1, l2, l3, evalTec, evalTec1, evalTec2 = 0;
         String field = "";
         List<string> linguasList = new List<string>();
-
+        List<string> fieldsList = new List<string>();
         public SelecaoDeEstudantes()
         {
             InitializeComponent();
@@ -84,6 +84,18 @@ namespace EramusManager
 
             connection.Close();
 
+            connection.Open();
+            String GNewProject17 = "SELECT studyFieldReq FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId + "') AND type = 'AS' ";
+            SqlCommand GNewProjectcommand17 = new SqlCommand(GNewProject17, connection);
+            SqlDataReader GNewProjectreader17 = GNewProjectcommand17.ExecuteReader();
+
+            while (GNewProjectreader17.Read())
+            {
+                fieldsList.Add(GNewProjectreader17.GetString(0));
+            }
+
+            connection.Close();
+
             if (linguasList[0] != "SM")
             {
                 label2.Text = "O estudante tem conhecimento de " + linguasList[0] + ", em que seguinte nivel? ";
@@ -104,6 +116,35 @@ namespace EramusManager
                 groupBox6.Visible = true;
             }
 
+
+            if (fieldsList[0] != "SM")
+            {
+                labelperguntaareastring.Text = "O estudante tem experiência na área de " + fieldsList[0] + " ? ";
+                labelrealizarprojeto.Text = "O estudante já realizou algum projeto nesta área (" + fieldsList[0] +") ?";
+                labelperguntaareastring.Visible = true;
+                labelrealizarprojeto.Visible = true;
+                groupBox2.Visible = true;
+                groupBox3.Visible = true;
+            }
+
+            if (fieldsList[1] != "SM")
+            {
+                label6.Text = "O estudante tem experiência na área de " + fieldsList[1] + " ? ";
+                label1.Text = "O estudante já realizou algum projeto nesta área (" + fieldsList[1] + ") ?";
+                label6.Visible = true;
+                label1.Visible = true;
+                groupBox7.Visible = true;
+                groupBox1.Visible = true;
+            }
+            if (fieldsList[2] != "SM")
+            {
+                label9.Text = "O estudante tem experiência na área de " + fieldsList[2] + " ? ";
+                label7.Text = "O estudante já realizou algum projeto nesta área (" + fieldsList[2] + ") ?";
+                label9.Visible = true;
+                label7.Visible = true;
+                groupBox9.Visible = true;
+                groupBox8.Visible = true;
+            }
         }
 
         private void niveldefluente_Scroll(object sender, EventArgs e)
@@ -203,11 +244,30 @@ namespace EramusManager
                 evalTec = 0;
             }
 
-            connection.Open();
+            if (evalTec1 > 10)
+            {
+                evalTec1 = 10;
+            }
+            else if (evalTec1 < 0)
+            {
+                evalTec1 = 0;
+            }
+            if (evalTec2 > 10)
+            {
+                evalTec2 = 10;
+            }
+
+            else if (evalTec2 < 0)
+            {
+                evalTec2 = 0;
+            }
+
+
+            /*connection.Open();
             String mp = "Update Students SET autonomy = ('" + autonomy + "'), studyField = ('" + field +"'), fieldEvaluation = ('" + evalTec + "') WHERE studentId = ('" + Properties.Settings.Default.studentId + "')";
             SqlCommand MPcommand = new SqlCommand(mp, connection);
             SqlDataReader MPreader = MPcommand.ExecuteReader();
-            connection.Close();
+            connection.Close();*/
 
             connection.Open();
             String GNewProject3 = "UPDATE Languages SET evaluationLang = ('" + l1 + "' ) WHERE studentId = ('" + Properties.Settings.Default.studentId + "') AND langName = ('" + linguasList[0] + "') ";
@@ -227,48 +287,30 @@ namespace EramusManager
             SqlDataReader GNewProjectreader5 = GNewProjectcommand5.ExecuteReader();
             connection.Close();
 
+            connection.Open();
+            String GNewProject43 = "UPDATE Languages SET evaluationLang = ('" + evalTec + "' ) WHERE studentId = ('" + Properties.Settings.Default.studentId + "') AND langName = ('" + fieldsList[0] + "') ";
+            SqlCommand GNewProjectcommand43 = new SqlCommand(GNewProject43, connection);
+            SqlDataReader GNewProjectreader43 = GNewProjectcommand43.ExecuteReader();
+            connection.Close();
+
+            connection.Open();
+            String GNewProject44 = "UPDATE Languages SET evaluationLang = ('" + evalTec1 + "' ) WHERE studentId = ('" + Properties.Settings.Default.studentId + "') AND langName = ('" + fieldsList[1] + "') ";
+            SqlCommand GNewProjectcommand44 = new SqlCommand(GNewProject44, connection);
+            SqlDataReader GNewProjectreader44 = GNewProjectcommand44.ExecuteReader();
+            connection.Close();
+
+            connection.Open();
+            String GNewProject45 = "UPDATE Languages SET evaluationLang = ('" + evalTec2 + "' ) WHERE studentId = ('" + Properties.Settings.Default.studentId + "') AND langName = ('" + fieldsList[2] + "') ";
+            SqlCommand GNewProjectcommand45 = new SqlCommand(GNewProject45, connection);
+            SqlDataReader GNewProjectreader45 = GNewProjectcommand45.ExecuteReader();
+            connection.Close();
+
             MessageBox.Show("Attributes successfully updated ", "Attributes Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void radioButtonSIM_CheckedChanged(object sender, EventArgs e)
-        {
-            if(radioButtonSIM.Checked == true)
-            {
-                autonomy = 1;
-                if(evalTec <= 8)
-                {
-                    evalTec += 2;
-                }
-            }
-            else
-            {
-               /* autonomy = 0;
-                if(evalTec >= 2)
-                {
-                    evalTec -= 2;
-                }*/
-            }
-        }
+        
 
-        private void radioButtonNAO_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButtonNAO.Checked == true)
-            {
-                autonomy = 0;
-                if (evalTec >= 2)
-                {
-                    evalTec -= 2;
-                }
-            }
-            else
-            {
-                /*autonomy = 1;
-                if (evalTec <= 8)
-                {
-                    evalTec += 2;
-                }*/
-            }
-        }
+        
 
         private void radioButtonINGLES_CheckedChanged(object sender, EventArgs e)
         {
@@ -633,6 +675,156 @@ namespace EramusManager
 
             this.Controls.Add(question);
             this.Controls.Add(group);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton15_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton15.Checked == true)
+            {
+                if (evalTec1 <= 5)
+                {
+                    evalTec1 += 5;
+                }
+                else
+                {
+                    evalTec1 += 2;
+                }
+            }
+        }
+
+        private void radioButton13_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton13.Checked == true)
+            {
+                if (evalTec1 <= 5)
+                {
+                    evalTec1 += 5;
+                }
+                else
+                {
+                    evalTec1 += 2;
+                }
+            }
+        }
+
+        private void radioButton19_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton19.Checked == true)
+            {
+                if (evalTec2 <= 5)
+                {
+                    evalTec2 += 5;
+                }
+                else
+                {
+                    evalTec2 += 2;
+                }
+            }
+        }
+
+        private void radioButton17_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton17.Checked == true)
+            {
+                if (evalTec2 <= 5)
+                {
+                    evalTec2 += 5;
+                }
+                else
+                {
+                    evalTec2 += 2;
+                }
+            }
+        }
+
+        private void radioButton16_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton16.Checked == true)
+            {
+                if (evalTec1 <= 5)
+                {
+                    evalTec1 -= 5;
+                }
+                else
+                {
+                    evalTec1 -= 2;
+                }
+            }
+        }
+
+        private void radioButton14_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton14.Checked == true)
+            {
+                if (evalTec1 <= 5)
+                {
+                    evalTec1 -= 5;
+                }
+                else
+                {
+                    evalTec1 -= 2;
+                }
+            }
+        }
+
+        private void radioButton20_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton20.Checked == true)
+            {
+                if (evalTec2 <= 5)
+                {
+                    evalTec2 -= 5;
+                }
+                else
+                {
+                    evalTec2 -= 2;
+                }
+            }
+        }
+
+        private void radioButton18_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton18.Checked == true)
+            {
+                if (evalTec2 <= 5)
+                {
+                    evalTec2 -= 5;
+                }
+                else
+                {
+                    evalTec2 -= 2;
+                }
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void label3_Click_2(object sender, EventArgs e)
