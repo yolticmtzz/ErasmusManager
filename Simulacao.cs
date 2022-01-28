@@ -223,7 +223,7 @@ namespace EramusManager
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
-            String GNewProject156 = "SELECT Count(*) FROM Students WHERE projectId = 63 ";
+            String GNewProject156 = "SELECT Count(*) FROM Students WHERE projectId = 64 ";
             SqlCommand GNewProjectcommand156 = new SqlCommand(GNewProject156, connection);
             SqlDataReader GNewProjectreader156 = GNewProjectcommand156.ExecuteReader();
 
@@ -235,15 +235,15 @@ namespace EramusManager
             connection.Close();
 
             connection.Open();
-            String GNewProject16 = "SELECT studyFieldReq, fieldEvaluation FROM DetailsReq WHERE projectId = 63 ";
+            String GNewProject16 = "SELECT studyFieldReq, fieldEvaluation FROM DetailsReq WHERE projectId = 64 ";
             SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
             SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
 
             while (GNewProjectreader16.Read())
             {
-                fieldList.Add(GNewProjectreader16["studyFieldReq"].ToString());
                 if (GNewProjectreader16["studyFieldReq"].ToString() != "SM")
                 {
+                    fieldList.Add(GNewProjectreader16["studyFieldReq"].ToString());
                     evalList.Add(Convert.ToDouble(GNewProjectreader16["fieldEvaluation"]));
                 }
 
@@ -362,7 +362,7 @@ namespace EramusManager
             int countNames = 0;
 
             connection.Open();
-            String GNewProject17 = "SELECT studentId FROM Students WHERE projectId = 63 ";
+            String GNewProject17 = "SELECT studentId FROM Students WHERE projectId = 64 ";
             SqlCommand GNewProjectcommand17 = new SqlCommand(GNewProject17, connection);
             SqlDataReader GNewProjectreader17 = GNewProjectcommand17.ExecuteReader();
 
