@@ -69,6 +69,7 @@ namespace EramusManager
             this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "label3";
+            this.label3.Visible = false;
             // 
             // label4
             // 
@@ -79,6 +80,7 @@ namespace EramusManager
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "label4";
+            this.label4.Visible = false;
             // 
             // label5
             // 
@@ -89,6 +91,7 @@ namespace EramusManager
             this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "label5";
+            this.label5.Visible = false;
             // 
             // label6
             // 
@@ -99,6 +102,7 @@ namespace EramusManager
             this.label6.Size = new System.Drawing.Size(51, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "label6";
+            this.label6.Visible = false;
             // 
             // label7
             // 
@@ -109,6 +113,7 @@ namespace EramusManager
             this.label7.Size = new System.Drawing.Size(51, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "label7";
+            this.label7.Visible = false;
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
@@ -120,6 +125,7 @@ namespace EramusManager
             this.label8.Size = new System.Drawing.Size(51, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "label8";
+            this.label8.Visible = false;
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label2
@@ -130,6 +136,7 @@ namespace EramusManager
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // label9
             // 
@@ -139,6 +146,7 @@ namespace EramusManager
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 9;
             this.label9.Text = "label9";
+            this.label9.Visible = false;
             // 
             // label10
             // 
@@ -148,6 +156,7 @@ namespace EramusManager
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 10;
             this.label10.Text = "label10";
+            this.label10.Visible = false;
             // 
             // label11
             // 
@@ -157,6 +166,7 @@ namespace EramusManager
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 11;
             this.label11.Text = "label11";
+            this.label11.Visible = false;
             // 
             // label12
             // 
@@ -166,6 +176,7 @@ namespace EramusManager
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 12;
             this.label12.Text = "label12";
+            this.label12.Visible = false;
             // 
             // label13
             // 
@@ -175,6 +186,7 @@ namespace EramusManager
             this.label13.Size = new System.Drawing.Size(41, 13);
             this.label13.TabIndex = 13;
             this.label13.Text = "label13";
+            this.label13.Visible = false;
             // 
             // label14
             // 
@@ -184,6 +196,7 @@ namespace EramusManager
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 14;
             this.label14.Text = "label14";
+            this.label14.Visible = false;
             // 
             // label15
             // 
@@ -193,6 +206,7 @@ namespace EramusManager
             this.label15.Size = new System.Drawing.Size(41, 13);
             this.label15.TabIndex = 15;
             this.label15.Text = "label15";
+            this.label15.Visible = false;
             // 
             // label16
             // 
@@ -202,6 +216,7 @@ namespace EramusManager
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 16;
             this.label16.Text = "label16";
+            this.label16.Visible = false;
             // 
             // label17
             // 
@@ -211,6 +226,7 @@ namespace EramusManager
             this.label17.Size = new System.Drawing.Size(41, 13);
             this.label17.TabIndex = 17;
             this.label17.Text = "label17";
+            this.label17.Visible = false;
             // 
             // label18
             // 
@@ -220,6 +236,7 @@ namespace EramusManager
             this.label18.Size = new System.Drawing.Size(41, 13);
             this.label18.TabIndex = 18;
             this.label18.Text = "label18";
+            this.label18.Visible = false;
             // 
             // label19
             // 
@@ -229,6 +246,7 @@ namespace EramusManager
             this.label19.Size = new System.Drawing.Size(41, 13);
             this.label19.TabIndex = 19;
             this.label19.Text = "label19";
+            this.label19.Visible = false;
             // 
             // Simulacao
             // 

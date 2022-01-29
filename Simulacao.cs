@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using System.IO;
+
 
 namespace EramusManager
 {
@@ -16,6 +18,13 @@ namespace EramusManager
     public partial class Simulacao : Form
     {
         Point ponto = new Point(142, 560);
+        int[,] valuesCSV;
+        //string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads";
+        //string download = Environment.GetEnvironmentVariable("USERPROFILE")+@"\"+"Downloads";
+        string strFilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\testfile.csv";
+        
+        StringBuilder sbOutput2 = new StringBuilder();
+        List<string> codeList = new List<string>();
         public class AHP
         {
 
@@ -189,6 +198,7 @@ namespace EramusManager
                         "Informática",
                         "Eletrónica",
                         "Mecânica",
+                        "Turismo",
                         "Engenharia e Técnicas Afins",
                         "Indústrias Transformadoras",
                         "Arquitetura e Construção",
@@ -208,14 +218,13 @@ namespace EramusManager
                 "Francês",
                 "Italiano",
                 "Alemão",
-
             };
 
             int n;
             int studentsCount = 0;
             int NUMBER_COMPARISON;
             List<string> fieldList = new List<string>();
-            List<double> evalList = new List<double>(); 
+            List<double> evalList = new List<double>();
             int count = 0;
             //Scanner keyboard = new Scanner(System.in);
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -254,6 +263,35 @@ namespace EramusManager
             {
                 Console.WriteLine(eval);
             }*/
+            
+           
+            StringBuilder sbOutput = new StringBuilder();
+
+            List<string> csvHeader = fieldList;
+
+
+
+
+            for (int i = 0; i < csvHeader.Count; i++)
+            { 
+                if (i == 0)
+                {
+                    sbOutput.Append("  ; ");
+                    sbOutput.Append(csvHeader[0] + "; ");
+                    
+                }
+                else
+                {
+                    sbOutput.Append(csvHeader[i] + "; ");
+                }
+            }
+            //sbOutput.AppendLine();
+
+            // Create and write the csv file
+            File.WriteAllText(strFilePath, sbOutput.ToString());
+
+            // To append more lines to the csv file
+            //File.AppendAllText(strFilePath, sbOutput.ToString());
 
             foreach (string field in fieldList)
             {
@@ -268,6 +306,7 @@ namespace EramusManager
             NUMBER_COMPARISON = (n * n - n) / 2;
 
             double[,] endlessMatrix = new double[studentsCount+1, n];
+            valuesCSV = new int[studentsCount, n+1];
             double[,] a = new double[n, n];
             double[,] res = new double[n, n];
             String[] criteria = new String[n];
@@ -357,6 +396,8 @@ namespace EramusManager
                 endlessMatrix[0, i] = resultsCriteria[i];
             }
 
+            
+
             evalList.Clear();
             List<string> nameList = new List<string>();
             int countNames = 0;
@@ -373,6 +414,11 @@ namespace EramusManager
 
             connection.Close();
 
+            foreach(string id in nameList)
+            {
+                Console.WriteLine(id);
+            }
+
             
             foreach (string field in nameList)
             {
@@ -387,11 +433,11 @@ namespace EramusManager
                 if (fieldList[i] != "SM")
                 {
 
-                    foreach (string id in nameList)
+                    for(int o = 0; o < nameList.Count; o++ )
                     {
                         connection.Open();
-                        Console.WriteLine(id + " " + fieldList[i]);
-                        String GNewProject18 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + id + "') AND langName = ('" + fieldList[i] + "')";
+                        Console.WriteLine(nameList[o] + " " + fieldList[i]);
+                        String GNewProject18 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + nameList[o] + "') AND langName = ('" + fieldList[i] + "')";
                         SqlCommand GNewProjectcommand18 = new SqlCommand(GNewProject18, connection);
                         SqlDataReader GNewProjectreader18 = GNewProjectcommand18.ExecuteReader();
 
@@ -409,6 +455,11 @@ namespace EramusManager
                     int NUMBER_COMPARISON1 = (n * n - n) / 2;
                     //Console.WriteLine(NUMBER_COMPARISON1);
 
+                    foreach (string id in nameList)
+                    {
+                        Console.WriteLine(id);
+                    }
+
                     double[] results = new double[n];
                     double[,] a1 = new double[n, n];
                     double[,] res1 = new double[n, n];
@@ -418,11 +469,9 @@ namespace EramusManager
                     //Console.WriteLine("Enter the criteria:");
                     for (int l = 0; l < n; l++)
                     {
-                        //Console.WriteLine("Criterion " + (i + 1) + ":");
-                        if (nameList[l] != "SM")
-                        {
-                            criteria1[l] = nameList[l];
-                        }
+                        
+                        criteria1[l] = nameList[l];
+                        
 
                     }
 
@@ -509,10 +558,17 @@ namespace EramusManager
                     }
 
                     List<string> studentNames = new List<string>();
+                    List<string> ids = new List<string>();
+
+                    nameList.ForEach((item) =>
+                    {
+                        ids.Add((string)item.Clone());
+                    });
+                    
                     for (int o = 0; o < nameList.Count; o++)
                     {
                         connection.Open();
-                        String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + nameList[o] + "') ";
+                        String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + ids[o] + "') ";
                         SqlCommand GNewProjectcommand177 = new SqlCommand(GNewProject177, connection);
                         SqlDataReader GNewProjectreader177 = GNewProjectcommand177.ExecuteReader();
 
@@ -532,25 +588,41 @@ namespace EramusManager
 
                     double[] rest = results;
                     int t;
-                    string at;
+                    string at, pr;
                     double atual;
                     for (int o = 1; o < rest.Length; o++)
                     {
                         atual = rest[o];
                         at = studentNames[o];
+                        pr = ids[o];
                         t = o;
                         while ((t > 0) && (rest[t - 1] > atual))
                         {
                             rest[t] = rest[t - 1];
                             studentNames[t] = studentNames[t - 1];
+                            ids[t] = ids[t - 1];
                             t = t - 1;
                         }
                         rest[t] = atual;
                         studentNames[t] = at;
+                        ids[t] = pr;
                     }
-                    
 
-                    if(i == 0)
+                    int countId = 0;
+                    foreach(string id in ids)
+                    {
+                        if(countId < 2)
+                        {
+                            codeList.Add(id);
+                            countId++;
+                        }
+                    }
+
+                   
+
+                                       
+
+                    if (i == 0)
                     {   
                         if(fieldList[i] == areas[0])
                         {
@@ -586,6 +658,7 @@ namespace EramusManager
                             label10.Text = studentNames[0];
                            
                             label11.Text = studentNames[1];
+                            
                         }
                         else
                         {
@@ -676,6 +749,11 @@ namespace EramusManager
                         }
                     }
 
+                    /*foreach (string id in nameList)
+                    {
+                        Console.WriteLine(id);
+                    }*/
+
                     evalList.Clear();
                     studentNames.Clear();
                 }
@@ -703,6 +781,80 @@ namespace EramusManager
                 Console.WriteLine("Line" + i +  " : "); 
                 Console.WriteLine(weights[i]);
             }
+
+            for (int o = 0; o < codeList.Count; o++)
+            {
+                for (int k = o + 1; k < codeList.Count; k++)
+                {
+                    if (codeList[o] == codeList[k])
+                    {
+                        codeList.RemoveAt(k);
+                    }
+                }
+            }
+
+            List<string> selectedNames = new List<string>();
+            for (int o = 0; o < codeList.Count; o++)
+            {
+                connection.Open();
+                String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + codeList[o] + "') ";
+                SqlCommand GNewProjectcommand177 = new SqlCommand(GNewProject177, connection);
+                SqlDataReader GNewProjectreader177 = GNewProjectcommand177.ExecuteReader();
+
+                while (GNewProjectreader177.Read())
+                {
+                    selectedNames.Add(GNewProjectreader177["studentName"].ToString());
+                    Console.WriteLine(selectedNames.Count);
+                }
+
+                connection.Close();
+            }
+
+
+            int[,] secValuesCsv = new int[studentsCount, n];
+            for (int o = 0; o < codeList.Count; o++)
+            {
+                for (int k = 0; k < fieldList.Count; k++)
+                {
+                    connection.Open();
+                    String GNewProject187 = "SELECT evaluationLang FROM languages WHERE studentId = ('" + codeList[o] + "') AND langName = ('" + fieldList[k] + "') ";
+                    SqlCommand GNewProjectcommand187 = new SqlCommand(GNewProject187, connection);
+                    SqlDataReader GNewProjectreader187 = GNewProjectcommand187.ExecuteReader();
+
+                    while (GNewProjectreader187.Read())
+                    {
+                        secValuesCsv[o, k] = GNewProjectreader187.GetInt32(0);
+                        //Console.WriteLine(GNewProjectreader187.GetInt32(0));
+                    }
+
+                    connection.Close();
+                }
+            }
+
+            for(int i = 0; i < studentsCount; i++)
+            {
+                for(int j = 0; j < n; j++)
+                {
+                    Console.Write(secValuesCsv[i, j]);
+                }
+                Console.WriteLine();
+            }
+
+
+            for (int o = 0; o < codeList.Count; o++)
+            {
+                //sbOutput2.Append("  ; ");
+                sbOutput2.AppendLine();
+                sbOutput2.Append(selectedNames[o] + "; ");
+                for (int k = 0; k < fieldList.Count; k++)
+                {
+                    sbOutput2.Append(secValuesCsv[o, k] + "; ");
+
+                }
+                //sbOutput.AppendLine();
+            }
+
+            File.AppendAllText(strFilePath, sbOutput2.ToString());
         }
 
         private void label7_Click(object sender, EventArgs e)

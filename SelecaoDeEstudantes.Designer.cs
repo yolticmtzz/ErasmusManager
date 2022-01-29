@@ -107,6 +107,7 @@
             this.labelperguntaareastring.Size = new System.Drawing.Size(406, 22);
             this.labelperguntaareastring.TabIndex = 20;
             this.labelperguntaareastring.Text = " O estudante tem experiência na área de (string)?";
+            this.labelperguntaareastring.Visible = false;
             this.labelperguntaareastring.Click += new System.EventHandler(this.label6_Click);
             // 
             // radioButtonNao2
@@ -170,6 +171,7 @@
             this.labelrealizarprojeto.Size = new System.Drawing.Size(407, 22);
             this.labelrealizarprojeto.TabIndex = 23;
             this.labelrealizarprojeto.Text = "O estudante já realizou algum projeto nesta área?";
+            this.labelrealizarprojeto.Visible = false;
             this.labelrealizarprojeto.Click += new System.EventHandler(this.label7_Click);
             // 
             // button1
@@ -191,6 +193,7 @@
             this.groupBox2.Size = new System.Drawing.Size(65, 65);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Visible = false;
             // 
             // groupBox3
             // 
@@ -201,6 +204,7 @@
             this.groupBox3.Size = new System.Drawing.Size(66, 64);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Visible = false;
             // 
             // groupBox4
             // 
@@ -642,6 +646,7 @@
             this.label9.Size = new System.Drawing.Size(406, 22);
             this.label9.TabIndex = 51;
             this.label9.Text = " O estudante tem experiência na área de (string)?";
+            this.label9.Visible = false;
             // 
             // SelecaoDeEstudantes
             // 
