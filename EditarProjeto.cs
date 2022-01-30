@@ -42,9 +42,9 @@ namespace EramusManager
             finishedtext.Visible = false;
             finishedpanel.Visible = false;
 
-            /*Form Simulacao = new Simulacao();
+            Form Simulacao = new Simulacao();
             Simulacao.Closed += (s, args) => this.Close();
-            Simulacao.Show();*/
+            Simulacao.Show();
 
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
