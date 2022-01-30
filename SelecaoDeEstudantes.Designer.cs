@@ -44,17 +44,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.DebugStudentId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,15 +65,34 @@
             this.radioButton20 = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.radioButton21 = new System.Windows.Forms.RadioButton();
+            this.radioButton22 = new System.Windows.Forms.RadioButton();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.radioButton23 = new System.Windows.Forms.RadioButton();
+            this.radioButton24 = new System.Windows.Forms.RadioButton();
+            this.radioButton25 = new System.Windows.Forms.RadioButton();
+            this.radioButton26 = new System.Windows.Forms.RadioButton();
+            this.radioButton27 = new System.Windows.Forms.RadioButton();
+            this.radioButton28 = new System.Windows.Forms.RadioButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton29 = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -176,7 +185,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(133, 1096);
+            this.button1.Location = new System.Drawing.Point(200, 1076);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(500, 40);
             this.button1.TabIndex = 28;
@@ -208,13 +217,16 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.radioButton11);
+            this.groupBox4.Controls.Add(this.radioButton22);
+            this.groupBox4.Controls.Add(this.radioButton21);
             this.groupBox4.Controls.Add(this.radioButton4);
             this.groupBox4.Controls.Add(this.radioButton3);
             this.groupBox4.Controls.Add(this.radioButton1);
             this.groupBox4.Controls.Add(this.radioButton2);
             this.groupBox4.Location = new System.Drawing.Point(144, 654);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(474, 120);
+            this.groupBox4.Size = new System.Drawing.Size(597, 120);
             this.groupBox4.TabIndex = 32;
             this.groupBox4.TabStop = false;
             this.groupBox4.Visible = false;
@@ -226,10 +238,10 @@
             this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.radioButton4.Location = new System.Drawing.Point(6, 92);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(78, 22);
+            this.radioButton4.Size = new System.Drawing.Size(581, 22);
             this.radioButton4.TabIndex = 27;
             this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Fluente.";
+            this.radioButton4.Text = "B2, conhecimento independente, consegindo entender textos concreto ou abstratos.";
             this.radioButton4.UseVisualStyleBackColor = true;
             this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged_1);
             // 
@@ -239,10 +251,10 @@
             this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.radioButton3.Location = new System.Drawing.Point(6, 68);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(305, 22);
+            this.radioButton3.Size = new System.Drawing.Size(223, 22);
             this.radioButton3.TabIndex = 26;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Fluente, mas com problemas no discurso.";
+            this.radioButton3.Text = "B1, conhecimento intermédio.";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged_1);
             // 
@@ -252,10 +264,10 @@
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.radioButton1.Location = new System.Drawing.Point(6, 12);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(105, 22);
+            this.radioButton1.Size = new System.Drawing.Size(197, 22);
             this.radioButton1.TabIndex = 24;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Não fluente.";
+            this.radioButton1.Text = "A1, conhecimento básico.";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
             // 
@@ -265,78 +277,12 @@
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.radioButton2.Location = new System.Drawing.Point(6, 40);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(291, 22);
+            this.radioButton2.Size = new System.Drawing.Size(218, 22);
             this.radioButton2.TabIndex = 25;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Fluente, mas com problemas na escrita.";
+            this.radioButton2.Text = "A2, conhecimento elementar.";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged_1);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.radioButton5);
-            this.groupBox5.Controls.Add(this.radioButton6);
-            this.groupBox5.Controls.Add(this.radioButton7);
-            this.groupBox5.Controls.Add(this.radioButton8);
-            this.groupBox5.Location = new System.Drawing.Point(144, 802);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(474, 120);
-            this.groupBox5.TabIndex = 39;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Visible = false;
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton5.Location = new System.Drawing.Point(6, 92);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(78, 22);
-            this.radioButton5.TabIndex = 27;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Fluente.";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton6.Location = new System.Drawing.Point(6, 68);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(305, 22);
-            this.radioButton6.TabIndex = 26;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Fluente, mas com problemas no discurso.";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged_1);
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton7.Location = new System.Drawing.Point(6, 12);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(105, 22);
-            this.radioButton7.TabIndex = 24;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Não fluente.";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton8.Location = new System.Drawing.Point(6, 40);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(291, 22);
-            this.radioButton8.TabIndex = 25;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Fluente, mas com problemas na escrita.";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
             // 
             // label4
             // 
@@ -349,72 +295,6 @@
             this.label4.Text = "O estudante tem conhecimento de (string)";
             this.label4.Visible = false;
             this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.radioButton9);
-            this.groupBox6.Controls.Add(this.radioButton10);
-            this.groupBox6.Controls.Add(this.radioButton11);
-            this.groupBox6.Controls.Add(this.radioButton12);
-            this.groupBox6.Location = new System.Drawing.Point(144, 950);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(474, 120);
-            this.groupBox6.TabIndex = 41;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Visible = false;
-            this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton9.Location = new System.Drawing.Point(6, 92);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(78, 22);
-            this.radioButton9.TabIndex = 27;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Fluente.";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton10.Location = new System.Drawing.Point(6, 68);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(305, 22);
-            this.radioButton10.TabIndex = 26;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Fluente, mas com problemas no discurso.";
-            this.radioButton10.UseVisualStyleBackColor = true;
-            this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
-            // 
-            // radioButton11
-            // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton11.Location = new System.Drawing.Point(6, 12);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(105, 22);
-            this.radioButton11.TabIndex = 24;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "Não fluente.";
-            this.radioButton11.UseVisualStyleBackColor = true;
-            this.radioButton11.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged);
-            // 
-            // radioButton12
-            // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.radioButton12.Location = new System.Drawing.Point(6, 40);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(291, 22);
-            this.radioButton12.TabIndex = 25;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Fluente, mas com problemas na escrita.";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            this.radioButton12.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged);
             // 
             // label5
             // 
@@ -648,12 +528,267 @@
             this.label9.Text = " O estudante tem experiência na área de (string)?";
             this.label9.Visible = false;
             // 
+            // radioButton21
+            // 
+            this.radioButton21.AutoSize = true;
+            this.radioButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton21.Location = new System.Drawing.Point(310, 40);
+            this.radioButton21.Name = "radioButton21";
+            this.radioButton21.Size = new System.Drawing.Size(184, 22);
+            this.radioButton21.TabIndex = 28;
+            this.radioButton21.TabStop = true;
+            this.radioButton21.Text = "C1, utilizador avançado.";
+            this.radioButton21.UseVisualStyleBackColor = true;
+            this.radioButton21.CheckedChanged += new System.EventHandler(this.radioButton21_CheckedChanged);
+            // 
+            // radioButton22
+            // 
+            this.radioButton22.AutoSize = true;
+            this.radioButton22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton22.Location = new System.Drawing.Point(310, 68);
+            this.radioButton22.Name = "radioButton22";
+            this.radioButton22.Size = new System.Drawing.Size(246, 22);
+            this.radioButton22.TabIndex = 29;
+            this.radioButton22.TabStop = true;
+            this.radioButton22.Text = "C2, dominio pleno sobre a lingua.";
+            this.radioButton22.UseVisualStyleBackColor = true;
+            this.radioButton22.CheckedChanged += new System.EventHandler(this.radioButton22_CheckedChanged);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.radioButton12);
+            this.groupBox10.Controls.Add(this.radioButton23);
+            this.groupBox10.Controls.Add(this.radioButton24);
+            this.groupBox10.Controls.Add(this.radioButton25);
+            this.groupBox10.Controls.Add(this.radioButton26);
+            this.groupBox10.Controls.Add(this.radioButton27);
+            this.groupBox10.Controls.Add(this.radioButton28);
+            this.groupBox10.Location = new System.Drawing.Point(144, 802);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(597, 120);
+            this.groupBox10.TabIndex = 33;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Visible = false;
+            // 
+            // radioButton23
+            // 
+            this.radioButton23.AutoSize = true;
+            this.radioButton23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton23.Location = new System.Drawing.Point(310, 68);
+            this.radioButton23.Name = "radioButton23";
+            this.radioButton23.Size = new System.Drawing.Size(246, 22);
+            this.radioButton23.TabIndex = 29;
+            this.radioButton23.TabStop = true;
+            this.radioButton23.Text = "C2, dominio pleno sobre a lingua.";
+            this.radioButton23.UseVisualStyleBackColor = true;
+            this.radioButton23.CheckedChanged += new System.EventHandler(this.radioButton23_CheckedChanged);
+            // 
+            // radioButton24
+            // 
+            this.radioButton24.AutoSize = true;
+            this.radioButton24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton24.Location = new System.Drawing.Point(310, 40);
+            this.radioButton24.Name = "radioButton24";
+            this.radioButton24.Size = new System.Drawing.Size(184, 22);
+            this.radioButton24.TabIndex = 28;
+            this.radioButton24.TabStop = true;
+            this.radioButton24.Text = "C1, utilizador avançado.";
+            this.radioButton24.UseVisualStyleBackColor = true;
+            this.radioButton24.CheckedChanged += new System.EventHandler(this.radioButton24_CheckedChanged);
+            // 
+            // radioButton25
+            // 
+            this.radioButton25.AutoSize = true;
+            this.radioButton25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton25.Location = new System.Drawing.Point(6, 92);
+            this.radioButton25.Name = "radioButton25";
+            this.radioButton25.Size = new System.Drawing.Size(581, 22);
+            this.radioButton25.TabIndex = 27;
+            this.radioButton25.TabStop = true;
+            this.radioButton25.Text = "B2, conhecimento independente, consegindo entender textos concreto ou abstratos.";
+            this.radioButton25.UseVisualStyleBackColor = true;
+            this.radioButton25.CheckedChanged += new System.EventHandler(this.radioButton25_CheckedChanged);
+            // 
+            // radioButton26
+            // 
+            this.radioButton26.AutoSize = true;
+            this.radioButton26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton26.Location = new System.Drawing.Point(6, 68);
+            this.radioButton26.Name = "radioButton26";
+            this.radioButton26.Size = new System.Drawing.Size(223, 22);
+            this.radioButton26.TabIndex = 26;
+            this.radioButton26.TabStop = true;
+            this.radioButton26.Text = "B1, conhecimento intermédio.";
+            this.radioButton26.UseVisualStyleBackColor = true;
+            this.radioButton26.CheckedChanged += new System.EventHandler(this.radioButton26_CheckedChanged);
+            // 
+            // radioButton27
+            // 
+            this.radioButton27.AutoSize = true;
+            this.radioButton27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton27.Location = new System.Drawing.Point(6, 12);
+            this.radioButton27.Name = "radioButton27";
+            this.radioButton27.Size = new System.Drawing.Size(197, 22);
+            this.radioButton27.TabIndex = 24;
+            this.radioButton27.TabStop = true;
+            this.radioButton27.Text = "A1, conhecimento básico.";
+            this.radioButton27.UseVisualStyleBackColor = true;
+            this.radioButton27.CheckedChanged += new System.EventHandler(this.radioButton27_CheckedChanged);
+            // 
+            // radioButton28
+            // 
+            this.radioButton28.AutoSize = true;
+            this.radioButton28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton28.Location = new System.Drawing.Point(6, 40);
+            this.radioButton28.Name = "radioButton28";
+            this.radioButton28.Size = new System.Drawing.Size(218, 22);
+            this.radioButton28.TabIndex = 25;
+            this.radioButton28.TabStop = true;
+            this.radioButton28.Text = "A2, conhecimento elementar.";
+            this.radioButton28.UseVisualStyleBackColor = true;
+            this.radioButton28.CheckedChanged += new System.EventHandler(this.radioButton28_CheckedChanged);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.radioButton29);
+            this.groupBox5.Controls.Add(this.radioButton5);
+            this.groupBox5.Controls.Add(this.radioButton6);
+            this.groupBox5.Controls.Add(this.radioButton7);
+            this.groupBox5.Controls.Add(this.radioButton8);
+            this.groupBox5.Controls.Add(this.radioButton9);
+            this.groupBox5.Controls.Add(this.radioButton10);
+            this.groupBox5.Location = new System.Drawing.Point(144, 950);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(597, 120);
+            this.groupBox5.TabIndex = 55;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Visible = false;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton5.Location = new System.Drawing.Point(310, 68);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(246, 22);
+            this.radioButton5.TabIndex = 29;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "C2, dominio pleno sobre a lingua.";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged_1);
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton6.Location = new System.Drawing.Point(310, 40);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(184, 22);
+            this.radioButton6.TabIndex = 28;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "C1, utilizador avançado.";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged_2);
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton7.Location = new System.Drawing.Point(6, 92);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(581, 22);
+            this.radioButton7.TabIndex = 27;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "B2, conhecimento independente, consegindo entender textos concreto ou abstratos.";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged_1);
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton8.Location = new System.Drawing.Point(6, 68);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(223, 22);
+            this.radioButton8.TabIndex = 26;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "B1, conhecimento intermédio.";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged_1);
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton9.Location = new System.Drawing.Point(6, 12);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(197, 22);
+            this.radioButton9.TabIndex = 24;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "A1, conhecimento básico.";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged_1);
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton10.Location = new System.Drawing.Point(6, 40);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(218, 22);
+            this.radioButton10.TabIndex = 25;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "A2, conhecimento elementar.";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged_1);
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton11.Location = new System.Drawing.Point(310, 12);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(242, 22);
+            this.radioButton11.TabIndex = 30;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "Não tem nenhum conhecimento.";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            this.radioButton11.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged_1);
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton12.Location = new System.Drawing.Point(310, 12);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(242, 22);
+            this.radioButton12.TabIndex = 31;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "Não tem nenhum conhecimento.";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            this.radioButton12.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged_1);
+            // 
+            // radioButton29
+            // 
+            this.radioButton29.AutoSize = true;
+            this.radioButton29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.radioButton29.Location = new System.Drawing.Point(310, 12);
+            this.radioButton29.Name = "radioButton29";
+            this.radioButton29.Size = new System.Drawing.Size(242, 22);
+            this.radioButton29.TabIndex = 31;
+            this.radioButton29.TabStop = true;
+            this.radioButton29.Text = "Não tem nenhum conhecimento.";
+            this.radioButton29.UseVisualStyleBackColor = true;
+            this.radioButton29.CheckedChanged += new System.EventHandler(this.radioButton29_CheckedChanged);
+            // 
             // SelecaoDeEstudantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 647);
+            this.ClientSize = new System.Drawing.Size(844, 647);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox9);
@@ -665,9 +800,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DebugStudentId);
-            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -686,10 +819,6 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -698,6 +827,10 @@
             this.groupBox8.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,17 +852,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton12;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label DebugStudentId;
         private System.Windows.Forms.Label label3;
@@ -750,5 +873,24 @@
         private System.Windows.Forms.RadioButton radioButton20;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton radioButton22;
+        private System.Windows.Forms.RadioButton radioButton21;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.RadioButton radioButton23;
+        private System.Windows.Forms.RadioButton radioButton24;
+        private System.Windows.Forms.RadioButton radioButton25;
+        private System.Windows.Forms.RadioButton radioButton26;
+        private System.Windows.Forms.RadioButton radioButton27;
+        private System.Windows.Forms.RadioButton radioButton28;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton radioButton29;
     }
 }

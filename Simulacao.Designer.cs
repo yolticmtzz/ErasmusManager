@@ -48,6 +48,7 @@ namespace EramusManager
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -248,11 +249,22 @@ namespace EramusManager
             this.label19.Text = "label19";
             this.label19.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(297, 395);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 43);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Exportar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Simulacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -301,5 +313,6 @@ namespace EramusManager
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button1;
     }
 }

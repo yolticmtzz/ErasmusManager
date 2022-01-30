@@ -22,7 +22,7 @@ namespace EramusManager
         //string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads";
         //string download = Environment.GetEnvironmentVariable("USERPROFILE")+@"\"+"Downloads";
         string strFilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\testfile.csv";
-        
+        StringBuilder sbOutput = new StringBuilder();
         StringBuilder sbOutput2 = new StringBuilder();
         List<string> codeList = new List<string>();
         public class AHP
@@ -265,7 +265,7 @@ namespace EramusManager
             }*/
             
            
-            StringBuilder sbOutput = new StringBuilder();
+            //StringBuilder sbOutput = new StringBuilder();
 
             List<string> csvHeader = fieldList;
 
@@ -288,7 +288,7 @@ namespace EramusManager
             //sbOutput.AppendLine();
 
             // Create and write the csv file
-            File.WriteAllText(strFilePath, sbOutput.ToString());
+            //File.WriteAllText(strFilePath, sbOutput.ToString());
 
             // To append more lines to the csv file
             //File.AppendAllText(strFilePath, sbOutput.ToString());
@@ -619,7 +619,10 @@ namespace EramusManager
                     }
 
                    
-
+                    foreach(string name in studentNames)
+                    {
+                        Console.WriteLine(name);
+                    }
                                        
 
                     if (i == 0)
@@ -627,23 +630,29 @@ namespace EramusManager
                         if(fieldList[i] == areas[0])
                         {
                             label3.Visible = true;
+                            label2.Visible = true;
+                            label2.Text = "";
                             label3.Text = "Formação de Professores";
                             Label name1 = new Label();
-                            label2.Text = studentNames[0];
-                            Label name2 = new Label();
-                            label9.Text = studentNames[1];
-                            name1.Location = new Point(label3.Location.X, label3.Location.Y + label3.Height);
-                            name2.Location = new Point(label3.Location.X, name1.Location.Y + name1.Height);
+                            for(int o = 0; o < 1; o++)
+                            {
+                                label2.Text += studentNames[o] + "\n";
+                            }
+                            //label2.Text = studentNames[0];
+                            
                         } else
                         {
                             label3.Visible = true;
+                            label2.Visible = true;
+                            label2.Text = "";
                             label3.Text = fieldList[i];
-                            Label name1 = new Label();
-                            label2.Text = studentNames[0];
-                            Label name2 = new Label();
-                            label9.Text = studentNames[1];
-                            name1.Location = new Point(label3.Location.X, label3.Location.Y + label3.Height);
-                            name2.Location = new Point(label3.Location.X, name1.Location.Y + name1.Height);
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label2.Text += studentNames[o] + "\n";
+                            }
+                            //label2.Text = studentNames[0];
+                            
+                            
                         }
                         
                     }
@@ -653,20 +662,26 @@ namespace EramusManager
                         if (fieldList[i] == areas[0])
                         {
                             label4.Visible = true;
+                            label10.Visible = true;
                             label4.Text = "Formação de Professores";
+                            label10.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label10.Text += studentNames[o] + "\n";
+                            }
                             
-                            label10.Text = studentNames[0];
-                           
-                            label11.Text = studentNames[1];
                             
                         }
                         else
                         {
                             label4.Visible = true;
                             label4.Text = fieldList[i];
-                            label10.Text = studentNames[0];
-
-                            label11.Text = studentNames[1];
+                            label10.Visible = true;
+                            label10.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label10.Text += studentNames[o] + "\n";
+                            }
                         }
                     }
                     else if (i == 2)
@@ -675,17 +690,24 @@ namespace EramusManager
                         {
                             label5.Visible = true;
                             label5.Text = "Formação de Professores";
-                            label12.Text = studentNames[0];
-
-                            label13.Text = studentNames[1];
+                            label12.Visible = true;
+                            label12.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label12.Text += studentNames[o] + "\n";
+                            }
+                            
                         }
                         else
                         {
                             label5.Visible = true;
                             label5.Text = fieldList[i];
-                            label12.Text = studentNames[0];
-
-                            label13.Text = studentNames[1];
+                            label12.Visible = true;
+                            label12.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label12.Text += studentNames[o] + "\n";
+                            }
                         }
                     }
                     else if (i == 3)
@@ -695,17 +717,24 @@ namespace EramusManager
                         {
                             label6.Visible = true;
                             label6.Text = "Formação de Professores";
-                            label14.Text = studentNames[0];
-
-                            label15.Text = studentNames[1];
+                            label14.Visible = true;
+                            label14.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label14.Text += studentNames[o] + "\n";
+                            }
+                            
                         }
                         else
                         {
                             label6.Visible = true;
                             label6.Text = fieldList[i];
-                            label14.Text = studentNames[0];
-
-                            label15.Text = studentNames[1];
+                            label14.Visible = true;
+                            label14.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label14.Text += studentNames[o] + "\n";
+                            }
                         }
                     }
                     else if (i == 4)
@@ -715,17 +744,23 @@ namespace EramusManager
                         {
                             label7.Visible = true;
                             label7.Text = "Formação de Professores";
-                            label16.Text = studentNames[0];
-
-                            label17.Text = studentNames[1];
+                            label16.Visible = true;
+                            label16.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label16.Text += studentNames[o] + "\n";
+                            }
                         }
                         else
                         {
                             label7.Visible = true;
                             label7.Text = fieldList[i];
-                            label16.Text = studentNames[0];
-
-                            label17.Text = studentNames[1];
+                            label16.Visible = true;
+                            label16.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label16.Text += studentNames[o] + "\n";
+                            }
                         }
                     }
                     else if (i == 5)
@@ -735,17 +770,23 @@ namespace EramusManager
                         {
                             label8.Visible = true;
                             label8.Text = "Formação de Professores";
-                            label18.Text = studentNames[0];
-
-                            label19.Text = studentNames[1];
+                            label18.Visible = true;
+                            label18.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label18.Text += studentNames[o] + "\n";
+                            }
                         }
                         else
                         {
                             label8.Visible = true;
                             label8.Text = fieldList[i];
-                            label18.Text = studentNames[0];
-
-                            label19.Text = studentNames[1];
+                            label18.Visible = true;
+                            label18.Text = "";
+                            for (int o = 0; o < 2; o++)
+                            {
+                                label18.Text += studentNames[o] + "\n";
+                            }
                         }
                     }
 
@@ -782,22 +823,26 @@ namespace EramusManager
                 Console.WriteLine(weights[i]);
             }
 
-            for (int o = 0; o < codeList.Count; o++)
+            List<string> noDuplicatesList = codeList.Distinct().ToList();
+
+            /*for (int o = 0; o < codeList.Count; o++)
             {
+                Console.WriteLine(codeList[o]);
                 for (int k = o + 1; k < codeList.Count; k++)
                 {
+                    
                     if (codeList[o] == codeList[k])
                     {
                         codeList.RemoveAt(k);
                     }
                 }
-            }
+            }*/
 
             List<string> selectedNames = new List<string>();
-            for (int o = 0; o < codeList.Count; o++)
+            for (int o = 0; o < noDuplicatesList.Count; o++)
             {
                 connection.Open();
-                String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + codeList[o] + "') ";
+                String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + noDuplicatesList[o] + "') ";
                 SqlCommand GNewProjectcommand177 = new SqlCommand(GNewProject177, connection);
                 SqlDataReader GNewProjectreader177 = GNewProjectcommand177.ExecuteReader();
 
@@ -812,12 +857,12 @@ namespace EramusManager
 
 
             int[,] secValuesCsv = new int[studentsCount, n];
-            for (int o = 0; o < codeList.Count; o++)
+            for (int o = 0; o < noDuplicatesList.Count; o++)
             {
                 for (int k = 0; k < fieldList.Count; k++)
                 {
                     connection.Open();
-                    String GNewProject187 = "SELECT evaluationLang FROM languages WHERE studentId = ('" + codeList[o] + "') AND langName = ('" + fieldList[k] + "') ";
+                    String GNewProject187 = "SELECT evaluationLang FROM languages WHERE studentId = ('" + noDuplicatesList[o] + "') AND langName = ('" + fieldList[k] + "') ";
                     SqlCommand GNewProjectcommand187 = new SqlCommand(GNewProject187, connection);
                     SqlDataReader GNewProjectreader187 = GNewProjectcommand187.ExecuteReader();
 
@@ -841,7 +886,7 @@ namespace EramusManager
             }
 
 
-            for (int o = 0; o < codeList.Count; o++)
+            for (int o = 0; o < noDuplicatesList.Count; o++)
             {
                 //sbOutput2.Append("  ; ");
                 sbOutput2.AppendLine();
@@ -849,12 +894,11 @@ namespace EramusManager
                 for (int k = 0; k < fieldList.Count; k++)
                 {
                     sbOutput2.Append(secValuesCsv[o, k] + "; ");
-
                 }
                 //sbOutput.AppendLine();
             }
 
-            File.AppendAllText(strFilePath, sbOutput2.ToString());
+            //File.AppendAllText(strFilePath, sbOutput2.ToString());
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -865,6 +909,12 @@ namespace EramusManager
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            File.WriteAllText(strFilePath, sbOutput.ToString());
+            File.AppendAllText(strFilePath, sbOutput2.ToString());
         }
     }
 }

@@ -13,7 +13,7 @@ namespace EramusManager
 {
     public partial class SelecaoDeEstudantes : Form
     {
-        Point ponto = new Point(142, 560);
+        Point ponto = new Point(142, 77);
         int autonomy, l1, l2, l3, evalTec, evalTec1, evalTec2 = 0;
         String field = "";
         List<string> linguasList = new List<string>();
@@ -101,19 +101,28 @@ namespace EramusManager
                 label2.Text = "O estudante tem conhecimento de " + linguasList[0] + ", em que seguinte nivel? ";
                 label2.Visible = true;
                 groupBox4.Visible = true;
+                label2.Location = ponto;
+                groupBox4.Location = new Point(ponto.X, ponto.Y + label2.Height);
+                ponto = new Point(ponto.X, ponto.Y + label2.Height + groupBox4.Height + 20);
             }
 
             if (linguasList[1] != "Sm")
             {
                 label4.Text = "O estudante tem conhecimento de " + linguasList[1] + ", em que seguinte nivel? ";
                 label4.Visible = true;
-                groupBox5.Visible = true;
+                groupBox10.Visible = true;
+                label4.Location = ponto;
+                groupBox10.Location = new Point(ponto.X, ponto.Y + label4.Height);
+                ponto = new Point(ponto.X, ponto.Y + label4.Height + groupBox10.Height + 20);
             }
             if (linguasList[2] != "SM")
             {
                 label5.Text = "O estudante tem conhecimento de " + linguasList[2] + ", em que seguinte nivel? ";
                 label5.Visible = true;
-                groupBox6.Visible = true;
+                groupBox5.Visible = true;
+                label5.Location = ponto;
+                groupBox10.Location = new Point(ponto.X, ponto.Y + label5.Height);
+                ponto = new Point(ponto.X, ponto.Y + label5.Height + groupBox10.Height + 20);
             }
 
 
@@ -125,6 +134,11 @@ namespace EramusManager
                 labelrealizarprojeto.Visible = true;
                 groupBox2.Visible = true;
                 groupBox3.Visible = true;
+                labelperguntaareastring.Location = ponto;
+                groupBox2.Location = new Point(ponto.X, ponto.Y + labelperguntaareastring.Height);
+                labelrealizarprojeto.Location = new Point(ponto.X, ponto.Y + labelperguntaareastring.Height + groupBox2.Height + 20);
+                groupBox3.Location = new Point(ponto.X, ponto.Y + labelperguntaareastring.Height + groupBox2.Height + 20 + labelrealizarprojeto.Height);
+                ponto = new Point(ponto.X, ponto.Y + labelperguntaareastring.Height + groupBox2.Height + 20 + labelrealizarprojeto.Height + groupBox3.Height + 20);
             }
 
             if (fieldsList[1] != "SM")
@@ -135,6 +149,11 @@ namespace EramusManager
                 label1.Visible = true;
                 groupBox7.Visible = true;
                 groupBox1.Visible = true;
+                label6.Location = ponto;
+                groupBox7.Location = new Point(ponto.X, ponto.Y + label6.Height);
+                label1.Location = new Point(ponto.X, ponto.Y + label6.Height + groupBox7.Height + 20);
+                groupBox1.Location = new Point(ponto.X, ponto.Y + label6.Height + groupBox7.Height + 20 + label1.Height);
+                ponto = new Point(ponto.X, ponto.Y + label6.Height + groupBox7.Height + 20 + label1.Height + groupBox1.Height + 20);
             }
             if (fieldsList[2] != "SM")
             {
@@ -144,6 +163,11 @@ namespace EramusManager
                 label7.Visible = true;
                 groupBox9.Visible = true;
                 groupBox8.Visible = true;
+                label9.Location = ponto;
+                groupBox9.Location = new Point(ponto.X, ponto.Y + label9.Height);
+                label7.Location = new Point(ponto.X, ponto.Y + label9.Height + groupBox9.Height + 20);
+                groupBox8.Location = new Point(ponto.X, ponto.Y + label9.Height + groupBox9.Height + 20 + label7.Height);
+                ponto = new Point(ponto.X, ponto.Y + label9.Height + groupBox9.Height + 20 + label7.Height + groupBox8.Height + 20);
             }
         }
 
@@ -506,7 +530,7 @@ namespace EramusManager
         {
             if (radioButton2.Checked == true)
             {
-                l1 = 3;
+                l1 = 2;
             }
             else
             {
@@ -518,7 +542,7 @@ namespace EramusManager
         {
             if (radioButton4.Checked == true)
             {
-                l1 = 10;
+                l1 = 6;
             }
             else
             {
@@ -817,6 +841,210 @@ namespace EramusManager
             }
         }
 
+        private void radioButton11_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButton11.Checked == true)
+            {
+                l1 = 0;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton21_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton21.Checked == true)
+            {
+                l1 = 8;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton22_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton22.Checked == true)
+            {
+                l1 = 10;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton27_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton27.Checked == true)
+            {
+                l2 = 1;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton28_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton28.Checked == true)
+            {
+                l2 = 2;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton26_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton26.Checked == true)
+            {
+                l2 = 4;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton25_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton25.Checked == true)
+            {
+                l2 = 6;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton12_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButton12.Checked == true)
+            {
+                l2 = 0;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton24_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton24.Checked == true)
+            {
+                l2 = 8;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton23_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton23.Checked == true)
+            {
+                l2 = 10;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton9_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButton9.Checked == true)
+            {
+                l3 = 1;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton29_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton29.Checked == true)
+            {
+                l3 = 0;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton10_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButton10.Checked == true)
+            {
+                l3 = 2;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton8_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButton8.Checked == true)
+            {
+                l3 = 4;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton7_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButton7.Checked == true)
+            {
+                l3 = 6;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton6_CheckedChanged_2(object sender, EventArgs e)
+        {
+            if (radioButton6.Checked == true)
+            {
+                l3 = 8;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void radioButton5_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked == true)
+            {
+                l3 = 10;
+            }
+            else
+            {
+
+            }
+        }
+
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -881,7 +1109,7 @@ namespace EramusManager
         {
             if (radioButton3.Checked == true)
             {
-                l1 = 6;
+                l1 = 4;
             }
             else
             {
@@ -893,7 +1121,7 @@ namespace EramusManager
         {
             if (radioButton1.Checked == true)
             {
-                l1 = 0;
+                l1 = 1;
             }
             else
             {

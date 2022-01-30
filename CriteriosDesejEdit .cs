@@ -14,6 +14,8 @@ namespace EramusManager
     public partial class CriteriosDesejEdit : Form
     {
         //Boolean edit = false;
+        Point ponto = new Point(134, 209);
+        //Point ponto2 = new Point(134, 209);
         List<string> linguasList = new List<string>();
         List<string> oldList = new List<string>();
         List<string> fieldsList = new List<string>();
@@ -56,25 +58,71 @@ namespace EramusManager
                     labellingua2parte.Text = "" + linguas.SelectedItem + "";
                     labellingua2parte.Visible = true;
                     nivelaceitavellingua.Visible = true;
+                    button1.Visible = true;
                     linguasList[0] = "" + linguas.SelectedItem + "";
+                    
+                    /*if(ponto2.Y < ponto.Y)
+                    {
+                        ponto = new Point(ponto.X, ponto.Y + 40);
+                        labellingua2parte.Location = ponto;
+                        nivelaceitavellingua.Location = new Point(ponto.X, ponto.Y + labellingua2parte.Height);
+                        ponto = new Point(ponto.X, ponto.Y + labellingua2parte.Height + nivelaceitavellingua.Height + 20);
+                    } else
+                    {*/
+                    labellingua2parte.Location = ponto;
+                    nivelaceitavellingua.Location = new Point(ponto.X, ponto.Y + labellingua2parte.Height);
+                    button1.Location = new Point(button1.Location.X, ponto.Y + labellingua2parte.Height);
+                    ponto = new Point(ponto.X, ponto.Y + labellingua2parte.Height + nivelaceitavellingua.Height + 20);
+                    //}
                 }
                 else if (count == 2)
                 {
                     label2.Text = "" + linguas.SelectedItem + "";
                     label2.Visible = true;
                     comboBox1.Visible = true;
+                    button3.Visible = true;
                     linguasList[1] = "" + linguas.SelectedItem + "";
+                    /*if (ponto2.Y < ponto.Y)
+                    {*/
+                        ponto = new Point(ponto.X, ponto.Y + 40);
+                        label2.Location = ponto;
+                        comboBox1.Location = new Point(ponto.X, ponto.Y + label2.Height);
+                        ponto = new Point(ponto.X, ponto.Y + label2.Height + comboBox1.Height + 20);
+                    /*}
+                    else
+                    {*/
+                    label2.Location = ponto;
+                    comboBox1.Location = new Point(ponto.X, ponto.Y + label2.Height);
+                    button3.Location = new Point(button3.Location.X, ponto.Y + label2.Height);
+                    ponto = new Point(ponto.X, ponto.Y + label2.Height + comboBox1.Height + 20);
+                    //}
+
                 }
                 else if (count == 3)
                 {
                     label3.Text = "" + linguas.SelectedItem + "";
                     label3.Visible = true;
                     comboBox2.Visible = true;
+                    button4.Visible = true;
                     linguasList[2] = "" + linguas.SelectedItem + "";
+                    /*if (ponto2.Y < ponto.Y)
+                    {*/
+                        ponto = new Point(ponto.X, ponto.Y + 40);
+                        label3.Location = ponto;
+                        comboBox2.Location = new Point(ponto.X, ponto.Y + label3.Height);
+                        ponto = new Point(ponto.X, ponto.Y + label3.Height + comboBox2.Height + 20);
+                    /*}
+                    else
+                    {*/
+                    label3.Location = ponto;
+                    comboBox2.Location = new Point(ponto.X, ponto.Y + label3.Height);
+                    button4.Location = new Point(button4.Location.X, ponto.Y + label3.Height);
+                    ponto = new Point(ponto.X, ponto.Y + label3.Height + comboBox2.Height + 20);
+                    //}
                 }
                 else
                 {
-                    countAs = 0;
+                    //countAs = 0;
                 }
             }
         }
@@ -153,6 +201,7 @@ namespace EramusManager
                         "Informática",
                         "Eletrónica",
                         "Mecânica",
+                        "Turismo",
                         "Engenharia e Técnicas Afins",
                         "Indústrias Transformadoras",
                         "Arquitetura e Construção",
@@ -193,6 +242,12 @@ namespace EramusManager
                 labellingua2parte.Text = linguasList[0];
                 labellingua2parte.Visible = true;
                 nivelaceitavellingua.Visible = true;
+                labellingua2parte.Location = ponto;
+                button1.Visible = true;
+                nivelaceitavel.Location = new Point(ponto.X, ponto.Y + labellingua2parte.Height);
+                button1.Location = new Point(button1.Location.X, ponto.Y + labellingua2parte.Height);
+                ponto = new Point(ponto.X, ponto.Y + labellingua2parte.Height + nivelaceitavel.Height + 20);
+                count = 1;
             }
 
             if(linguasList[1] != "SM")
@@ -200,12 +255,24 @@ namespace EramusManager
                 label2.Text = linguasList[1];
                 label2.Visible = true;
                 comboBox1.Visible = true;
+                label2.Location = ponto;
+                button3.Visible = true;
+                comboBox1.Location = new Point(ponto.X, ponto.Y + label2.Height);
+                button3.Location = new Point(button3.Location.X, ponto.Y + label2.Height);
+                ponto = new Point(ponto.X, ponto.Y + label2.Height + comboBox1.Height + 20);
+                count = 2;
             }
             if(linguasList[2] != "SM")
             {
                 label3.Text = linguasList[2];
                 label3.Visible = true;
                 comboBox2.Visible = true;
+                label3.Location = ponto;
+                button4.Visible = true;
+                comboBox2.Location = new Point(ponto.X, ponto.Y + label3.Height);
+                button4.Location = new Point(button4.Location.X, ponto.Y + label3.Height);
+                ponto = new Point(ponto.X, ponto.Y + label3.Height + comboBox2.Height + 20);      
+                count = 3;
             }
 
             if (fieldsList[0] != "SM")
@@ -214,21 +281,39 @@ namespace EramusManager
                 //Console.WriteLine(fieldsList[0]);
                 labelarea2parte.Visible = true;
                 nivelaceitavel.Visible = true;
+                button5.Visible = true;
+                labelarea2parte.Location = ponto;
+                nivelaceitavel.Location = new Point(ponto.X, ponto.Y + labelarea2parte.Height);
+                button5.Location = new Point(button5.Location.X, ponto.Y + labelarea2parte.Height);
+                ponto = new Point(ponto.X, ponto.Y + labellingua2parte.Height + nivelaceitavel.Height + 20);
                 //fieldsList[0] = "" + areadeespecializacao.SelectedItem + "";
+                countAs = 1;
             }
             if (fieldsList[1] != "SM")
             {
                 label4.Text = "" + fieldsList[1] + "";
                 label4.Visible = true;
                 comboBox3.Visible = true;
+                button6.Visible = true;
+                label4.Location = ponto;
+                comboBox3.Location = new Point(ponto.X, ponto.Y + label4.Height);
+                button6.Location = new Point(button6.Location.X, ponto.Y + label4.Height);
+                ponto = new Point(ponto.X, ponto.Y + label4.Height + comboBox3.Height + 20);
                 //fieldsList[1] = "" + areadeespecializacao.SelectedItem + "";
+                countAs = 2;
             }
             if (fieldsList[2] != "SM")
             {
                 label5.Text = "" + fieldsList[2] + "";
                 label5.Visible = true;
                 comboBox4.Visible = true;
+                button7.Visible = true;
+                label5.Location = ponto;
+                comboBox4.Location = new Point(ponto.X, ponto.Y + label5.Height);
+                button7.Location = new Point(button7.Location.X, ponto.Y + label5.Height);
+                ponto = new Point(ponto.X, ponto.Y + label5.Height + comboBox4.Height + 20);
                 //fieldsList[2] = "" + areadeespecializacao.SelectedItem + "";
+                countAs = 3;
             }
         }
 
@@ -360,7 +445,7 @@ namespace EramusManager
                 if (linguasList.Count >= 2)
                 {
                     connection.Open();
-                    String GNewProject13 = "UPDATE DetailsReq SET studyFieldReq = ('" + linguasList[1] + "'), fieldEvaluation = ('" + comboBox1.SelectedItem + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') AND studyFieldReq = ('" + oldList[1] + "') AND type = 'LN' ";
+                    String GNewProject13 = "UPDATE DetailsReq SET studyFieldReq = ('" + linguasList[1] + "'), fieldEvaluation = ('" + comboBox1.SelectedIndex + "' ) WHERE projectId = ('" + Properties.Settings.Default.projectId + "') AND studyFieldReq = ('" + oldList[1] + "') AND type = 'LN' ";
                     SqlCommand GNewProjectcommand13 = new SqlCommand(GNewProject13, connection);
                     SqlDataReader GNewProjectreader13 = GNewProjectcommand13.ExecuteReader();
                     connection.Close();
@@ -658,6 +743,66 @@ namespace EramusManager
 
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            fieldsList[0] = "SM";
+            labelarea2parte.Visible = false;
+            nivelaceitavel.Visible = false;
+            button5.Visible = false;
+            ponto = labelarea2parte.Location;
+            countAs = 0;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            fieldsList[1] = "SM";
+            label4.Visible = false;
+            comboBox3.Visible = false;
+            button6.Visible = false;
+            ponto = label4.Location;
+            countAs = 1;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            fieldsList[2] = "SM";
+            label5.Visible = false;
+            comboBox4.Visible = false;
+            button7.Visible = false;
+            ponto = label5.Location;
+            countAs = 2;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            linguasList[0] = "SM";
+            labellingua2parte.Visible = false;
+            nivelaceitavellingua.Visible = false;
+            button1.Visible = false;
+            ponto = labellingua2parte.Location;
+            count = 0;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            linguasList[1] = "SM";
+            label2.Visible = false;
+            comboBox1.Visible = false;
+            button3.Visible = false;
+            ponto = label2.Location;
+            count = 1;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            linguasList[2] = "SM";
+            label3.Visible = false;
+            comboBox2.Visible = false;
+            button4.Visible = false;
+            ponto = label3.Location;
+            count = 2;
+        }
+
         private void areadeespecializacao_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (areadeespecializacao.SelectedIndex != -1)
@@ -668,7 +813,22 @@ namespace EramusManager
                     labelarea2parte.Text = "" + areadeespecializacao.SelectedItem + "";
                     labelarea2parte.Visible = true;
                     nivelaceitavel.Visible = true;
+                    button5.Visible = true;
                     fieldsList[0] = "" + areadeespecializacao.SelectedItem + "";
+                    /*if (ponto2.Y < ponto.Y)
+                    {
+                        ponto = new Point(ponto.X, ponto.Y + 40);
+                        labelarea2parte.Location = ponto;
+                        nivelaceitavel.Location = new Point(ponto.X, ponto.Y + labelarea2parte.Height);
+                        ponto = new Point(ponto.X, ponto.Y + labelarea2parte.Height + nivelaceitavel.Height + 20);
+                    }
+                    else
+                    {*/
+                    labelarea2parte.Location = ponto;
+                    nivelaceitavel.Location = new Point(ponto.X, ponto.Y + labelarea2parte.Height);
+                    button5.Location = new Point(button5.Location.X, ponto.Y + labelarea2parte.Height);
+                    ponto = new Point(ponto.X, ponto.Y + labelarea2parte.Height + nivelaceitavel.Height + 20);
+                    //}
                 }
                 else if (countAs == 2)
                 {
@@ -676,17 +836,47 @@ namespace EramusManager
                     label4.Visible = true;
                     comboBox3.Visible = true;
                     fieldsList[1] = "" + areadeespecializacao.SelectedItem + "";
+                    button6.Visible = true;
+                    /*if (ponto2.Y < ponto.Y)
+                    {
+                        ponto = new Point(ponto.X, ponto.Y + 40);
+                        label4.Location = ponto;
+                        comboBox3.Location = new Point(ponto.X, ponto.Y + label4.Height);
+                        ponto = new Point(ponto.X, ponto.Y + label4.Height + comboBox3.Height + 20);
+                    }
+                    else
+                    {*/
+                    label4.Location = ponto;
+                    comboBox3.Location = new Point(ponto.X, ponto.Y + label4.Height);
+                    button6.Location = new Point(button6.Location.X, ponto.Y + label4.Height);
+                    ponto = new Point(ponto.X, ponto.Y + label4.Height + comboBox3.Height + 20);
+                    //}
                 }
                 else if (countAs == 3)
                 {
                     label5.Text = "" + areadeespecializacao.SelectedItem + "";
                     label5.Visible = true;
                     comboBox4.Visible = true;
+                    button7.Visible = true;
                     fieldsList[2] = "" + areadeespecializacao.SelectedItem + "";
+                    /*if (ponto2.Y < ponto.Y)
+                    {
+                        ponto = new Point(ponto.X, ponto.Y + 40);
+                        label5.Location = ponto;
+                        comboBox4.Location = new Point(ponto.X, ponto.Y + label5.Height);
+                        ponto = new Point(ponto.X, ponto.Y + label5.Height + comboBox4.Height + 20);
+                    }
+                    else
+                    {*/
+                    label5.Location = ponto;
+                    comboBox4.Location = new Point(ponto.X, ponto.Y + label5.Height);
+                    button7.Location = new Point(button7.Location.X, ponto.Y + label5.Height);
+                    ponto = new Point(ponto.X, ponto.Y + label5.Height + comboBox4.Height + 20);
+                    //}
                 }
                 else
                 {
-                    countAs = 0;
+                    //countAs = 0;
                 }
             }
         }
