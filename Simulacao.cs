@@ -25,7 +25,7 @@ namespace EramusManager
         StringBuilder sbOutput = new StringBuilder();
         StringBuilder sbOutput2 = new StringBuilder();
         List<string> codeList = new List<string>();
-        int projectId = 63;
+        string projectId = Properties.Settings.Default.projectId;
 
         public class MyGridValues
         {

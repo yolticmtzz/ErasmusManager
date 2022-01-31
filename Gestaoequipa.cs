@@ -14,6 +14,8 @@ namespace EramusManager
 {
     public partial class Gestaoequipa : Form
     {
+        List<string> langs = new List<string>();
+        List<string> studentId = new List<string>();
         public Gestaoequipa()
         {
             InitializeComponent();
@@ -46,11 +48,15 @@ namespace EramusManager
                 comboprojectos.Items.Add(GetProject4reader.GetString(0));
             }
             connection.Close();
+
+            
         }
 
         private void criarprojetobtt_Click(object sender, EventArgs e)
         {
-            
+            Form Simulacao = new Simulacao();
+            Simulacao.Closed += (s, args) => this.Close();
+            Simulacao.Show();
         }
 
         private void comboprojectos_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +64,20 @@ namespace EramusManager
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.ConnectionString = "Server=tcp:eramusmanager.database.windows.net,1433;Initial Catalog=eramusmanagerdb;Persist Security Info=False;User ID=eramusmanager;Password=ispgprojSAD!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            listanomes.Items.Clear();
+            listatrib1.Items.Clear();
+            listatrib2.Items.Clear();
+            listatrib3.Items.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox7.Text = "";
 
             //GET PROJECT ID
             connection.Open();
@@ -74,6 +94,53 @@ namespace EramusManager
 
             connection.Close();
 
+            connection.Open();
+            String GetProject43comb = "SELECT studyFieldReq FROM DetailsReq WHERE projectId = ('" + Properties.Settings.Default.projectId +"')";
+            SqlCommand GetProject43combtcommand = new SqlCommand(GetProject43comb, connection);
+            SqlDataReader GetProject43reader = GetProject43combtcommand.ExecuteReader();
+
+            while (GetProject43reader.Read())
+            {
+                if(GetProject43reader.GetString(0) != "SM")
+                {
+                    langs.Add(GetProject43reader.GetString(0));
+                }
+                
+            }
+            connection.Close();
+
+            foreach(string lang in langs)
+            {
+                Console.WriteLine(lang);
+            }
+
+            if (langs.Count >= 1)
+            {
+                textBox2.Text = langs[0];
+            }
+            if(langs.Count >= 2)
+            {
+                textBox3.Text = langs[1];
+            }
+            if(langs.Count >= 3)
+            {
+                textBox4.Text = langs[2];
+            }
+            if (langs.Count >= 4)
+            {
+                textBox6.Text = langs[3];
+            }
+            if (langs.Count >= 5)
+            {
+                textBox5.Text = langs[4];
+            }
+            if (langs.Count == 6)
+            {
+                textBox7.Text = langs[5];
+            }
+
+            
+
             //GET STUDENT ID
             connection.Open();
             String GetStudentId = "SELECT studentId FROM Students WHERE projectId = ('" + debugPID.Text + "')";
@@ -83,6 +150,7 @@ namespace EramusManager
             while (GetStudentIdreader.Read())
             {
                 Properties.Settings.Default.studentId = GetStudentIdreader["studentId"].ToString();
+                studentId.Add(GetStudentIdreader["studentId"].ToString());
             }
 
             debug2.Text = Properties.Settings.Default.studentId;
@@ -101,41 +169,122 @@ namespace EramusManager
             }
             connection.Close();
 
-            //GET ATRIB1
-            connection.Open();
-            String GetAtrib1 = "SELECT langName FROM Languages WHERE studentId = ('" + debug2.Text + "')";
-            SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
-            SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
 
-            while (GetAtrib1reader.Read())
+            //GET ATRIB1
+            foreach (string id in studentId)
             {
-                listatrib1.Items.Add(GetAtrib1reader.GetString(0));
+                connection.Open();
+                String GetAtrib1 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + id + "') AND langName = ('" + langs[0] +"')";
+                SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
+                SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
+
+                while (GetAtrib1reader.Read())
+                {
+                    listatrib1.Items.Add(Convert.ToString(GetAtrib1reader.GetInt32(0)));
+                }
+                connection.Close();
             }
-            connection.Close();
 
             //GET ATRIB2
-            connection.Open();
-            String GetAtrib2 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + debug2.Text + "')";
-            SqlCommand GetAtrib2command = new SqlCommand(GetAtrib2, connection);
-            SqlDataReader GetAtrib2reader = GetAtrib2command.ExecuteReader();
-
-            while (GetAtrib2reader.Read())
+            foreach (string id in studentId)
             {
-                listatrib2.Items.Add(GetAtrib2reader.GetInt32(0));
+                connection.Open();
+                String GetAtrib1 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + id + "') AND langName = ('" + langs[1] + "')";
+                SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
+                SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
+
+                while (GetAtrib1reader.Read())
+                {
+                    listatrib2.Items.Add(Convert.ToString(GetAtrib1reader.GetInt32(0)));
+                }
+                connection.Close();
             }
-            connection.Close();
 
             //GET ATRIB3
-            connection.Open();
-            String GetAtrib3 = "SELECT type FROM Languages WHERE studentId = ('" + debug2.Text + "')";
-            SqlCommand GetAtrib3command = new SqlCommand(GetAtrib3, connection);
-            SqlDataReader GetAtrib3reader = GetAtrib3command.ExecuteReader();
-
-            while (GetAtrib3reader.Read())
+            foreach (string id in studentId)
             {
-                listatrib3.Items.Add(GetAtrib3reader.GetString(0));
+                connection.Open();
+                String GetAtrib1 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + id + "') AND langName = ('" + langs[2] + "')";
+                SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
+                SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
+
+                while (GetAtrib1reader.Read())
+                {
+                    listatrib3.Items.Add(Convert.ToString(GetAtrib1reader.GetInt32(0)));
+                }
+                connection.Close();
             }
-            connection.Close();
+
+            foreach (string id in studentId)
+            {
+                connection.Open();
+                String GetAtrib1 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + id + "') AND langName = ('" + langs[3] + "')";
+                SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
+                SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
+
+                while (GetAtrib1reader.Read())
+                {
+                    listBox3.Items.Add(Convert.ToString(GetAtrib1reader.GetInt32(0)));
+                }
+                connection.Close();
+            }
+
+            foreach (string id in studentId)
+            {
+                connection.Open();
+                String GetAtrib1 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + id + "') AND langName = ('" + langs[4] + "')";
+                SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
+                SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
+
+                while (GetAtrib1reader.Read())
+                {
+                    listBox2.Items.Add(Convert.ToString(GetAtrib1reader.GetInt32(0)));
+                }
+                connection.Close();
+            }
+
+            foreach (string id in studentId)
+            {
+                connection.Open();
+                String GetAtrib1 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + id + "') AND langName = ('" + langs[5] + "')";
+                SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
+                SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
+
+                while (GetAtrib1reader.Read())
+                {
+                    listBox1.Items.Add(Convert.ToString(GetAtrib1reader.GetInt32(0)));
+                }
+                connection.Close();
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
