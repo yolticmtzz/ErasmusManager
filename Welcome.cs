@@ -196,32 +196,55 @@ namespace EramusManager
             XmlReader xmlFile;
             string sql = null;
             Boolean verificar = false;
-
             int studentId = 0;
             string studentName = null;
-            ds.ReadXml("students.xml");
-
-            int i = 0;
-            connection.Open();
-
-            for (i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
+            
+            OpenFileDialog ofd = new OpenFileDialog();
+ 
+            ofd.Filter = "XML Files (*.xml)|*.xml";
+            ofd.FilterIndex = 0;
+            ofd.DefaultExt = "xml";
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                studentName = ds.Tables[0].Rows[i].ItemArray[1].ToString();
+                if (!String.Equals(Path.GetExtension(ofd.FileName),
+                                   ".xml",
+                                   StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("The type of the selected file is not supported by this application. You must select an XML file.",
+                                    "Invalid File Type",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+                else
+                {
+                    ds.ReadXml(ofd.FileName);
+                    int i = 0;
+                    connection.Open();
+                    for (i = 0; i <= ds.Tables[0].Rows.Count - 1; i++)
+                    {
+                        studentName = ds.Tables[0].Rows[i].ItemArray[1].ToString();
 
-                String student = "INSERT INTO Students (studentName) VALUES('" + studentName + "')";
-                SqlCommand command = new SqlCommand(student, connection);
-                adpter.InsertCommand = command;
-                adpter.InsertCommand.ExecuteNonQuery();
-                verificar = true;
+                        String student = "INSERT INTO Students (studentName) VALUES('" + studentName + "')";
+                        SqlCommand command = new SqlCommand(student, connection);
+                        adpter.InsertCommand = command;
+                        adpter.InsertCommand.ExecuteNonQuery();
+                        verificar = true;
+                    }
+                    connection.Close();
+                    MessageBox.Show("Completed");
+
+                    if (verificar = true)
+                    {
+                        button4.Enabled = false;
+                    }
+                }
             }
-            connection.Close();
-            MessageBox.Show("Completed");
+        }
 
-            if (verificar = true)
-            {
-                button4.Enabled = false;
-            }
-
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            openChildForm(new Gestaoequipa());
+            hideSubMenu();
         }
     }
 }

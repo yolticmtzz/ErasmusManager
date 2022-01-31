@@ -30,36 +30,39 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestaoequipa));
             this.label1 = new System.Windows.Forms.Label();
-            this.comboparceiros = new System.Windows.Forms.ComboBox();
+            this.comboprojectos = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.criarprojetobtt = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.debugPID = new System.Windows.Forms.TextBox();
+            this.listdebug = new System.Windows.Forms.ListBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.atrib3 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.atrib2 = new System.Windows.Forms.TextBox();
+            this.atrib1 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.nome1 = new System.Windows.Forms.TextBox();
+            this.debug2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -67,24 +70,25 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(297, 34);
+            this.label1.Location = new System.Drawing.Point(357, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(208, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Erasmus Manager";
             // 
-            // comboparceiros
+            // comboprojectos
             // 
-            this.comboparceiros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.comboparceiros.FormattingEnabled = true;
-            this.comboparceiros.ItemHeight = 18;
-            this.comboparceiros.Location = new System.Drawing.Point(82, 92);
-            this.comboparceiros.Margin = new System.Windows.Forms.Padding(2);
-            this.comboparceiros.Name = "comboparceiros";
-            this.comboparceiros.Size = new System.Drawing.Size(625, 26);
-            this.comboparceiros.TabIndex = 10;
-            this.comboparceiros.Text = "Procurar estudantes ...";
+            this.comboprojectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.comboprojectos.FormattingEnabled = true;
+            this.comboprojectos.ItemHeight = 18;
+            this.comboprojectos.Location = new System.Drawing.Point(82, 92);
+            this.comboprojectos.Margin = new System.Windows.Forms.Padding(2);
+            this.comboprojectos.Name = "comboprojectos";
+            this.comboprojectos.Size = new System.Drawing.Size(625, 26);
+            this.comboprojectos.TabIndex = 10;
+            this.comboprojectos.Text = "Procurar Projeto ...";
+            this.comboprojectos.SelectedIndexChanged += new System.EventHandler(this.comboprojectos_SelectedIndexChanged);
             // 
             // textBox4
             // 
@@ -136,203 +140,6 @@
             this.textBox5.TabIndex = 18;
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox6.Location = new System.Drawing.Point(82, 178);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(139, 24);
-            this.textBox6.TabIndex = 19;
-            this.textBox6.Text = "Nome";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox7.Location = new System.Drawing.Point(82, 208);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(139, 24);
-            this.textBox7.TabIndex = 20;
-            this.textBox7.Text = "Nome";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox8.Location = new System.Drawing.Point(82, 238);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(139, 24);
-            this.textBox8.TabIndex = 21;
-            this.textBox8.Text = "Nome";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox9.Location = new System.Drawing.Point(82, 268);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(139, 24);
-            this.textBox9.TabIndex = 22;
-            this.textBox9.Text = "Nome";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox10.Location = new System.Drawing.Point(372, 178);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(139, 24);
-            this.textBox10.TabIndex = 25;
-            this.textBox10.Text = " ";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox11.Location = new System.Drawing.Point(227, 178);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(139, 24);
-            this.textBox11.TabIndex = 24;
-            this.textBox11.Text = " ";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox12.Location = new System.Drawing.Point(517, 178);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(139, 24);
-            this.textBox12.TabIndex = 23;
-            this.textBox12.Text = " ";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox13.Location = new System.Drawing.Point(372, 208);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(139, 24);
-            this.textBox13.TabIndex = 28;
-            this.textBox13.Text = " ";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox14.Location = new System.Drawing.Point(227, 208);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(139, 24);
-            this.textBox14.TabIndex = 27;
-            this.textBox14.Text = " ";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox15.Location = new System.Drawing.Point(517, 208);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(139, 24);
-            this.textBox15.TabIndex = 26;
-            this.textBox15.Text = " ";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox16.Location = new System.Drawing.Point(372, 238);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(139, 24);
-            this.textBox16.TabIndex = 31;
-            this.textBox16.Text = " ";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox17.Location = new System.Drawing.Point(227, 238);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(139, 24);
-            this.textBox17.TabIndex = 30;
-            this.textBox17.Text = " ";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox18.Location = new System.Drawing.Point(517, 238);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(139, 24);
-            this.textBox18.TabIndex = 29;
-            this.textBox18.Text = " ";
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox19.Location = new System.Drawing.Point(372, 268);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(139, 24);
-            this.textBox19.TabIndex = 34;
-            this.textBox19.Text = " ";
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox20.Location = new System.Drawing.Point(227, 268);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(139, 24);
-            this.textBox20.TabIndex = 33;
-            this.textBox20.Text = " ";
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox21.Location = new System.Drawing.Point(517, 268);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(139, 24);
-            this.textBox21.TabIndex = 32;
-            this.textBox21.Text = " ";
-            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(662, 178);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 23);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(662, 208);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 23);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(662, 237);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(45, 23);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "X";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(662, 269);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 23);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "X";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -362,13 +169,14 @@
             this.criarprojetobtt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.criarprojetobtt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.criarprojetobtt.ForeColor = System.Drawing.Color.White;
-            this.criarprojetobtt.Location = new System.Drawing.Point(82, 389);
+            this.criarprojetobtt.Location = new System.Drawing.Point(82, 395);
             this.criarprojetobtt.Margin = new System.Windows.Forms.Padding(2);
             this.criarprojetobtt.Name = "criarprojetobtt";
             this.criarprojetobtt.Size = new System.Drawing.Size(625, 29);
             this.criarprojetobtt.TabIndex = 41;
             this.criarprojetobtt.Text = "Iniciar Simulação";
             this.criarprojetobtt.UseVisualStyleBackColor = false;
+            this.criarprojetobtt.Click += new System.EventHandler(this.criarprojetobtt_Click);
             // 
             // vScrollBar1
             // 
@@ -377,11 +185,259 @@
             this.vScrollBar1.Size = new System.Drawing.Size(17, 114);
             this.vScrollBar1.TabIndex = 42;
             // 
+            // debugPID
+            // 
+            this.debugPID.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.debugPID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.debugPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.debugPID.Location = new System.Drawing.Point(66, 34);
+            this.debugPID.Multiline = true;
+            this.debugPID.Name = "debugPID";
+            this.debugPID.ReadOnly = true;
+            this.debugPID.Size = new System.Drawing.Size(92, 31);
+            this.debugPID.TabIndex = 43;
+            // 
+            // listdebug
+            // 
+            this.listdebug.FormattingEnabled = true;
+            this.listdebug.Location = new System.Drawing.Point(762, 105);
+            this.listdebug.Name = "listdebug";
+            this.listdebug.Size = new System.Drawing.Size(147, 225);
+            this.listdebug.TabIndex = 44;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(662, 269);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(45, 23);
+            this.button4.TabIndex = 38;
+            this.button4.Text = "X";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(662, 237);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(45, 23);
+            this.button3.TabIndex = 37;
+            this.button3.Text = "X";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(662, 208);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 23);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(662, 178);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // atrib3
+            // 
+            this.atrib3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.atrib3.Location = new System.Drawing.Point(517, 178);
+            this.atrib3.Name = "atrib3";
+            this.atrib3.ReadOnly = true;
+            this.atrib3.Size = new System.Drawing.Size(139, 24);
+            this.atrib3.TabIndex = 23;
+            this.atrib3.Text = " ";
+            this.atrib3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox15.Location = new System.Drawing.Point(517, 208);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.ReadOnly = true;
+            this.textBox15.Size = new System.Drawing.Size(139, 24);
+            this.textBox15.TabIndex = 26;
+            this.textBox15.Text = " ";
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox18.Location = new System.Drawing.Point(517, 238);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.ReadOnly = true;
+            this.textBox18.Size = new System.Drawing.Size(139, 24);
+            this.textBox18.TabIndex = 29;
+            this.textBox18.Text = " ";
+            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox21.Location = new System.Drawing.Point(517, 268);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.ReadOnly = true;
+            this.textBox21.Size = new System.Drawing.Size(139, 24);
+            this.textBox21.TabIndex = 32;
+            this.textBox21.Text = " ";
+            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox19.Location = new System.Drawing.Point(372, 268);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.ReadOnly = true;
+            this.textBox19.Size = new System.Drawing.Size(139, 24);
+            this.textBox19.TabIndex = 34;
+            this.textBox19.Text = " ";
+            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox16.Location = new System.Drawing.Point(372, 238);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.ReadOnly = true;
+            this.textBox16.Size = new System.Drawing.Size(139, 24);
+            this.textBox16.TabIndex = 31;
+            this.textBox16.Text = " ";
+            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox13.Location = new System.Drawing.Point(372, 208);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(139, 24);
+            this.textBox13.TabIndex = 28;
+            this.textBox13.Text = " ";
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // atrib2
+            // 
+            this.atrib2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.atrib2.Location = new System.Drawing.Point(372, 178);
+            this.atrib2.Name = "atrib2";
+            this.atrib2.ReadOnly = true;
+            this.atrib2.Size = new System.Drawing.Size(139, 24);
+            this.atrib2.TabIndex = 25;
+            this.atrib2.Text = " ";
+            this.atrib2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // atrib1
+            // 
+            this.atrib1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.atrib1.Location = new System.Drawing.Point(227, 178);
+            this.atrib1.Name = "atrib1";
+            this.atrib1.ReadOnly = true;
+            this.atrib1.Size = new System.Drawing.Size(139, 24);
+            this.atrib1.TabIndex = 24;
+            this.atrib1.Text = " ";
+            this.atrib1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox14.Location = new System.Drawing.Point(227, 208);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(139, 24);
+            this.textBox14.TabIndex = 27;
+            this.textBox14.Text = " ";
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox17.Location = new System.Drawing.Point(227, 238);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.ReadOnly = true;
+            this.textBox17.Size = new System.Drawing.Size(139, 24);
+            this.textBox17.TabIndex = 30;
+            this.textBox17.Text = " ";
+            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox20.Location = new System.Drawing.Point(227, 268);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.ReadOnly = true;
+            this.textBox20.Size = new System.Drawing.Size(139, 24);
+            this.textBox20.TabIndex = 33;
+            this.textBox20.Text = " ";
+            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox9.Location = new System.Drawing.Point(82, 268);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(139, 24);
+            this.textBox9.TabIndex = 22;
+            this.textBox9.Text = "Nome";
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox8.Location = new System.Drawing.Point(82, 238);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(139, 24);
+            this.textBox8.TabIndex = 21;
+            this.textBox8.Text = "Nome";
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.textBox7.Location = new System.Drawing.Point(82, 208);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(139, 24);
+            this.textBox7.TabIndex = 20;
+            this.textBox7.Text = "Nome";
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // nome1
+            // 
+            this.nome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nome1.Location = new System.Drawing.Point(82, 178);
+            this.nome1.Name = "nome1";
+            this.nome1.ReadOnly = true;
+            this.nome1.Size = new System.Drawing.Size(139, 24);
+            this.nome1.TabIndex = 19;
+            this.nome1.Text = "Nome";
+            this.nome1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nome1.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            // 
+            // debug2
+            // 
+            this.debug2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.debug2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.debug2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.debug2.Location = new System.Drawing.Point(606, 41);
+            this.debug2.Multiline = true;
+            this.debug2.Name = "debug2";
+            this.debug2.ReadOnly = true;
+            this.debug2.Size = new System.Drawing.Size(92, 31);
+            this.debug2.TabIndex = 45;
+            // 
             // Gestaoequipa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(921, 450);
+            this.Controls.Add(this.debug2);
+            this.Controls.Add(this.listdebug);
+            this.Controls.Add(this.debugPID);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.criarprojetobtt);
             this.Controls.Add(this.button6);
@@ -399,19 +455,19 @@
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.atrib2);
+            this.Controls.Add(this.atrib1);
+            this.Controls.Add(this.atrib3);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.nome1);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboparceiros);
+            this.Controls.Add(this.comboprojectos);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Gestaoequipa";
@@ -425,35 +481,38 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboparceiros;
+        private System.Windows.Forms.ComboBox comboprojectos;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button criarprojetobtt;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.TextBox debugPID;
+        private System.Windows.Forms.ListBox listdebug;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox atrib3;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox atrib2;
+        private System.Windows.Forms.TextBox atrib1;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox nome1;
+        private System.Windows.Forms.TextBox debug2;
     }
 }

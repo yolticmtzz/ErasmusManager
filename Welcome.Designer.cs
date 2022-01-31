@@ -44,6 +44,7 @@ namespace EramusManager
             this.panel2 = new System.Windows.Forms.Panel();
             this.ChildPannel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.studpanel.SuspendLayout();
             this.projetospanel.SuspendLayout();
@@ -66,6 +67,7 @@ namespace EramusManager
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.studpanel);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.projetospanel);
@@ -85,7 +87,7 @@ namespace EramusManager
             this.studpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.studpanel.Location = new System.Drawing.Point(0, 306);
             this.studpanel.Name = "studpanel";
-            this.studpanel.Size = new System.Drawing.Size(195, 80);
+            this.studpanel.Size = new System.Drawing.Size(195, 84);
             this.studpanel.TabIndex = 4;
             // 
             // button5
@@ -96,7 +98,7 @@ namespace EramusManager
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(0, 37);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 42);
+            this.button5.Size = new System.Drawing.Size(195, 44);
             this.button5.TabIndex = 1;
             this.button5.Text = "Assign Students";
             this.button5.UseVisualStyleBackColor = false;
@@ -235,6 +237,21 @@ namespace EramusManager
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(178)))), ((int)(((byte)(86)))));
+            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button6.Location = new System.Drawing.Point(0, 390);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(195, 41);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Manage Team";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,5 +289,6 @@ namespace EramusManager
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button6;
     }
 }
