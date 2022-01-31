@@ -104,6 +104,10 @@ namespace EramusManager
                 label2.Location = ponto;
                 groupBox4.Location = new Point(ponto.X, ponto.Y + label2.Height);
                 ponto = new Point(ponto.X, ponto.Y + label2.Height + groupBox4.Height + 20);
+                if(ponto.Y > this.Height)
+                {
+                    button1.Location = new Point(button1.Location.X, ponto.Y + label2.Height + groupBox4.Height + 20);
+                }
             }
 
             if (linguasList[1] != "Sm")
@@ -114,6 +118,10 @@ namespace EramusManager
                 label4.Location = ponto;
                 groupBox10.Location = new Point(ponto.X, ponto.Y + label4.Height);
                 ponto = new Point(ponto.X, ponto.Y + label4.Height + groupBox10.Height + 20);
+                if (ponto.Y > this.Height)
+                {
+                    button1.Location = new Point(button1.Location.X, ponto.Y + label2.Height + groupBox4.Height + 20);
+                }
             }
             if (linguasList[2] != "SM")
             {
@@ -121,8 +129,12 @@ namespace EramusManager
                 label5.Visible = true;
                 groupBox5.Visible = true;
                 label5.Location = ponto;
-                groupBox10.Location = new Point(ponto.X, ponto.Y + label5.Height);
+                groupBox5.Location = new Point(ponto.X, ponto.Y + label5.Height);
                 ponto = new Point(ponto.X, ponto.Y + label5.Height + groupBox10.Height + 20);
+                if (ponto.Y > this.Height)
+                {
+                    button1.Location = new Point(button1.Location.X, ponto.Y + label2.Height + groupBox4.Height + 20);
+                }
             }
 
 
@@ -139,6 +151,10 @@ namespace EramusManager
                 labelrealizarprojeto.Location = new Point(ponto.X, ponto.Y + labelperguntaareastring.Height + groupBox2.Height + 20);
                 groupBox3.Location = new Point(ponto.X, ponto.Y + labelperguntaareastring.Height + groupBox2.Height + 20 + labelrealizarprojeto.Height);
                 ponto = new Point(ponto.X, ponto.Y + labelperguntaareastring.Height + groupBox2.Height + 20 + labelrealizarprojeto.Height + groupBox3.Height + 20);
+                if (ponto.Y > this.Height)
+                {
+                    button1.Location = new Point(button1.Location.X, ponto.Y + label2.Height + groupBox4.Height + 20);
+                }
             }
 
             if (fieldsList[1] != "SM")
@@ -154,6 +170,10 @@ namespace EramusManager
                 label1.Location = new Point(ponto.X, ponto.Y + label6.Height + groupBox7.Height + 20);
                 groupBox1.Location = new Point(ponto.X, ponto.Y + label6.Height + groupBox7.Height + 20 + label1.Height);
                 ponto = new Point(ponto.X, ponto.Y + label6.Height + groupBox7.Height + 20 + label1.Height + groupBox1.Height + 20);
+                if (ponto.Y > this.Height)
+                {
+                    button1.Location = new Point(button1.Location.X, ponto.Y + label2.Height + groupBox4.Height + 20);
+                }
             }
             if (fieldsList[2] != "SM")
             {
@@ -168,6 +188,10 @@ namespace EramusManager
                 label7.Location = new Point(ponto.X, ponto.Y + label9.Height + groupBox9.Height + 20);
                 groupBox8.Location = new Point(ponto.X, ponto.Y + label9.Height + groupBox9.Height + 20 + label7.Height);
                 ponto = new Point(ponto.X, ponto.Y + label9.Height + groupBox9.Height + 20 + label7.Height + groupBox8.Height + 20);
+                if (ponto.Y > this.Height)
+                {
+                    button1.Location = new Point(button1.Location.X, ponto.Y + label2.Height + groupBox4.Height + 20);
+                }
             }
         }
 
@@ -221,14 +245,14 @@ namespace EramusManager
         {
             if (radioButton3.Checked == true)
             {
-                if (evalTec <= 5)
+               /* if (evalTec <= 5)
                 {
                     evalTec += 5;
                 }
                 else
                 {
                     evalTec += 2;
-                }
+                }*/
             }
             else
             {
@@ -286,6 +310,30 @@ namespace EramusManager
                 evalTec2 = 0;
             }
 
+            if(evalTec >= 5)
+            {
+                connection.Open();
+                String mp = "Update Students SET studyField = ('" + fieldsList[0] + "') WHERE studentId = ('" + Properties.Settings.Default.studentId + "')";
+                SqlCommand MPcommand = new SqlCommand(mp, connection);
+                SqlDataReader MPreader = MPcommand.ExecuteReader();
+                connection.Close();
+            }
+            else if (evalTec1 >= 5)
+            {
+                connection.Open();
+                String mp = "Update Students SET studyField = ('" + fieldsList[1] + "') WHERE studentId = ('" + Properties.Settings.Default.studentId + "')";
+                SqlCommand MPcommand = new SqlCommand(mp, connection);
+                SqlDataReader MPreader = MPcommand.ExecuteReader();
+                connection.Close();
+            }
+            else if (evalTec2 >= 5)
+            {
+                connection.Open();
+                String mp = "Update Students SET studyField = ('" + fieldsList[2] + "') WHERE studentId = ('" + Properties.Settings.Default.studentId + "')";
+                SqlCommand MPcommand = new SqlCommand(mp, connection);
+                SqlDataReader MPreader = MPcommand.ExecuteReader();
+                connection.Close();
+            }
 
             /*connection.Open();
             String mp = "Update Students SET autonomy = ('" + autonomy + "'), studyField = ('" + field +"'), fieldEvaluation = ('" + evalTec + "') WHERE studentId = ('" + Properties.Settings.Default.studentId + "')";
@@ -504,14 +552,14 @@ namespace EramusManager
         {
             if (radioButtonNao2.Checked == true)
             {
-                if (evalTec <= 5)
+               /* if (evalTec <= 5)
                 {
                     evalTec -= 5;
                 }
                 else
                 {
                     evalTec -= 2;
-                }
+                }*/
             }
             else
             {
@@ -785,14 +833,14 @@ namespace EramusManager
         {
             if (radioButton16.Checked == true)
             {
-                if (evalTec1 <= 5)
+                /*if (evalTec1 <= 5)
                 {
                     evalTec1 -= 5;
                 }
                 else
                 {
                     evalTec1 -= 2;
-                }
+                }*/
             }
         }
 
@@ -800,14 +848,14 @@ namespace EramusManager
         {
             if (radioButton14.Checked == true)
             {
-                if (evalTec1 <= 5)
+               /* if (evalTec1 <= 5)
                 {
                     evalTec1 -= 5;
                 }
                 else
                 {
                     evalTec1 -= 2;
-                }
+                }*/
             }
         }
 
@@ -815,14 +863,14 @@ namespace EramusManager
         {
             if (radioButton20.Checked == true)
             {
-                if (evalTec2 <= 5)
+               /* if (evalTec2 <= 5)
                 {
                     evalTec2 -= 5;
                 }
                 else
                 {
                     evalTec2 -= 2;
-                }
+                }*/
             }
         }
 
@@ -830,14 +878,14 @@ namespace EramusManager
         {
             if (radioButton18.Checked == true)
             {
-                if (evalTec2 <= 5)
+               /* if (evalTec2 <= 5)
                 {
-                    evalTec2 -= 5;
+                   // evalTec2 -= 5;
                 }
                 else
                 {
                     evalTec2 -= 2;
-                }
+                }*/
             }
         }
 

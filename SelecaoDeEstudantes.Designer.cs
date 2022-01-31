@@ -786,7 +786,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(844, 647);
+            this.ClientSize = new System.Drawing.Size(884, 749);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.groupBox8);

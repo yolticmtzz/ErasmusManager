@@ -21,10 +21,20 @@ namespace EramusManager
         int[,] valuesCSV;
         //string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads";
         //string download = Environment.GetEnvironmentVariable("USERPROFILE")+@"\"+"Downloads";
-        string strFilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\testfile.csv";
+        //string strFilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\testfile.csv";
         StringBuilder sbOutput = new StringBuilder();
         StringBuilder sbOutput2 = new StringBuilder();
         List<string> codeList = new List<string>();
+        int projectId = 63;
+
+        public class MyGridValues
+        {
+            public string Name { get; set; }
+
+            public string Area { get; set; }
+
+        }
+
         public class AHP
         {
 
@@ -232,7 +242,7 @@ namespace EramusManager
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
-            String GNewProject156 = "SELECT Count(*) FROM Students WHERE projectId = 64 ";
+            String GNewProject156 = "SELECT Count(*) FROM Students WHERE projectId = ('"+ projectId +"') ";
             SqlCommand GNewProjectcommand156 = new SqlCommand(GNewProject156, connection);
             SqlDataReader GNewProjectreader156 = GNewProjectcommand156.ExecuteReader();
 
@@ -244,7 +254,7 @@ namespace EramusManager
             connection.Close();
 
             connection.Open();
-            String GNewProject16 = "SELECT studyFieldReq, fieldEvaluation FROM DetailsReq WHERE projectId = 64 ";
+            String GNewProject16 = "SELECT studyFieldReq, fieldEvaluation FROM DetailsReq WHERE projectId = ('" + projectId + "') ";
             SqlCommand GNewProjectcommand16 = new SqlCommand(GNewProject16, connection);
             SqlDataReader GNewProjectreader16 = GNewProjectcommand16.ExecuteReader();
 
@@ -362,7 +372,7 @@ namespace EramusManager
                         if (num == Convert.ToDouble(1))
                         {
                             p[m] = (double)1 / (double)2;
-                            Console.WriteLine(m);
+                            Console.WriteLine(p[m]);
                             m++;
                         }
                         else
@@ -403,7 +413,7 @@ namespace EramusManager
             int countNames = 0;
 
             connection.Open();
-            String GNewProject17 = "SELECT studentId FROM Students WHERE projectId = 64 ";
+            String GNewProject17 = "SELECT studentId FROM Students WHERE projectId = ('" + projectId + "') ";
             SqlCommand GNewProjectcommand17 = new SqlCommand(GNewProject17, connection);
             SqlDataReader GNewProjectreader17 = GNewProjectcommand17.ExecuteReader();
 
@@ -475,6 +485,8 @@ namespace EramusManager
 
                     }
 
+                    Console.WriteLine("Criteria: " + n + " Comparasions: " + NUMBER_COMPARISON1 + " evalList.Count: " + evalList.Count);
+
                     Console.WriteLine("Enter the comparison");
                     int m1 = 0;
                     double num1 = 0.0;
@@ -502,6 +514,12 @@ namespace EramusManager
                                     Console.WriteLine(p1[m1]);
                                     m1++;
                                 }
+                                else if (num1 == Convert.ToDouble(0))
+                                {
+                                    p1[m1] = 1.0;
+                                    Console.WriteLine(p1[m1]);
+                                    m1++;
+                                }
                                 else
                                 {
                                     p1[m1] = num1;
@@ -512,10 +530,11 @@ namespace EramusManager
                             else if (evalList[k] < evalList[j])
                             {
                                 num1 = evalList[j] - evalList[k];
-                                Console.WriteLine(num1);
+                                //Console.WriteLine(num1);
                                 if (num1 == Convert.ToDouble(1))
                                 {
-                                    p[m1] = (double)1 / (double)2;
+                                    p1[m1] = (double)1 / (double)2;
+                                    Console.Write(1 / 2);
                                     Console.WriteLine(p1[m1]);
                                     m1++;
                                 }
@@ -525,13 +544,19 @@ namespace EramusManager
                                     Console.WriteLine(p1[m1]);
                                     m1++;
                                 }
+                                else if (num1 == Convert.ToDouble(0))
+                                {
+                                    p1[m1] = 1.0;
+                                    Console.WriteLine(p1[m1]);
+                                    m1++;
+                                }
                                 else
                                 {
                                     p1[m1] = (double)1 / (double)num1;
                                     Console.WriteLine(p1[m1]);
                                     m1++;
                                 }
-                                Console.WriteLine(m1);
+                                //Console.WriteLine(m1);
                             }
                             else
                             {
@@ -557,238 +582,9 @@ namespace EramusManager
                         endlessMatrix[v, i] = results[v - 1];
                     }
 
-                    List<string> studentNames = new List<string>();
-                    List<string> ids = new List<string>();
-
-                    nameList.ForEach((item) =>
-                    {
-                        ids.Add((string)item.Clone());
-                    });
                     
-                    for (int o = 0; o < nameList.Count; o++)
-                    {
-                        connection.Open();
-                        String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + ids[o] + "') ";
-                        SqlCommand GNewProjectcommand177 = new SqlCommand(GNewProject177, connection);
-                        SqlDataReader GNewProjectreader177 = GNewProjectcommand177.ExecuteReader();
-
-                        while (GNewProjectreader177.Read())
-                        {
-                            studentNames.Add(GNewProjectreader177["studentName"].ToString());
-                           
-                        }
-
-                        connection.Close();
-                    }
-
-                    foreach(string name in studentNames)
-                    {
-                        //Console.WriteLine(name);
-                    }
-
-                    double[] rest = results;
-                    int t;
-                    string at, pr;
-                    double atual;
-                    for (int o = 1; o < rest.Length; o++)
-                    {
-                        atual = rest[o];
-                        at = studentNames[o];
-                        pr = ids[o];
-                        t = o;
-                        while ((t > 0) && (rest[t - 1] > atual))
-                        {
-                            rest[t] = rest[t - 1];
-                            studentNames[t] = studentNames[t - 1];
-                            ids[t] = ids[t - 1];
-                            t = t - 1;
-                        }
-                        rest[t] = atual;
-                        studentNames[t] = at;
-                        ids[t] = pr;
-                    }
-
-                    int countId = 0;
-                    foreach(string id in ids)
-                    {
-                        if(countId < 2)
-                        {
-                            codeList.Add(id);
-                            countId++;
-                        }
-                    }
-
-                   
-                    foreach(string name in studentNames)
-                    {
-                        Console.WriteLine(name);
-                    }
                                        
 
-                    if (i == 0)
-                    {   
-                        if(fieldList[i] == areas[0])
-                        {
-                            label3.Visible = true;
-                            label2.Visible = true;
-                            label2.Text = "";
-                            label3.Text = "Formação de Professores";
-                            Label name1 = new Label();
-                            for(int o = 0; o < 1; o++)
-                            {
-                                label2.Text += studentNames[o] + "\n";
-                            }
-                            //label2.Text = studentNames[0];
-                            
-                        } else
-                        {
-                            label3.Visible = true;
-                            label2.Visible = true;
-                            label2.Text = "";
-                            label3.Text = fieldList[i];
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label2.Text += studentNames[o] + "\n";
-                            }
-                            //label2.Text = studentNames[0];
-                            
-                            
-                        }
-                        
-                    }
-                   else if (i == 1)
-                    {
-                        
-                        if (fieldList[i] == areas[0])
-                        {
-                            label4.Visible = true;
-                            label10.Visible = true;
-                            label4.Text = "Formação de Professores";
-                            label10.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label10.Text += studentNames[o] + "\n";
-                            }
-                            
-                            
-                        }
-                        else
-                        {
-                            label4.Visible = true;
-                            label4.Text = fieldList[i];
-                            label10.Visible = true;
-                            label10.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label10.Text += studentNames[o] + "\n";
-                            }
-                        }
-                    }
-                    else if (i == 2)
-                    {
-                        if (fieldList[i] == areas[0])
-                        {
-                            label5.Visible = true;
-                            label5.Text = "Formação de Professores";
-                            label12.Visible = true;
-                            label12.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label12.Text += studentNames[o] + "\n";
-                            }
-                            
-                        }
-                        else
-                        {
-                            label5.Visible = true;
-                            label5.Text = fieldList[i];
-                            label12.Visible = true;
-                            label12.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label12.Text += studentNames[o] + "\n";
-                            }
-                        }
-                    }
-                    else if (i == 3)
-                    {
-                        //label6.Text = fieldList[i];
-                        if (fieldList[i] == areas[0])
-                        {
-                            label6.Visible = true;
-                            label6.Text = "Formação de Professores";
-                            label14.Visible = true;
-                            label14.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label14.Text += studentNames[o] + "\n";
-                            }
-                            
-                        }
-                        else
-                        {
-                            label6.Visible = true;
-                            label6.Text = fieldList[i];
-                            label14.Visible = true;
-                            label14.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label14.Text += studentNames[o] + "\n";
-                            }
-                        }
-                    }
-                    else if (i == 4)
-                    {
-                        //label7.Text = fieldList[i];
-                        if (fieldList[i] == areas[0])
-                        {
-                            label7.Visible = true;
-                            label7.Text = "Formação de Professores";
-                            label16.Visible = true;
-                            label16.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label16.Text += studentNames[o] + "\n";
-                            }
-                        }
-                        else
-                        {
-                            label7.Visible = true;
-                            label7.Text = fieldList[i];
-                            label16.Visible = true;
-                            label16.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label16.Text += studentNames[o] + "\n";
-                            }
-                        }
-                    }
-                    else if (i == 5)
-                    {
-                        //label8.Text = fieldList[i];
-                        if (fieldList[i] == areas[0])
-                        {
-                            label8.Visible = true;
-                            label8.Text = "Formação de Professores";
-                            label18.Visible = true;
-                            label18.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label18.Text += studentNames[o] + "\n";
-                            }
-                        }
-                        else
-                        {
-                            label8.Visible = true;
-                            label8.Text = fieldList[i];
-                            label18.Visible = true;
-                            label18.Text = "";
-                            for (int o = 0; o < 2; o++)
-                            {
-                                label18.Text += studentNames[o] + "\n";
-                            }
-                        }
-                    }
 
                     /*foreach (string id in nameList)
                     {
@@ -796,7 +592,7 @@ namespace EramusManager
                     }*/
 
                     evalList.Clear();
-                    studentNames.Clear();
+                    //studentNames.Clear();
                 }
             }
 
@@ -822,6 +618,79 @@ namespace EramusManager
                 Console.WriteLine("Line" + i +  " : "); 
                 Console.WriteLine(weights[i]);
             }
+            List<string> studentNames = new List<string>();
+            List<string> ids = new List<string>();
+
+            nameList.ForEach((item) =>
+            {
+                ids.Add((string)item.Clone());
+            });
+
+            for (int o = 0; o < nameList.Count; o++)
+            {
+                connection.Open();
+                String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + ids[o] + "') ";
+                SqlCommand GNewProjectcommand177 = new SqlCommand(GNewProject177, connection);
+                SqlDataReader GNewProjectreader177 = GNewProjectcommand177.ExecuteReader();
+
+                while (GNewProjectreader177.Read())
+                {
+                    studentNames.Add(GNewProjectreader177["studentName"].ToString());
+
+                }
+
+                connection.Close();
+            }
+
+            foreach (string name in studentNames)
+            {
+                //Console.WriteLine(name);
+            }
+
+            double[] rest = (double[])weights.Clone();
+            int t;
+            string at, pr;
+            double atual;
+            for (int o = 1; o < rest.Length; o++)
+            {
+                atual = rest[o];
+                at = studentNames[o];
+                pr = ids[o];
+                t = o;
+                while ((t > 0) && (rest[t - 1] < atual))
+                {
+                    rest[t] = rest[t - 1];
+                    studentNames[t] = studentNames[t - 1];
+                    ids[t] = ids[t - 1];
+                    t = t - 1;
+                }
+                rest[t] = atual;
+                studentNames[t] = at;
+                ids[t] = pr;
+            }
+
+            foreach(double v in rest)
+            {
+                Console.WriteLine(v);
+            }
+
+            int countId = 0;
+            int lengthCode = ids.Count / 3 * 2;
+            Console.WriteLine(lengthCode);
+            foreach (string id in ids)
+            {
+                if (countId < lengthCode)
+                {
+                    codeList.Add(id);
+                    countId++;
+                }
+            }
+
+
+            foreach (string name in studentNames)
+            {
+                Console.WriteLine(name);
+            }
 
             List<string> noDuplicatesList = codeList.Distinct().ToList();
 
@@ -839,17 +708,19 @@ namespace EramusManager
             }*/
 
             List<string> selectedNames = new List<string>();
+            List<string> areasSelected = new List<string>();
             for (int o = 0; o < noDuplicatesList.Count; o++)
             {
                 connection.Open();
-                String GNewProject177 = "SELECT studentName FROM Students WHERE studentId = ('" + noDuplicatesList[o] + "') ";
+                String GNewProject177 = "SELECT studentName, studyField FROM Students WHERE studentId = ('" + noDuplicatesList[o] + "') ";
                 SqlCommand GNewProjectcommand177 = new SqlCommand(GNewProject177, connection);
                 SqlDataReader GNewProjectreader177 = GNewProjectcommand177.ExecuteReader();
 
                 while (GNewProjectreader177.Read())
                 {
                     selectedNames.Add(GNewProjectreader177["studentName"].ToString());
-                    Console.WriteLine(selectedNames.Count);
+                    areasSelected.Add(GNewProjectreader177["studyField"].ToString());
+                    //Console.WriteLine(selectedNames.Count);
                 }
 
                 connection.Close();
@@ -897,7 +768,16 @@ namespace EramusManager
                 }
                 //sbOutput.AppendLine();
             }
+            List<MyGridValues> list = new List<MyGridValues>();
+            int jk = 0;
+            foreach (string name in selectedNames)
+            {
+                list.Add(new MyGridValues { Name = name, Area = areasSelected[jk] });
+                jk++;
+            }
 
+            dataGridView1.DataSource = list;
+            
             //File.AppendAllText(strFilePath, sbOutput2.ToString());
         }
 
@@ -913,8 +793,16 @@ namespace EramusManager
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            File.WriteAllText(strFilePath, sbOutput.ToString());
-            File.AppendAllText(strFilePath, sbOutput2.ToString());
+            textBox1.Visible = true;
+            label3.Visible = true;
+            if (textBox1.Text != "")
+            {
+                string strFilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads\" + textBox1.Text + ".csv";
+                File.WriteAllText(strFilePath, sbOutput.ToString());
+                File.AppendAllText(strFilePath, sbOutput2.ToString());
+                MessageBox.Show("Project has been exported at Downloads folder " + textBox1.Text + ".csv", "Edit Project Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+           
         }
     }
 }
