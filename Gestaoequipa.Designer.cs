@@ -35,34 +35,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.criarprojetobtt = new System.Windows.Forms.Button();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.debugPID = new System.Windows.Forms.TextBox();
-            this.listdebug = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.atrib3 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.atrib2 = new System.Windows.Forms.TextBox();
-            this.atrib1 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.nome1 = new System.Windows.Forms.TextBox();
+            this.listanomes = new System.Windows.Forms.ListBox();
             this.debug2 = new System.Windows.Forms.TextBox();
+            this.listatrib1 = new System.Windows.Forms.ListBox();
+            this.listatrib2 = new System.Windows.Forms.ListBox();
+            this.listatrib3 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -131,15 +113,6 @@
             this.textBox3.Text = "Atributo 2";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox5.Location = new System.Drawing.Point(662, 138);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(45, 24);
-            this.textBox5.TabIndex = 18;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -197,226 +170,13 @@
             this.debugPID.Size = new System.Drawing.Size(92, 31);
             this.debugPID.TabIndex = 43;
             // 
-            // listdebug
+            // listanomes
             // 
-            this.listdebug.FormattingEnabled = true;
-            this.listdebug.Location = new System.Drawing.Point(762, 105);
-            this.listdebug.Name = "listdebug";
-            this.listdebug.Size = new System.Drawing.Size(147, 225);
-            this.listdebug.TabIndex = 44;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(662, 269);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 23);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "X";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(662, 237);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(45, 23);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "X";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(662, 208);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 23);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(662, 178);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 23);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // atrib3
-            // 
-            this.atrib3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.atrib3.Location = new System.Drawing.Point(517, 178);
-            this.atrib3.Name = "atrib3";
-            this.atrib3.ReadOnly = true;
-            this.atrib3.Size = new System.Drawing.Size(139, 24);
-            this.atrib3.TabIndex = 23;
-            this.atrib3.Text = " ";
-            this.atrib3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox15.Location = new System.Drawing.Point(517, 208);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(139, 24);
-            this.textBox15.TabIndex = 26;
-            this.textBox15.Text = " ";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox18.Location = new System.Drawing.Point(517, 238);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
-            this.textBox18.Size = new System.Drawing.Size(139, 24);
-            this.textBox18.TabIndex = 29;
-            this.textBox18.Text = " ";
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox21.Location = new System.Drawing.Point(517, 268);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.ReadOnly = true;
-            this.textBox21.Size = new System.Drawing.Size(139, 24);
-            this.textBox21.TabIndex = 32;
-            this.textBox21.Text = " ";
-            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox19.Location = new System.Drawing.Point(372, 268);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(139, 24);
-            this.textBox19.TabIndex = 34;
-            this.textBox19.Text = " ";
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox16.Location = new System.Drawing.Point(372, 238);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(139, 24);
-            this.textBox16.TabIndex = 31;
-            this.textBox16.Text = " ";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox13.Location = new System.Drawing.Point(372, 208);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(139, 24);
-            this.textBox13.TabIndex = 28;
-            this.textBox13.Text = " ";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // atrib2
-            // 
-            this.atrib2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.atrib2.Location = new System.Drawing.Point(372, 178);
-            this.atrib2.Name = "atrib2";
-            this.atrib2.ReadOnly = true;
-            this.atrib2.Size = new System.Drawing.Size(139, 24);
-            this.atrib2.TabIndex = 25;
-            this.atrib2.Text = " ";
-            this.atrib2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // atrib1
-            // 
-            this.atrib1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.atrib1.Location = new System.Drawing.Point(227, 178);
-            this.atrib1.Name = "atrib1";
-            this.atrib1.ReadOnly = true;
-            this.atrib1.Size = new System.Drawing.Size(139, 24);
-            this.atrib1.TabIndex = 24;
-            this.atrib1.Text = " ";
-            this.atrib1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox14.Location = new System.Drawing.Point(227, 208);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(139, 24);
-            this.textBox14.TabIndex = 27;
-            this.textBox14.Text = " ";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox17.Location = new System.Drawing.Point(227, 238);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(139, 24);
-            this.textBox17.TabIndex = 30;
-            this.textBox17.Text = " ";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox20.Location = new System.Drawing.Point(227, 268);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.ReadOnly = true;
-            this.textBox20.Size = new System.Drawing.Size(139, 24);
-            this.textBox20.TabIndex = 33;
-            this.textBox20.Text = " ";
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox9.Location = new System.Drawing.Point(82, 268);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(139, 24);
-            this.textBox9.TabIndex = 22;
-            this.textBox9.Text = "Nome";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox8.Location = new System.Drawing.Point(82, 238);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(139, 24);
-            this.textBox8.TabIndex = 21;
-            this.textBox8.Text = "Nome";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textBox7.Location = new System.Drawing.Point(82, 208);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(139, 24);
-            this.textBox7.TabIndex = 20;
-            this.textBox7.Text = "Nome";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // nome1
-            // 
-            this.nome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.nome1.Location = new System.Drawing.Point(82, 178);
-            this.nome1.Name = "nome1";
-            this.nome1.ReadOnly = true;
-            this.nome1.Size = new System.Drawing.Size(139, 24);
-            this.nome1.TabIndex = 19;
-            this.nome1.Text = "Nome";
-            this.nome1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nome1.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.listanomes.FormattingEnabled = true;
+            this.listanomes.Location = new System.Drawing.Point(82, 168);
+            this.listanomes.Name = "listanomes";
+            this.listanomes.Size = new System.Drawing.Size(139, 160);
+            this.listanomes.TabIndex = 44;
             // 
             // debug2
             // 
@@ -430,39 +190,45 @@
             this.debug2.Size = new System.Drawing.Size(92, 31);
             this.debug2.TabIndex = 45;
             // 
+            // listatrib1
+            // 
+            this.listatrib1.FormattingEnabled = true;
+            this.listatrib1.Location = new System.Drawing.Point(227, 168);
+            this.listatrib1.Name = "listatrib1";
+            this.listatrib1.Size = new System.Drawing.Size(139, 160);
+            this.listatrib1.TabIndex = 46;
+            // 
+            // listatrib2
+            // 
+            this.listatrib2.FormattingEnabled = true;
+            this.listatrib2.Location = new System.Drawing.Point(372, 168);
+            this.listatrib2.Name = "listatrib2";
+            this.listatrib2.Size = new System.Drawing.Size(139, 160);
+            this.listatrib2.TabIndex = 47;
+            // 
+            // listatrib3
+            // 
+            this.listatrib3.FormattingEnabled = true;
+            this.listatrib3.Location = new System.Drawing.Point(517, 168);
+            this.listatrib3.Name = "listatrib3";
+            this.listatrib3.Size = new System.Drawing.Size(139, 160);
+            this.listatrib3.TabIndex = 48;
+            // 
             // Gestaoequipa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 450);
+            this.Controls.Add(this.listatrib3);
+            this.Controls.Add(this.listatrib2);
+            this.Controls.Add(this.listatrib1);
             this.Controls.Add(this.debug2);
-            this.Controls.Add(this.listdebug);
+            this.Controls.Add(this.listanomes);
             this.Controls.Add(this.debugPID);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.criarprojetobtt);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox19);
-            this.Controls.Add(this.textBox20);
-            this.Controls.Add(this.textBox21);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.atrib2);
-            this.Controls.Add(this.atrib1);
-            this.Controls.Add(this.atrib3);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.nome1);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -486,33 +252,15 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button criarprojetobtt;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.TextBox debugPID;
-        private System.Windows.Forms.ListBox listdebug;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox atrib3;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox atrib2;
-        private System.Windows.Forms.TextBox atrib1;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox nome1;
+        private System.Windows.Forms.ListBox listanomes;
         private System.Windows.Forms.TextBox debug2;
+        private System.Windows.Forms.ListBox listatrib1;
+        private System.Windows.Forms.ListBox listatrib2;
+        private System.Windows.Forms.ListBox listatrib3;
     }
 }

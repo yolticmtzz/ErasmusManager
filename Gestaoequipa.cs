@@ -46,11 +46,6 @@ namespace EramusManager
                 comboprojectos.Items.Add(GetProject4reader.GetString(0));
             }
             connection.Close();
-
-            
-
-
-
         }
 
         private void criarprojetobtt_Click(object sender, EventArgs e)
@@ -99,21 +94,47 @@ namespace EramusManager
             String GetStdName = "SELECT studentName FROM Students WHERE projectId = ('" + debugPID.Text + "')";
             SqlCommand GetStdNamecommand = new SqlCommand(GetStdName, connection);
             SqlDataReader GetStdNamereader = GetStdNamecommand.ExecuteReader();
+
+            while (GetStdNamereader.Read())
+            {
+                listanomes.Items.Add(GetStdNamereader.GetString(0));
+            }
             connection.Close();
 
-            //GET ATRIBU1 
+            //GET ATRIB1
             connection.Open();
-            String GetAtrib1 = "SELECT langName, evaluationLang, type FROM Languages WHERE studentId = ('" + debug2.Text + "')";
+            String GetAtrib1 = "SELECT langName FROM Languages WHERE studentId = ('" + debug2.Text + "')";
             SqlCommand GetAtrib1command = new SqlCommand(GetAtrib1, connection);
             SqlDataReader GetAtrib1reader = GetAtrib1command.ExecuteReader();
 
-            while (GetProjectIDreader.Read() && GetAtrib1reader.Read())
+            while (GetAtrib1reader.Read())
             {
-                nome1.Text = (GetStdNamereader.GetString(0));
-                atrib1.Text = (GetAtrib1reader.GetString(0));
-
+                listatrib1.Items.Add(GetAtrib1reader.GetString(0));
             }
+            connection.Close();
 
+            //GET ATRIB2
+            connection.Open();
+            String GetAtrib2 = "SELECT evaluationLang FROM Languages WHERE studentId = ('" + debug2.Text + "')";
+            SqlCommand GetAtrib2command = new SqlCommand(GetAtrib2, connection);
+            SqlDataReader GetAtrib2reader = GetAtrib2command.ExecuteReader();
+
+            while (GetAtrib2reader.Read())
+            {
+                listatrib2.Items.Add(GetAtrib2reader.GetInt32(0));
+            }
+            connection.Close();
+
+            //GET ATRIB3
+            connection.Open();
+            String GetAtrib3 = "SELECT type FROM Languages WHERE studentId = ('" + debug2.Text + "')";
+            SqlCommand GetAtrib3command = new SqlCommand(GetAtrib3, connection);
+            SqlDataReader GetAtrib3reader = GetAtrib3command.ExecuteReader();
+
+            while (GetAtrib3reader.Read())
+            {
+                listatrib3.Items.Add(GetAtrib3reader.GetString(0));
+            }
             connection.Close();
 
         }
