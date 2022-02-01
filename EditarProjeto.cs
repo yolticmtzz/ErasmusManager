@@ -13,7 +13,11 @@ namespace EramusManager
 {
     public partial class EditarProjeto : Form
     {
-        public EditarProjeto()
+        List<string> partnersId = new List<string>();
+        List<string> projectId = new List<string>();
+        List<string> partnersList = new List<string>();
+        List<int> partnerProjectId = new List<int>();
+         public EditarProjeto()
         {
             InitializeComponent();
         }
@@ -41,6 +45,7 @@ namespace EramusManager
             panelstatus.Visible = false;
             finishedtext.Visible = false;
             finishedpanel.Visible = false;
+            label6.Text = "";
 
             
 
@@ -56,27 +61,27 @@ namespace EramusManager
 
             //Mostrar Projetos
             connection.Open();
-            String mp = "SELECT projectName FROM Projects WHERE userId = ('" + Properties.Settings.Default.UserID + "' )";
+            String mp = "SELECT projectName, projectId FROM Projects WHERE userId = ('" + Properties.Settings.Default.UserID + "' )";
             SqlCommand MPcommand = new SqlCommand(mp, connection);
             SqlDataReader MPreader = MPcommand.ExecuteReader();
 
             while (MPreader.Read())
             {
-                comboNomeProjeto.Items.Add(MPreader.GetString(0));
-
+                comboNomeProjeto.Items.Add(MPreader["projectName"].ToString());
+                projectId.Add(MPreader["projectId"].ToString());
             }
             connection.Close();
 
             //Mostrar Parceiros
             connection.Open();
-            String ShowPart = "SELECT username FROM Users";
+            String ShowPart = "SELECT username, userId FROM Users";
             SqlCommand ShowPartcommand = new SqlCommand(ShowPart, connection);
             SqlDataReader ShowPartreader = ShowPartcommand.ExecuteReader();
 
             while (ShowPartreader.Read())
             {
-                comboparterns.Items.Add(ShowPartreader.GetString(0));
-
+                comboparterns.Items.Add(ShowPartreader["username"].ToString());
+                partnersId.Add(ShowPartreader["userId"].ToString());
             }
 
             connection.Close();     
@@ -128,16 +133,91 @@ namespace EramusManager
                 {
                     //GUARDAR NOVO PROJECTO
                     connection.Open();
-                    String GNewProject = "UPDATE Projects SET projectName = ('" + newname.Text + "' ) , username = ('" + comboparterns.Text + "'), status = ('" + status +"') WHERE projectName = ('" + comboNomeProjeto.Text + "') AND userId = ('" + Properties.Settings.Default.UserID + "' )";
+                    String GNewProject = "UPDATE Projects SET projectName = ('" + newname.Text + "' ) , username = ('" + comboparterns.Text + "'), status = ('" + status + "') WHERE projectName = ('" + comboNomeProjeto.Text + "') AND userId = ('" + Properties.Settings.Default.UserID + "' )";
                     SqlCommand GNewProjectcommand = new SqlCommand(GNewProject, connection);
                     SqlDataReader GNewProjectreader = GNewProjectcommand.ExecuteReader();
                     connection.Close();
                 }
                 else
                 {
+                    
+                    foreach (string id in partnersList)
+                    {
+                        int count = 0;
+                        connection.Open();
+                        //GUARDAR O PROJETO
+                        String sql = "SELECT COUNT(*) FROM Partners WHERE projectId = '" + projectId[comboNomeProjeto.SelectedIndex] + "' AND userId = '" + id +"' ";
+                        SqlCommand command = new SqlCommand(sql, connection);
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            count = reader.GetInt32(0);
+                        }
+
+                        connection.Close();
+
+                        if(count == 0)
+                        {
+                            connection.Open();
+                            //GUARDAR O PROJETO
+                            String sql12 = "INSERT INTO Projects VALUES('" + newname.Text + "', '" + statustext.Text + "', '" + id + "', '" + label6.Text + "')";
+                            SqlCommand command12 = new SqlCommand(sql12, connection);
+                            SqlDataReader reader12 = command12.ExecuteReader();
+                            connection.Close();
+
+                            connection.Open();
+                            //GUARDAR O PROJETO
+                            String sql11 = "SELECT projectId FROM Projects WHERE projectName = '" + newname.Text + "' AND userId = '" + id + "' ";
+                            SqlCommand command11 = new SqlCommand(sql11, connection);
+                            SqlDataReader reader11 = command11.ExecuteReader();
+
+                            while (reader11.Read())
+                            {
+                                partnerProjectId.Add(Convert.ToInt32(reader11["projectId"]));
+                                Console.WriteLine(partnerProjectId[0]);
+                            }
+
+                            connection.Close();
+
+                            connection.Open();
+                            //GUARDAR O PROJETO
+                            String sql123 = "INSERT INTO Partners VALUES('" + projectId[comboNomeProjeto.SelectedIndex] + "', '" + id + "', '" + partnerProjectId[0] + "')";
+                            SqlCommand command123 = new SqlCommand(sql123, connection);
+                            SqlDataReader reader123 = command123.ExecuteReader();
+                            connection.Close();
+
+                            partnerProjectId.Clear();
+                        }
+                        else
+                        {
+                            connection.Open();
+                            //GUARDAR O PROJETO
+                            String sql11 = "SELECT projectId, projectName FROM Projects WHERE projectName = '" + comboNomeProjeto.Text + "' AND userId = '" + id + "' ";
+                            SqlCommand command11 = new SqlCommand(sql11, connection);
+                            SqlDataReader reader11 = command11.ExecuteReader();
+
+                            while (reader11.Read())
+                            {
+                                partnerProjectId.Add(Convert.ToInt32(reader11["projectId"]));
+                                Console.WriteLine(partnerProjectId[0]);
+                            }
+
+                            connection.Close();
+
+                            //GUARDAR NOVO PROJECTO
+                            connection.Open();
+                            String GNewProject2 = "UPDATE Projects SET projectName = ('" + newname.Text + "' ) , username = ('" + label6.Text + "') WHERE projectName = ('" + comboNomeProjeto.Text + "') AND userId = ('" + partnerProjectId[0] + "' )";
+                            SqlCommand GNewProjectcommand2 = new SqlCommand(GNewProject2, connection);
+                            SqlDataReader GNewProjectreader2 = GNewProjectcommand2.ExecuteReader();
+                            connection.Close();
+
+                            partnerProjectId.Clear();
+                        }
+                    }
                     //GUARDAR NOVO PROJECTO
                     connection.Open();
-                    String GNewProject = "UPDATE Projects SET projectName = ('" + newname.Text + "' ) , username = ('" + comboparterns.Text + "') WHERE projectName = ('" + comboNomeProjeto.Text + "') AND userId = ('" + Properties.Settings.Default.UserID + "' )";
+                    String GNewProject = "UPDATE Projects SET projectName = ('" + newname.Text + "' ) , username = ('" + label6.Text + "') WHERE projectName = ('" + comboNomeProjeto.Text + "') AND userId = ('" + Properties.Settings.Default.UserID + "' )";
                     SqlCommand GNewProjectcommand = new SqlCommand(GNewProject, connection);
                     SqlDataReader GNewProjectreader = GNewProjectcommand.ExecuteReader();
                     connection.Close();
@@ -234,7 +314,11 @@ namespace EramusManager
 
         private void comboparterns_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(comboparterns.SelectedIndex != -1)
+            {
+                label6.Text += comboparterns.Text + ", ";
+                partnersList.Add(partnersId[comboparterns.SelectedIndex]);
+            }
         }
     }
 }

@@ -46,6 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.finishcheck = new System.Windows.Forms.CheckBox();
             this.boxDebugPID = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelstatus.SuspendLayout();
             this.finishedpanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +72,7 @@
             this.criarprojetobtt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.criarprojetobtt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.criarprojetobtt.ForeColor = System.Drawing.Color.White;
-            this.criarprojetobtt.Location = new System.Drawing.Point(325, 391);
+            this.criarprojetobtt.Location = new System.Drawing.Point(325, 440);
             this.criarprojetobtt.Margin = new System.Windows.Forms.Padding(2);
             this.criarprojetobtt.Name = "criarprojetobtt";
             this.criarprojetobtt.Size = new System.Drawing.Size(277, 29);
@@ -107,7 +108,7 @@
             // 
             this.statustext.AutoSize = true;
             this.statustext.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.statustext.Location = new System.Drawing.Point(321, 237);
+            this.statustext.Location = new System.Drawing.Point(322, 258);
             this.statustext.Name = "statustext";
             this.statustext.Size = new System.Drawing.Size(122, 22);
             this.statustext.TabIndex = 16;
@@ -173,7 +174,7 @@
             // 
             this.panelstatus.BackColor = System.Drawing.Color.Green;
             this.panelstatus.Controls.Add(this.textstatus);
-            this.panelstatus.Location = new System.Drawing.Point(326, 285);
+            this.panelstatus.Location = new System.Drawing.Point(327, 306);
             this.panelstatus.Name = "panelstatus";
             this.panelstatus.Size = new System.Drawing.Size(277, 51);
             this.panelstatus.TabIndex = 27;
@@ -193,7 +194,7 @@
             // 
             this.finishedpanel.BackColor = System.Drawing.Color.Red;
             this.finishedpanel.Controls.Add(this.finishedtext);
-            this.finishedpanel.Location = new System.Drawing.Point(326, 282);
+            this.finishedpanel.Location = new System.Drawing.Point(327, 303);
             this.finishedpanel.Name = "finishedpanel";
             this.finishedpanel.Size = new System.Drawing.Size(277, 51);
             this.finishedpanel.TabIndex = 29;
@@ -213,7 +214,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label4.Location = new System.Drawing.Point(322, 356);
+            this.label4.Location = new System.Drawing.Point(323, 377);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 22);
             this.label4.TabIndex = 28;
@@ -223,7 +224,7 @@
             // finishcheck
             // 
             this.finishcheck.AutoSize = true;
-            this.finishcheck.Location = new System.Drawing.Point(452, 361);
+            this.finishcheck.Location = new System.Drawing.Point(453, 382);
             this.finishcheck.Name = "finishcheck";
             this.finishcheck.Size = new System.Drawing.Size(15, 14);
             this.finishcheck.TabIndex = 29;
@@ -234,18 +235,28 @@
             this.boxDebugPID.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.boxDebugPID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.boxDebugPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxDebugPID.Location = new System.Drawing.Point(22, 344);
+            this.boxDebugPID.Location = new System.Drawing.Point(23, 365);
             this.boxDebugPID.Multiline = true;
             this.boxDebugPID.Name = "boxDebugPID";
             this.boxDebugPID.ReadOnly = true;
             this.boxDebugPID.Size = new System.Drawing.Size(276, 31);
             this.boxDebugPID.TabIndex = 30;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(324, 233);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "label6";
+            // 
             // EditarProjeto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 441);
+            this.ClientSize = new System.Drawing.Size(924, 490);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.boxDebugPID);
             this.Controls.Add(this.finishedpanel);
             this.Controls.Add(this.finishcheck);
@@ -293,5 +304,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox finishcheck;
         private System.Windows.Forms.TextBox boxDebugPID;
+        private System.Windows.Forms.Label label6;
     }
 }

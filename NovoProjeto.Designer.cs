@@ -88,6 +88,7 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Project Partners";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Visible = false;
             // 
             // comboparceiros
             // 
@@ -99,6 +100,7 @@
             this.comboparceiros.Size = new System.Drawing.Size(277, 21);
             this.comboparceiros.TabIndex = 9;
             this.comboparceiros.Text = "Procurar ...";
+            this.comboparceiros.Visible = false;
             this.comboparceiros.SelectedIndexChanged += new System.EventHandler(this.comboparceiros_SelectedIndexChanged);
             // 
             // criarprojetobtt

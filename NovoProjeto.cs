@@ -60,6 +60,8 @@ namespace EramusManager
 
             else
             {
+                
+
                 connection.Open();
                 //GUARDAR O PROJETO
                 String sql = "INSERT INTO Projects VALUES('" + nomedoprojeto.Text + "' , '" + estadolabel.Text + "', '" + Properties.Settings.Default.UserID + "' , '" + comboparceiros.Text + "')";
